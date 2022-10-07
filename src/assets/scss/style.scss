@@ -1,0 +1,116 @@
+@import "./mixins.scss";
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.museum-main-container {
+  width: 100%;
+  height: auto;
+  padding-bottom: 50px;
+
+  // Museum Header Layout
+  .museum-header-container {
+    width: 100%;
+    height: 170px;
+    background: rgba(225, 225, 225, 0.5);
+    position: relative;
+
+    .museum-header-content {
+      width: 91.5%;
+      height: 100%;
+      margin: auto;
+      @include Flex;
+
+      ul {
+        width: 100%;
+        height: 25%;
+        padding: 0;
+        @include Flex(row, flex-end);
+        list-style: none;
+
+        li {
+          width: 12%;
+          height: 100%;
+          @include Flex;
+          margin-left: 20px;
+
+          .items {
+            width: 100%;
+            height: 100%;
+            @include Flex;
+
+            a {
+              @include Font(1.15rem, 24px, 500);
+              @include FontBg;
+              text-decoration: none;
+            }
+          }
+
+          .drop-items {
+            width: 100%;
+            height: 100%;
+            @include Flex(row, space-around);
+            @include FontBg;
+            cursor: pointer;
+          }
+        }
+        .dropdown-hidden {
+          width: 100%;
+          height: 0;
+          position: absolute;
+          top: 170px;
+          left: 0;
+          background: #fff;
+          border-radius: 5px;
+          transition: height 1s ease-out;
+
+          background: linear-gradient(43.11deg, #ba8846 21.75%, #ffffe8 100%);
+
+          &.deactive {
+            overflow: hidden;
+          }
+
+          &.active {
+            height: 290px;
+            transition: height 1s ease-in;
+          }
+
+          .drop-content {
+            width: 91%;
+            height: 100%;
+            margin: auto;
+            @include Flex(row, flex-start);
+
+            .drop-wrapper{
+                width: 50%;
+                height: 100%;
+                @include Flex(row, unset);
+                align-items: center;
+                flex-wrap: wrap;
+                flex: 0 auto;
+
+                .dropdown-items {
+                    width: 50%;
+                    height: 35px;
+                    @include Flex(row, flex-start);
+
+                    a{
+                        @include Font(1.15rem, 24px, 700);
+                        color: #fff;
+                        text-decoration: none;
+                    }
+                  }
+            }
+
+            .quote-content{
+                width: 50%;
+                height: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
