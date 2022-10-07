@@ -21,6 +21,6 @@
 
 @mixin BgImg($bg_img, $bg_pos) {
     background: url('@/assets/Items/' + $bg_img) no-repeat;
-    background-size: 50% 50%;
+    background-size: 50% 100%;
     background-position: $bg_pos center;
 }

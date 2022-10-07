@@ -3,7 +3,7 @@
     <div class="museum-header-content">
       <ul>
         <li v-for="(item, idx) in menuItems" :key="idx">
-          <div class="items" v-if="item.category !== 'section'">
+          <div class="items" v-if="item.category !== 'section'" @click="dropDeactive">
             <router-link :to="item.url">{{ item.name }}</router-link>
           </div>
 
@@ -17,7 +17,9 @@
           </div>
         </li>
         <div class="dropdown-hidden" :class="isActive ? 'active' : 'deactive'">
+            
           <div class="drop-content">
+
             <div class="drop-wrapper">
                 <div
               class="dropdown-items"
@@ -239,6 +241,9 @@ export default {
         }
       });
     },
+    dropDeactive(){
+        this.isActive = false
+    }
   },
 };
 </script>
