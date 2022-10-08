@@ -1,6 +1,6 @@
 <template>
     <div class="menu-items-container">
-
+        
     </div>
 </template>
 <script>
