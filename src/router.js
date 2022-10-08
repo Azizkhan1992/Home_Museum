@@ -16,6 +16,10 @@ const routes = [
             {
                 path: '/contacts',
                 component: ()=>import('@/views/contacts/index.vue')
+            },
+            {
+                path: '/about-museum',
+                component: ()=> import('@/views/about-museum/AboutMuseum.vue')
             }
         ]
     }
