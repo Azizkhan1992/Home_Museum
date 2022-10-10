@@ -1,8 +1,5 @@
 <template>
     <div class="museum-top-container">
-        <div class="museum-top-content">
-            <h1>{{getMenu.name}}</h1>
-        </div>
 
         <menu-items :menuItems="$store.state.activeSubmenuItem"/>
     </div>
@@ -21,3 +18,13 @@ export default {
     }
 }
 </script>
+<style>
+.museum-top-container{
+    width: 25%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    left: 60px;
+    z-index: 5  
+}
+</style>

@@ -19,7 +19,15 @@ const routes = [
             },
             {
                 path: '/about-museum',
-                component: ()=> import('@/views/about-museum/AboutMuseum.vue')
+                component: ()=> import('@/views/about-pages/AboutMuseum.vue')
+            },
+            {
+                path: '/about-person',
+                component: ()=>import('@/views/about-pages/AboutPerson.vue')
+            },
+            {
+                path: '/about-title',
+                component: ()=>import('@/views/about-pages/AboutTitlePage.vue')
             }
         ]
     }
