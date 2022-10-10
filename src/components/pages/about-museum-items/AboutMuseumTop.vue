@@ -7,11 +7,17 @@
     </div>
 </template>
 <script>
+    import { menuItems } from '@/statics/testData';
 export default {
     name: 'museum-top', 
+    data() {
+        return {
+            menuItems
+        }
+    },
     computed:{
         getMenu(){
-            let menu = this.$store?.getters && this.$store.getters?.getMenuItems && this.$store.getters.getMenuItems
+            let menu = this.menuItems
             let menuItems
 
             menu.forEach(element => {

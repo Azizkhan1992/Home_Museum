@@ -45,18 +45,20 @@
   </div>
 </template>
 <script>
+  import { menuItems } from '@/statics/testData';
 export default {
   name: "museum-header",
   data() {
     return {
       isActive: false,
       subItems: null,
-      currentPath: ''
+      currentPath: '',
+      menuItems
     };
   },
   computed:{
     getMenuItems(){
-      let menuItems = this.$store?.getters && this.$store.getters?.getMenuItems && this.$store.getters.getMenuItems;
+      let menuItems = this.menuItems;
       return menuItems
     }
   },
@@ -86,7 +88,7 @@ export default {
     // },
     dropActive(e) {
       this.isActive = !this.isActive;
-      this.getMenuItems.forEach((elem) => {
+      this.menuItems.forEach((elem) => {
         if (elem.id == e) {
           this.subItems = elem;
         }

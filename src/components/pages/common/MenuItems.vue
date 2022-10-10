@@ -1,7 +1,7 @@
 <template>
     <div class="menu-items-container">
         <ul :class="isAboutActive ? 'drop-active' : 'drop-deactive'">
-            <li v-for="(menu, idx) in Items" :key="idx" :class="{'active-menu-item': menu.url == activeMenuItems.url}">
+            <li v-for="(menu, idx) in items" :key="idx" :class="{'active-menu-item': menu.url == $route.path}">
                 <router-link :to="menu.url">{{menu.name}}</router-link>
             </li>
         </ul>
@@ -18,14 +18,12 @@ export default {
     name: 'menu-items',
     data(){
         return{
-            Items: [],
             activeItem: null,
             isAboutActive: false,
-            activeMenuItems: null
         }
     },
     props:{
-        activeSubmenu: {
+        items: {
             type: Array,
             default: ()=>[]
         },
@@ -34,34 +32,9 @@ export default {
             default: ()=>{}
         }
     },
-    mounted(){
-        this.getItems();
-    },
-    computed:{
-        getActiveMenu(){
-            let item = this.$store?.getters && this.$store.getters?.getActiveSubmenu && this.$store.getters.getActiveSubmenu
-            // console.log(item)
-            return item
-        }
-    },
     methods:{
         aboutActive(){
             this.isAboutActive =! this.isAboutActive
-        },
-        getItems(){
-            this.Items = this.activeSubmenu
-            this.activeMenuItems = this.activeMenu
-            console.log(this.activeMenuItems, this.Items)
-        },
-        getActive(){
-            setTimeout(() => {
-                // let url = this.$store.state.activeSubmenuItem
-                this.Items.forEach(element => {
-                if(element.url == this.getActiveMenu){
-                    this.activeItem = element.name
-                }
-            });
-            }, 500);
         }
     }
 }
