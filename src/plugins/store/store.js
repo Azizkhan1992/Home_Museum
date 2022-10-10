@@ -225,10 +225,19 @@ const store = new Vuex.Store({
                 mediaType: 'telegram',
                 url: '#'
             }
-          ]
+          ],
+          activeSubmenu: null,
+          activeSubmenuItem: null
     },
     actions:{},
-    mutations: {},
+    mutations: {
+      setActiveSubmenu(state, activeItem) {
+        state.activeSubmenu = activeItem;
+      },
+      setActiveSubmenuItem(state, activeMenu) {
+        state.activeSubmenuItem = activeMenu;
+      }
+    },
     getters: {
         // Header
         getMenuItems(state){

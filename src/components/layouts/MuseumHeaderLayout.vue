@@ -3,7 +3,7 @@
     <div class="museum-header-content">
       <ul>
         <li v-for="(item, idx) in getMenuItems" :key="idx">
-          <div class="items" v-if="item.category !== 'section'" @click="dropDeactive">
+          <div class="items" v-if="item.category !== 'section'" @click="dropDeactive(); setActiveSubmenu(item)">
             <router-link :to="item.url">{{ item.name }}</router-link>
           </div>
 
@@ -26,6 +26,7 @@
               v-for="(drop, idy) in subItems?.subMenu"
               :key="idy"
               :id="idy + 1"
+              @click="setActiveSubmenu(drop)"
             >
               <router-link :to="drop.url">{{ drop.name }}</router-link>
             </div>
@@ -239,6 +240,24 @@ export default {
     }
   },
   methods: {
+    setActiveSubmenu(menuItem) {
+      let url = menuItem.url;
+      url = this.findMenu(this.$store.state.menuItems, menuItem.url);
+      this.$store.commit('setActiveSubmenu', url);
+    },
+    findMenu(menu, url) {
+      // debugger;
+      for (let i in menu) {
+        if (menu[i].subMenu.length > 0) {
+          for (let j in menu[i].subMenu) {
+            if (menu[i].subMenu[j].url == url) {
+              this.$store.commit('setActiveSubmenuItem', menu[i].subMenu)
+              return url;
+            }
+          }
+        }
+      }
+    },
     dropActive(e) {
       this.isActive = !this.isActive;
       this.getMenuItems.forEach((elem) => {
