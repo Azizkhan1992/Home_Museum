@@ -1,562 +1,914 @@
-@import "./mixins.scss";
+@import './mixins.scss';
 
 body {
   padding: 0;
   margin: 0;
+  background: #f5f5f5;
+}
+
+// Museum Header Layout
+.museum-header-container {
+  width: 100%;
+  height: 170px;
+
+  background: rgba(225, 225, 225, 0.5);
+  position: relative;
+
+  .museum-header-content {
+    width: 91.5%;
+    height: 100%;
+    margin: auto;
+    @include Flex;
+
+    ul {
+      width: 100%;
+      height: 25%;
+      padding: 0;
+      @include Flex(row, flex-end);
+      list-style: none;
+
+      li {
+        width: 12%;
+        height: 100%;
+        @include Flex;
+        margin-left: 20px;
+
+        .items {
+          width: 100%;
+          height: 100%;
+          @include Flex;
+
+          a {
+            @include Font(1.15rem, 24px, 500);
+            @include FontBg;
+            text-decoration: none;
+          }
+        }
+
+        .drop-items {
+          width: 100%;
+          height: 100%;
+          @include Flex(row, space-around);
+          @include FontBg;
+          cursor: pointer;
+        }
+      }
+      .dropdown-hidden {
+        width: 100%;
+        height: 0;
+        position: absolute;
+        top: 170px;
+        left: 0;
+        background: #fff;
+        border-radius: 5px;
+        transition: height 1s ease-out;
+        background: url('@/assets/Items/bottomBg.png') no-repeat,
+          linear-gradient(43.11deg, #ba8846 21.75%, #ffffe8 100%);
+        background-position: right bottom;
+
+        &.deactive {
+          overflow: hidden;
+        }
+
+        &.active {
+          height: 290px;
+          transition: height 1s ease-in;
+          z-index: 5;
+        }
+
+        .drop-content {
+          width: 91%;
+          height: auto;
+          margin: 0 auto;
+          @include Flex(row, flex-start);
+          align-items: flex-start;
+          position: relative;
+
+          .drop-wrapper {
+            width: 55%;
+            margin-top: 50px;
+            @include Flex(row, unset);
+            align-items: center;
+            flex-wrap: wrap;
+            flex: 0 auto;
+
+            .dropdown-items {
+              width: 50%;
+              height: 35px;
+              @include Flex(row, flex-start);
+
+              a {
+                @include Font(1.15rem, 24px, 700);
+                color: #fff;
+                text-decoration: none;
+              }
+            }
+          }
+
+          .quote-content {
+            width: 40%;
+            height: 65%;
+            margin-top: 50px;
+            @include Flex(column, space-around);
+
+            p {
+              align-self: flex-start;
+              @include Font(1.25rem, 30px, 600);
+              @include FontBg;
+              margin: 0;
+              margin-bottom: 20px;
+            }
+
+            span {
+              display: inline-block;
+              margin-left: 10%;
+              @include Font(1.25rem, 30px, 600);
+              @include FontBg;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Museum Footer Layout
+.museum-footer-container {
+  width: 100%;
+  height: 1000px;
+  background-repeat: no-repeat;
+  background: url('@/assets/Items/Footer/img2.png');
+  background-position-x: center;
+  background-size: 100% 100%;
+
+  .museum-footer-bg {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 40px 40px 0 0;
+    opacity: 0.85;
+
+    .museum-footer-content {
+      width: 91%;
+      height: 100%;
+      margin: auto;
+      @include Flex(column, space-between);
+
+      .footer-header {
+        width: 100%;
+        height: 14%;
+        @include Flex(row, flex-start);
+
+        .header-title {
+          width: 40%;
+          height: 75%;
+          margin-left: 25px;
+          @include Flex(column, space-around);
+          align-items: flex-start;
+
+          h1 {
+            @include Font(1.85rem, 25px, 400);
+            color: #fff;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 0.025em;
+          }
+
+          p {
+            @include Font(1.5rem, 20px);
+            @include FontBg;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 0.25em;
+          }
+        }
+      }
+
+      .footer-content {
+        width: 100%;
+        height: 66%;
+        @include Flex(row, space-between);
+        flex-wrap: wrap;
+        flex: 0 auto;
+
+        .content-left {
+          width: 24%;
+          height: 77%;
+          border: 1.5px solid #fff;
+          border-radius: 24px;
+          @include Flex(column, space-around);
+
+          .left-address {
+            width: 92%;
+            height: 28.5%;
+
+            h3 {
+              @include Font(1.5rem, 32px, 700);
+              color: #fff;
+              letter-spacing: 0.05em;
+              margin: 0;
+              margin: 10px 0 15px 0;
+            }
+
+            p {
+              @include Font(1rem, 20px);
+              color: #fff;
+              letter-spacing: 0.025em;
+            }
+          }
+
+          .left-work {
+            width: 92%;
+            height: 28.5%;
+
+            h3 {
+              @include Font(1.5rem, 32px, 700);
+              color: #fff;
+              letter-spacing: 0.05em;
+              margin: 0;
+              margin: 10px 0 15px 0;
+            }
+
+            p {
+              @include Font(1rem, 20px);
+              color: #fff;
+              letter-spacing: 0.025em;
+              margin: 0;
+              margin-bottom: 5px;
+            }
+          }
+
+          .left-contacts {
+            width: 92%;
+            height: 28.5%;
+
+            h3 {
+              @include Font(1.5rem, 32px, 700);
+              color: #fff;
+              letter-spacing: 0.05em;
+              margin: 0;
+              margin-bottom: 15px;
+            }
+
+            span {
+              @include Font(1rem, 20px);
+              color: rgba(255, 255, 255, 0.9);
+              letter-spacing: 0.025em;
+              display: inline-block;
+              margin-bottom: 5px;
+            }
+          }
+        }
+
+        .content-right {
+          width: 70%;
+          height: 77%;
+          @include Flex(column, flex-start);
+          align-items: flex-start;
+          flex-wrap: wrap;
+
+          .about-museum {
+            width: 30%;
+            height: 65%;
+            @include Flex(column, space-around);
+            align-items: flex-start;
+
+            h3 {
+              @include Font(1.5rem, 32px, 700);
+              color: #fff;
+              letter-spacing: 0.05em;
+              margin: 0;
+              margin-bottom: 20px;
+            }
+
+            .menu-items {
+              width: 100%;
+              height: 9%;
+
+              a {
+                @include Font(1.25rem, 20px);
+                color: rgba(255, 255, 255, 0.9);
+                text-decoration: none;
+                margin-bottom: 5px;
+                transition: all 0.1s ease-out;
+
+                &:hover {
+                  color: #6f5539;
+                  font-weight: 600;
+                  transform: scale(1.25);
+                  transition: all 0.1s ease-in;
+                }
+              }
+            }
+          }
+
+          .services {
+            width: 30%;
+            height: 65%;
+
+            h3 {
+              @include Font(1.5rem, 32px, 700);
+              color: #fff;
+              letter-spacing: 0.05em;
+              margin: 0;
+              margin-bottom: 20px;
+            }
+
+            .menu-items {
+              width: 100%;
+              height: 10%;
+
+              a {
+                @include Font(1.25rem, 20px);
+                color: rgba(255, 255, 255, 0.9);
+                text-decoration: none;
+                margin-bottom: 5px;
+                transition: all 0.1s ease-out;
+
+                &:hover {
+                  color: #6f5539;
+                  font-weight: 600;
+                  transform: scale(1.25);
+                  transition: all 0.1s ease-in;
+                }
+              }
+            }
+          }
+
+          .press-service {
+            width: 30%;
+            height: 65%;
+
+            h3 {
+              @include Font(1.5rem, 32px, 700);
+              color: #fff;
+              letter-spacing: 0.05em;
+              margin: 0;
+              margin-bottom: 20px;
+            }
+
+            .menu-items {
+              width: 100%;
+              height: 10%;
+
+              a {
+                @include Font(1.25rem, 20px);
+                color: rgba(255, 255, 255, 0.9);
+                text-decoration: none;
+                margin-bottom: 5px;
+                transition: all 0.1s ease-out;
+
+                &:hover {
+                  color: #6f5539;
+                  font-weight: 600;
+                  transform: scale(1.25);
+                  transition: all 0.1s ease-in;
+                }
+              }
+            }
+          }
+
+          .media {
+            width: 30%;
+            height: 29%;
+            @include Flex(column, space-around);
+            align-items: flex-start;
+
+            h3 {
+              @include Font(1.5rem, 32px, 700);
+              color: #fff;
+              letter-spacing: 0.05em;
+              margin: 0;
+              margin-top: 20px;
+              margin-bottom: 10px;
+            }
+
+            .menu-items {
+              width: 100%;
+              height: 15%;
+
+              a {
+                @include Font(1.25rem, 20px);
+                color: rgba(255, 255, 255, 0.9);
+                text-decoration: none;
+                margin-bottom: 5px;
+                transition: all 0.1s ease-out;
+
+                &:hover {
+                  color: #6f5539;
+                  font-weight: 600;
+                  transform: scale(1.25);
+                  transition: all 0.1s ease-in;
+                }
+              }
+            }
+          }
+
+          .collection {
+            width: 30%;
+            height: 29%;
+            @include Flex(column, space-around);
+            align-items: flex-start;
+
+            h3 {
+              @include Font(1.5rem, 32px, 700);
+              color: #fff;
+              letter-spacing: 0.05em;
+              margin: 0;
+              margin-top: 20px;
+              margin-bottom: 10px;
+            }
+
+            .menu-items {
+              width: 100%;
+              height: 15%;
+
+              a {
+                @include Font(1.25rem, 20px);
+                color: rgba(255, 255, 255, 0.9);
+                text-decoration: none;
+                margin-bottom: 5px;
+                transition: all 0.1s ease-out;
+
+                &:hover {
+                  color: #6f5539;
+                  font-weight: 600;
+                  transform: scale(1.25);
+                  transition: all 0.1s ease-in;
+                }
+              }
+            }
+          }
+        }
+
+        .content-footer {
+          width: 100%;
+          height: 23%;
+          @include Flex(row, space-between);
+
+          p {
+            @include Font(1rem, 20px);
+            color: rgba(255, 255, 255, 0.7);
+            width: 25%;
+            letter-spacing: 0.025em;
+
+            i {
+              font-size: 1.25rem;
+              color: #fff;
+              font-style: normal;
+            }
+          }
+
+          .museum-social {
+            width: 40%;
+            height: 50%;
+            @include Flex(column, flex-end);
+
+            .social-items {
+              width: 100%;
+              height: 50%;
+              @include Flex(row, flex-end);
+
+              .social {
+                width: 10%;
+                height: 100%;
+                @include Flex;
+
+                a {
+                  width: 100%;
+                  height: 100%;
+                  @include Flex(row, flex-end);
+
+                  &:hover {
+                    img {
+                      color: #6f5539;
+                    }
+                  }
+                }
+              }
+            }
+
+            p {
+              @include Font(1.05rem, 25px, 700);
+              color: #fff;
+              width: 100%;
+              text-align: right;
+              margin: 0;
+              margin-bottom: 20px;
+              letter-spacing: 0.015em;
+            }
+          }
+        }
+      }
+
+      .footer-footer {
+        width: 100%;
+        height: 12%;
+        border-top: 1.5px solid rgba(255, 255, 255, 0.24);
+        @include Flex(row, space-between);
+
+        .footer-left-items {
+          width: 50%;
+          height: 100%;
+          @include Flex(row, space-between);
+
+          p {
+            @include Font(1rem, 20px, 700);
+            color: #fff;
+            letter-spacing: 0.015em;
+          }
+        }
+
+        .footer-right-items {
+          width: 35%;
+          height: 100%;
+          @include Flex(row, flex-end);
+
+          p {
+            @include Font(1rem, 20px, 700);
+            color: #fff;
+            margin: 0;
+            letter-spacing: 0.025em;
+            margin-right: 30px;
+          }
+        }
+      }
+    }
+  }
 }
 
 .museum-main-container {
   width: 100%;
   height: auto;
-
-  // Museum Header Layout
-  .museum-header-container {
-    width: 100%;
-    height: 170px;
-    background: rgba(225, 225, 225, 0.5);
-    position: relative;
-
-    .museum-header-content {
-      width: 91.5%;
-      height: 100%;
-      margin: auto;
-      @include Flex;
-
-      ul {
-        width: 100%;
-        height: 25%;
-        padding: 0;
-        @include Flex(row, flex-end);
-        list-style: none;
-
-        li {
-          width: 12%;
-          height: 100%;
-          @include Flex;
-          margin-left: 20px;
-
-          .items {
-            width: 100%;
-            height: 100%;
-            @include Flex;
-
-            a {
-              @include Font(1.15rem, 24px, 500);
-              @include FontBg;
-              text-decoration: none;
-            }
-          }
-
-          .drop-items {
-            width: 100%;
-            height: 100%;
-            @include Flex(row, space-around);
-            @include FontBg;
-            cursor: pointer;
-          }
-        }
-        .dropdown-hidden {
-          width: 100%;
-          height: 0;
-          position: absolute;
-          top: 170px;
-          left: 0;
-          background: #fff;
-          border-radius: 5px;
-          transition: height 1s ease-out;
-          background: url("@/assets/Items/bottomBg.png") no-repeat,
-            linear-gradient(43.11deg, #ba8846 21.75%, #ffffe8 100%);
-          background-position: right bottom;
-
-          &.deactive {
-            overflow: hidden;
-          }
-
-          &.active {
-            height: 290px;
-            transition: height 1s ease-in;
-            z-index: 5;
-          }
-
-          .drop-content {
-            width: 91%;
-            height: auto;
-            margin: 0 auto;
-            @include Flex(row, flex-start);
-            align-items: flex-start;
-            position: relative;
-
-            .drop-wrapper {
-              width: 55%;
-              margin-top: 50px;
-              @include Flex(row, unset);
-              align-items: center;
-              flex-wrap: wrap;
-              flex: 0 auto;
-
-              .dropdown-items {
-                width: 50%;
-                height: 35px;
-                @include Flex(row, flex-start);
-
-                a {
-                  @include Font(1.15rem, 24px, 700);
-                  color: #fff;
-                  text-decoration: none;
-                }
-              }
-            }
-
-            .quote-content {
-              width: 40%;
-              height: 65%;
-              margin-top: 50px;
-              @include Flex(column, space-around);
-
-              p {
-                align-self: flex-start;
-                @include Font(1.25rem, 30px, 600);
-                @include FontBg;
-                margin: 0;
-                margin-bottom: 20px;
-              }
-
-              span {
-                display: inline-block;
-                margin-left: 10%;
-                @include Font(1.25rem, 30px, 600);
-                @include FontBg;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  // Museum Footer Layout
-  .museum-footer-container {
-    width: 100%;
-    height: 1000px;
-    background-repeat: no-repeat;
-    background: url("@/assets/Items/Footer/img2.png");
-    background-position-x: center;
-    background-size: 100% 100%;
-
-    .museum-footer-bg {
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 40px 40px 0 0;
-      opacity: 0.85;
-
-      .museum-footer-content {
-        width: 91%;
-        height: 100%;
-        margin: auto;
-        @include Flex(column, space-between);
-
-        .footer-header {
-          width: 100%;
-          height: 14%;
-          @include Flex(row, flex-start);
-
-          .header-title {
-            width: 40%;
-            height: 75%;
-            margin-left: 25px;
-            @include Flex(column, space-around);
-            align-items: flex-start;
-
-            h1 {
-              @include Font(1.85rem, 25px, 400);
-              color: #fff;
-              text-transform: uppercase;
-              margin: 0;
-              letter-spacing: 0.025em;
-            }
-
-            p {
-              @include Font(1.5rem, 20px);
-              @include FontBg;
-              text-transform: uppercase;
-              margin: 0;
-              letter-spacing: 0.25em;
-            }
-          }
-        }
-
-        .footer-content {
-          width: 100%;
-          height: 66%;
-          @include Flex(row, space-between);
-          flex-wrap: wrap;
-          flex: 0 auto;
-
-          .content-left {
-            width: 24%;
-            height: 77%;
-            border: 1.5px solid #fff;
-            border-radius: 24px;
-            @include Flex(column, space-around);
-
-            .left-address {
-              width: 92%;
-              height: 28.5%;
-
-              h3 {
-                @include Font(1.5rem, 32px, 700);
-                color: #fff;
-                letter-spacing: 0.05em;
-                margin: 0;
-                margin: 10px 0 15px 0;
-              }
-
-              p {
-                @include Font(1rem, 20px);
-                color: #fff;
-                letter-spacing: 0.025em;
-              }
-            }
-
-            .left-work {
-              width: 92%;
-              height: 28.5%;
-
-              h3 {
-                @include Font(1.5rem, 32px, 700);
-                color: #fff;
-                letter-spacing: 0.05em;
-                margin: 0;
-                margin: 10px 0 15px 0;
-              }
-
-              p {
-                @include Font(1rem, 20px);
-                color: #fff;
-                letter-spacing: 0.025em;
-                margin: 0;
-                margin-bottom: 5px;
-              }
-            }
-
-            .left-contacts {
-              width: 92%;
-              height: 28.5%;
-
-              h3 {
-                @include Font(1.5rem, 32px, 700);
-                color: #fff;
-                letter-spacing: 0.05em;
-                margin: 0;
-                margin-bottom: 15px;
-              }
-
-              span {
-                @include Font(1rem, 20px);
-                color: rgba(255, 255, 255, 0.9);
-                letter-spacing: 0.025em;
-                display: inline-block;
-                margin-bottom: 5px;
-              }
-            }
-          }
-
-          .content-right {
-            width: 70%;
-            height: 77%;
-            @include Flex(column, flex-start);
-            align-items: flex-start;
-            flex-wrap: wrap;
-
-            .about-museum {
-              width: 30%;
-              height: 65%;
-              @include Flex(column, space-around);
-              align-items: flex-start;
-
-              h3 {
-                @include Font(1.5rem, 32px, 700);
-                color: #fff;
-                letter-spacing: 0.05em;
-                margin: 0;
-                margin-bottom: 20px;
-              }
-
-              .menu-items {
-                width: 100%;
-                height: 9%;
-
-                a {
-                  @include Font(1.25rem, 20px);
-                  color: rgba(255, 255, 255, 0.9);
-                  text-decoration: none;
-                  margin-bottom: 5px;
-                  transition: all 0.1s ease-out;
-
-                  &:hover {
-                    color: #6f5539;
-                    font-weight: 600;
-                    transform: scale(1.25);
-                    transition: all 0.1s ease-in;
-                  }
-                }
-              }
-            }
-
-            .services {
-              width: 30%;
-              height: 65%;
-
-              h3 {
-                @include Font(1.5rem, 32px, 700);
-                color: #fff;
-                letter-spacing: 0.05em;
-                margin: 0;
-                margin-bottom: 20px;
-              }
-
-              .menu-items {
-                width: 100%;
-                height: 10%;
-
-                a {
-                  @include Font(1.25rem, 20px);
-                  color: rgba(255, 255, 255, 0.9);
-                  text-decoration: none;
-                  margin-bottom: 5px;
-                  transition: all 0.1s ease-out;
-
-                  &:hover {
-                    color: #6f5539;
-                    font-weight: 600;
-                    transform: scale(1.25);
-                    transition: all 0.1s ease-in;
-                  }
-                }
-              }
-            }
-
-            .press-service {
-              width: 30%;
-              height: 65%;
-
-              h3 {
-                @include Font(1.5rem, 32px, 700);
-                color: #fff;
-                letter-spacing: 0.05em;
-                margin: 0;
-                margin-bottom: 20px;
-              }
-
-              .menu-items {
-                width: 100%;
-                height: 10%;
-
-                a {
-                  @include Font(1.25rem, 20px);
-                  color: rgba(255, 255, 255, 0.9);
-                  text-decoration: none;
-                  margin-bottom: 5px;
-                  transition: all 0.1s ease-out;
-
-                  &:hover {
-                    color: #6f5539;
-                    font-weight: 600;
-                    transform: scale(1.25);
-                    transition: all 0.1s ease-in;
-                  }
-                }
-              }
-            }
-
-            .media {
-              width: 30%;
-              height: 29%;
-              @include Flex(column, space-around);
-              align-items: flex-start;
-
-              h3 {
-                @include Font(1.5rem, 32px, 700);
-                color: #fff;
-                letter-spacing: 0.05em;
-                margin: 0;
-                margin-top: 20px;
-                margin-bottom: 10px;
-              }
-
-              .menu-items {
-                width: 100%;
-                height: 15%;
-
-                a {
-                  @include Font(1.25rem, 20px);
-                  color: rgba(255, 255, 255, 0.9);
-                  text-decoration: none;
-                  margin-bottom: 5px;
-                  transition: all 0.1s ease-out;
-
-                  &:hover {
-                    color: #6f5539;
-                    font-weight: 600;
-                    transform: scale(1.25);
-                    transition: all 0.1s ease-in;
-                  }
-                }
-              }
-            }
-
-            .collection {
-              width: 30%;
-              height: 29%;
-              @include Flex(column, space-around);
-              align-items: flex-start;
-
-              h3 {
-                @include Font(1.5rem, 32px, 700);
-                color: #fff;
-                letter-spacing: 0.05em;
-                margin: 0;
-                margin-top: 20px;
-                margin-bottom: 10px;
-              }
-
-              .menu-items {
-                width: 100%;
-                height: 15%;
-
-                a {
-                  @include Font(1.25rem, 20px);
-                  color: rgba(255, 255, 255, 0.9);
-                  text-decoration: none;
-                  margin-bottom: 5px;
-                  transition: all 0.1s ease-out;
-
-                  &:hover {
-                    color: #6f5539;
-                    font-weight: 600;
-                    transform: scale(1.25);
-                    transition: all 0.1s ease-in;
-                  }
-                }
-              }
-            }
-          }
-
-          .content-footer {
-            width: 100%;
-            height: 23%;
-            @include Flex(row, space-between);
-
-            p {
-              @include Font(1rem, 20px);
-              color: rgba(255, 255, 255, 0.7);
-              width: 25%;
-              letter-spacing: 0.025em;
-
-              i {
-                font-size: 1.25rem;
-                color: #fff;
-                font-style: normal;
-              }
-            }
-
-            .museum-social {
-              width: 40%;
-              height: 50%;
-              @include Flex(column, flex-end);
-
-              .social-items {
-                width: 100%;
-                height: 50%;
-                @include Flex(row, flex-end);
-
-                .social {
-                  width: 10%;
-                  height: 100%;
-                  @include Flex;
-
-                  a {
-                    width: 100%;
-                    height: 100%;
-                    @include Flex(row, flex-end);
-
-                    &:hover {
-                      img {
-                        color: #6f5539;
-                      }
-                    }
-                  }
-                }
-              }
-
-              p {
-                @include Font(1.05rem, 25px, 700);
-                color: #fff;
-                width: 100%;
-                text-align: right;
-                margin: 0;
-                margin-bottom: 20px;
-                letter-spacing: 0.015em;
-              }
-            }
-          }
-        }
-
-        .footer-footer {
-          width: 100%;
-          height: 12%;
-          border-top: 1.5px solid rgba(255, 255, 255, 0.24);
-          @include Flex(row, space-between);
-
-          .footer-left-items {
-            width: 50%;
-            height: 100%;
-            @include Flex(row, space-between);
-
-            p {
-              @include Font(1rem, 20px, 700);
-              color: #fff;
-              letter-spacing: 0.015em;
-            }
-          }
-
-          .footer-right-items {
-            width: 35%;
-            height: 100%;
-            @include Flex(row, flex-end);
-
-            p {
-              @include Font(1rem, 20px, 700);
-              color: #fff;
-              margin: 0;
-              letter-spacing: 0.025em;
-              margin-right: 30px;
-            }
-          }
-        }
-      }
-    }
-  }
-
+  margin: 0 auto;
 
   // About Museum
-  .about-museum-container{
+  .about-museum-container {
     width: 100%;
     height: auto;
     background: #f5f5f5;
 
-    .museum-content-header{
+    // About Museum Header
+    .museum-content-header {
       width: 100%;
       height: 835px;
       position: relative;
 
-      .museum-top-content{
-        width: 91%;
+      .museum-top-content {
+        width: 100%;
         height: 100%;
         margin: auto;
         @include Flex(row, space-around);
+
+        h1 {
+          @include Font(6.25rem, 115%, 700);
+          color: #000;
+          letter-spacing: 0.025em;
+        }
       }
     }
+
+    // About Museum Content
+    .about-museum-content {
+      width: 100%;
+      height: 3850px;
+      margin-top: 75px;
+
+      .about-museum-wrapper {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+
+        .items {
+          @include Flex(row, space-between);
+          align-items: flex-start;
+          margin-top: 35px;
+          position: relative;
+
+          &.content-one .content-one-bg {
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            @include BgImg('bgCenter.svg', left);
+            z-index: 1;
+          }
+
+          &.content-two {
+            flex-direction: row-reverse;
+
+            .content-two-bg {
+              width: 50%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              @include BgImg('bgCenter.svg', right);
+              z-index: 1;
+            }
+          }
+
+          &.content-three .content-three-bg {
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            @include BgImg('bgCenter.svg', left);
+            z-index: 1;
+          }
+
+          &.content-three img {
+            width: 45%;
+            height: 100%;
+            border-radius: 35px;
+          }
+          &.content-four {
+            flex-direction: row-reverse;
+
+            .content-four-bg {
+              width: 50%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              @include BgImg('bgCenter.svg', right);
+              z-index: 1;
+            }
+          }
+
+          p {
+            @include Font(1.85rem, 160%, 500);
+            width: 50%;
+            margin: 0;
+            color: rgba(0, 0, 0, 0.8);
+            z-index: 5;
+          }
+        }
+      }
+    }
+  }
+
+  // About Person Container
+  .about-person-container {
+    width: 100%;
+    height: auto;
+
+    .person-top-container {
+      width: 100%;
+      height: 835px;
+
+      .person-top-content {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        @include Flex(row, space-around);
+
+        h1 {
+          @include Font(6.25rem, 120px, 700);
+          color: #000;
+        }
+      }
+    }
+
+    .person-one-container {
+      width: 100%;
+      height: 2750px;
+      margin-top: 75px;
+
+      .person-one-content {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+
+        .person-one-top {
+          width: 100%;
+          height: 1000px;
+          @include Flex(column, space-around);
+
+          p {
+            @include Font(1.85rem, 160%, 500);
+            color: rgba(0, 0, 0, 0.8);
+            text-align: justify;
+            margin: 0;
+          }
+
+          img {
+            width: 100%;
+            height: 50%;
+            border-radius: 40px;
+          }
+        }
+
+        .person-one-bottom {
+          width: 100%;
+          height: 1700px;
+          margin-top: 50px;
+          @include Flex(row, space-between);
+          flex-wrap: wrap;
+
+          .image-bottom {
+            width: 100%;
+            height: 30%;
+            border-radius: 40px;
+            object-fit: cover;
+          }
+
+          .images {
+            width: 49%;
+            height: 45%;
+            border-radius: 40px;
+            object-fit: cover;
+          }
+          p {
+            @include Font(1.85rem, 160%, 500);
+            color: rgba(0, 0, 0, 0.8);
+            text-align: justify;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .person-two-container {
+      width: 100%;
+      height: 3000px;
+      margin-top: 35px;
+
+      .person-two-content {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        @include Flex(column, space-between);
+
+        .person-two-top {
+          width: 100%;
+          height: 54%;
+          @include Flex(row, space-between);
+          flex-wrap: wrap;
+
+          .img-top {
+            width: 100%;
+            height: 35%;
+            border-radius: 40px;
+            object-fit: cover;
+          }
+
+          .images {
+            width: 49%;
+            height: 60%;
+            border-radius: 40px;
+            object-fit: cover;
+          }
+        }
+
+        .person-two-bottom {
+          width: 100%;
+          height: 44%;
+          @include Flex(column, space-around);
+          position: relative;
+
+          p {
+            @include Font(1.85rem, 160%, 400);
+            color: rgba(0, 0, 0, 0.8);
+            text-align: justify;
+            margin: 0;
+          }
+
+          .bg {
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            @include BgImg('bgCenter.svg', left);
+
+            &.person-bg-one {
+              top: 0;
+              left: 0;
+            }
+
+            &.person-bg-two {
+              bottom: 0;
+              right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // About Title Page
+  .about-title-container{
+    width: 100%;
+    height: auto;
+
+    .title-top-container{
+      width: 100%;
+      height: 835px;
+
+      .title-top-content{
+        width: 100%;
+        height: 100%;
+        @include Flex(row, flex-start);
+
+        h1{
+          @include Font(6.25rem, 120px, 700);
+          width: 75%;
+          color: #000;
+        }
+      }
+    }
+
+    .about-title-container{
+      width: 100%;
+      height: auto;
+      margin-top: 75px;
+      
+      .about-title-content{
+        width: 100%;
+        height: auto;
+        @include Flex(row, space-between);
+        flex-wrap: wrap;
+
+        .paginate-items{
+          width: 49%;
+          height: 550px;
+          background: linear-gradient(317.53deg, #A56936 21.75%, #FFFFE8 100%);
+          margin-top: 20px;
+          border-radius: 20px;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          position: relative;
+          @include Flex(column, space-around);
+
+          h3{
+            @include Font(1.85rem, 35px);
+            color: #000;
+            width: 55%;
+            text-align: center;
+            margin: 0;
+          }
+
+          p{
+            @include Font(1.5rem, 160%, 700);
+            color: #000;
+            width: 75%;
+            text-align: center;
+            margin: 0;
+          }
+
+          .title-items{
+            width: 85%;
+            height: 25%;
+            @include Flex(row, space-between);
+
+            .left-items{
+              width: 48%;
+              height: 100%;
+              @include Flex(column, space-around);
+
+              .item{
+                width: 100%;
+                height: 50%;
+                @include Flex(row, flex-start);
+
+                span{
+                  @include Font(1rem, 32px, 700);
+                  color: rgba(0, 0, 0, 0.6);
+                  margin-left: 20px;
+                }
+              }
+            }
+
+            .right-items{
+              width: 48%;
+              height: 100%;
+              @include Flex(column, flex-start);
+
+              .item{
+                width: 100%;
+                height: 50%;
+                @include Flex(row, flex-start);
+
+                span{
+                  @include Font(1rem, 32px, 700);
+                  color: rgba(0, 0, 0, 0.6);
+                  margin-left: 20px;
+                }
+              }
+            }
+          }
+
+          .title-bg{
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media screen and (min-width: 1440px) {
+  .museum-main-container {
+    width: 1320px;
   }
 }

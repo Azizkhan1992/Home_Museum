@@ -1,12 +1,16 @@
 <template>
-<div class="museum-main-container">
+<div >
     <museum-header-layout />
+    <div class="museum-main-container">
+
     <menu-items 
       v-if="isMenuActive" 
       :activeMenu="activeItem"
       :items="submenuItems"
     ></menu-items>
     <router-view />
+    <breadcrumbs-page v-if="isMenuActive" :path="breadItems"/>
+    </div>
     <museum-footer-layout />
 </div>
 </template>
@@ -15,14 +19,15 @@
 import MuseumHeaderLayout from "./MuseumHeaderLayout.vue";
 import MuseumFooterLayout from "./MuseumFooterLayout.vue";
 import MenuItems from "@/components/pages/common/MenuItems.vue";
-import {menuItems as viewMenuItems } from '@/statics/testData'
+import BreadcrumbsPage from '@/components/pages/common/BreadcrumbsPage.vue'
 
 export default {
     name: "main-layout",
     components: {
         MuseumHeaderLayout,
         MuseumFooterLayout,
-        MenuItems
+        MenuItems,
+        BreadcrumbsPage
     },
     data() {
         return {
@@ -30,16 +35,17 @@ export default {
             currentPath: null,
             activeItem: null,
             submenuItems: [],
-            viewMenuItems
+            breadItems: ''
         };
     },
     mounted() {
       this.currentRoute();
+      this.setBreadItems()
     },
     methods: {
         currentRoute() {
-          console.log('route', this.viewMenuItems)
-          this.viewMenuItems.forEach((element) => {
+        //   console.log('route', this.viewMenuItems)
+          this.$store.state.menuItems.forEach((element) => {
                 if (element.subMenu.length > 0) {
                     element.subMenu.forEach(elem => {
                         // let url = elem.url.split('/')
@@ -53,15 +59,29 @@ export default {
                 }
             });
         },
+
+        setBreadItems(){
+            this.$store.state.menuItems.forEach(element => {
+                if(element.subMenu.length > 0){
+                    element.subMenu.forEach(elem=>{
+                        if(elem.url == this.currentPath){
+                            this.breadItems = elem.name
+                        }
+                    })
+                }
+            });
+        }
     },
 
     watch: {
         '$route': function (val) {
-          this.currentPath = val.path
-            console.log(val)
+          this.currentPath = val.path 
             if (this.currentPath !== '/' && this.currentPath !== '/contacts') {
                 this.currentRoute()
-            } else {
+                this.setBreadItems()
+            }
+            
+            else {
                 this.isMenuActive = false
             }
         }
