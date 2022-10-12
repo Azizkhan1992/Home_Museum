@@ -36,7 +36,7 @@ export default {
 </script>
 <style lang="scss">
 .breadcrumbs-container {
-  width: 91%;
+  width: 97%;
   height: 78px;
   margin: 50px auto;
   background: rgba(255, 255, 255, 0.8);

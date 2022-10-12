@@ -45,50 +45,24 @@
   </div>
 </template>
 <script>
-  import { menuItems } from '@/statics/testData';
 export default {
   name: "museum-header",
   data() {
     return {
       isActive: false,
       subItems: null,
-      currentPath: '',
-      menuItems
     };
   },
   computed:{
     getMenuItems(){
-      let menuItems = this.menuItems;
+      let menuItems = this.$store?.getters && this.$store.getters?.getMenuItems && this.$store.getters.getMenuItems;
       return menuItems
     }
   },
-  mounted(){
-    this.currentPath = '/' + window.location.pathname.split('/')
-  },
   methods: {
-    // setMenuItems(){
-    //   this.$emit('currentRoute', this.currentPath)
-    // },
-    // setActiveSubmenu(menuItem) {
-    //   let url = menuItem.url;
-    //   url = this.findMenu(this.$store.state.menuItems, menuItem.url);
-    //   this.$store.commit('setActiveSubmenu', url);
-    // },
-    // findMenu(menu, url) {
-    //   for (let i in menu) {
-    //     if (menu[i].subMenu.length > 0) {
-    //       for (let j in menu[i].subMenu) {
-    //         if (menu[i].subMenu[j].url == url) {
-    //           this.$store.commit('setActiveSubmenuItem', menu[i].subMenu)
-    //           return url;
-    //         }
-    //       }
-    //     }
-    //   }
-    // },
     dropActive(e) {
       this.isActive = !this.isActive;
-      this.menuItems.forEach((elem) => {
+      this.getMenuItems.forEach((elem) => {
         if (elem.id == e) {
           this.subItems = elem;
         }
@@ -98,14 +72,5 @@ export default {
         this.isActive = false
     }
   },
-
-  // watch: {
-  //   '$route'() {
-  //     this.currentPath = window.location.pathname.split('/')
-  //     if(this.currentPath[1] !== '' && this.currentPath[1] !== 'contacts' && this.currentPath.length == 2){
-  //       this.setMenuItems()
-  //     }
-  //   }
-  // }
 };
 </script>
