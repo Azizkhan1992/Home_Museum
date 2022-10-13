@@ -50,6 +50,16 @@ const routes = [
         path: "/documentation",
         component: () => import("@/views/about-pages/AboutPersonDocuments.vue"),
       },
+      {
+        path: "/questions",
+        component: () => import("@/views/about-pages/AboutQuestions.vue"),
+      },
+
+      // Events
+      {
+        path: '/events',
+        component: ()=> import('@/views/events-pages/EventsHomePage.vue')
+      }
     ],
   },
 ];

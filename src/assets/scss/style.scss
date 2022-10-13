@@ -74,6 +74,7 @@ body {
           height: 290px;
           transition: height 1s ease-in;
           z-index: 5;
+          overflow: hidden;
         }
 
         .drop-content {
@@ -1716,6 +1717,397 @@ body {
 
                 svg {
                   color: #191919;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // About Questions
+  .questions-container {
+    width: 100%;
+
+    .questions-content {
+      width: 100%;
+      height: auto;
+
+      .questions-header {
+        width: 100%;
+        height: 835px;
+        @include Flex(row, flex-start);
+
+        h1 {
+          @include Font(6.25rem, 120px, 700);
+          color: #000;
+          width: 50%;
+          margin-right: 100px;
+        }
+      }
+
+      .questions-content {
+        width: 100%;
+        height: 1300px;
+        margin-top: 75px;
+        position: relative;
+
+        .questions-content-bg {
+          width: 90%;
+          height: 1000px;
+          position: absolute;
+          top: 0;
+          left: 5%;
+          @include BgImg("bgCenter.svg", center);
+          z-index: 1;
+        }
+
+        .questions-items {
+          width: 100%;
+          height: auto;
+          @include Flex(row, space-between);
+          flex-wrap: wrap;
+          z-index: 5;
+          border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+
+          button {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
+            border-radius: 10px;
+            border: none;
+            @include Font(2.5rem, 1px, 600);
+            color: #fff;
+            padding: 0;
+            text-align: center;
+            cursor: pointer;
+            @include Flex(column);
+
+            &:hover {
+              background: #fff;
+              border: 1.5px solid #6f5539;
+              color: #6f5539;
+            }
+          }
+
+          h3 {
+            @include Font(1.85rem, 40px, 700);
+            background: linear-gradient(180deg, #e6a958 0%, #a98855 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            &.question {
+              width: 95%;
+            }
+          }
+
+          h4 {
+            @include Font(1.5rem, 30px, 500);
+            color: rgba(0, 0, 0, 0.8);
+          }
+        }
+      }
+    }
+  }
+
+
+  // Events Home
+  .events-page-container{
+    width: 100%;
+
+    .events-header-container{
+      width: 100%;
+      height: 835px;
+
+      .events-header-content{
+        width: 100%;
+        height: 100%;
+        @include Flex(row, flex-start);
+
+        h1{
+          @include Font(6.25rem,  120px, 700);
+          color: #000;
+          margin-right: 150px;
+        }
+      }
+    }
+
+    .events-content-container{
+      width: 100%;
+      margin-top: 75px;
+
+      .events-content{
+        width: 100%;
+        height: auto;
+        @include Flex(row, space-between);
+        position: relative;
+
+        .events-content-bg{
+          width: 50%;
+          height: 10%;
+          position: absolute;
+          left: 35%;
+          bottom: 15%;
+          @include BgImg('bgCenter.svg', center);
+          z-index: 1;
+        }
+
+        .events-left-items{
+          width: 70%;
+          height: auto;
+          @include Flex(row, space-between);
+          flex-wrap: wrap;
+          z-index: 5;
+
+          .event-items{
+            width: 50%;
+            height: 700px;
+            @include Flex(row);
+            box-sizing: border-box;
+            
+            &:nth-child(2n+1){
+              border-right: 2px solid rgba(0, 0, 0, 0.3);
+            }
+
+            &:not(:nth-last-child(-n+2)){
+              border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+            }
+
+            .items-wrapper{
+              width: 90%;
+              height: 90%;
+              @include Flex(column, space-between);
+
+              img{
+                width: 100%;
+                height: 40%;
+                border-radius: 25px;
+              }
+  
+              h3{
+                @include Font(1.5rem, 30px, 700);
+                color: #000;
+                margin: 0;
+              }
+              p{
+                @include Font(1.15rem, 160%, 500);
+                color: rgba(0, 0, 0, 0.8);
+                height:15%;
+                margin: 0;
+                overflow-y: hidden;
+              }
+              .item-bottom{
+                width: 100%;
+                height: 10%;
+                @include Flex(row, space-between);
+  
+                .bottom-left{
+                  width: 70%;
+                  height: 100%;
+                  @include Flex(row, space-between);
+  
+                  .item-one{
+                    width: 47%;
+                    height: 100%;
+                    @include Flex(row, space-between);
+  
+                    img{
+                      width: 24px;
+                      height: 18px;
+                      border-radius: 0;
+                    }
+                    span{
+                      @include Font(0.85rem, 25px, 400);
+                      color: rgba(0, 0, 0, 0.6);
+                    }
+                  }
+                }
+  
+                .bottom-right{
+                  width: 25%;
+                  height: 100%;
+                  @include Flex(row, flex-end);
+
+                  a{
+                    margin-left: 15px;
+                  }
+  
+                  a svg{
+                    color: rgba(0, 0, 0, 0.6);
+                  }
+  
+                  a:hover{
+                    svg{
+                      color: #e6a958;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+
+        .content-right-items{
+          width: 25%;
+          height: 300px;
+          align-self: flex-start;
+          @include Flex(column);
+
+          button{
+            width: 312px;
+            height: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #A56935 0%, #6F5539 100%);
+            border-radius: 10px;
+            cursor: pointer;
+            border: 0;
+            @include Font(1.15rem, 24px, 700);
+            color: #fff;
+            transition: all 0.25s ease-out;
+
+            &:hover{
+              background: #fff;
+              color: #6F5539;
+              border: 1.5px solid #6F5539;
+              transition: all 0.25s ease-in;
+            }
+          }
+
+          .event-year{
+            width: 312px;
+            height: 48px;
+            background: #fff;
+            border-radius: 10px;
+            position: relative;
+            margin-bottom: 20px;
+
+            .year-visible{
+              width: 100%;
+              height: 100%;
+              @include Flex;
+              cursor: pointer;
+              z-index: 1;
+
+              img{
+                margin-left: 20px;
+                transition: transform 0.5s ease-out;
+
+                &.img-active{
+                  transform: rotate(180deg);
+                  transition: transform 0.5s ease-in;
+                }
+              }
+
+              span{
+                @include Font(1rem , 24px, 500);
+                color: #000;
+                display: inline-block;
+                width: 50px;
+                text-align: center;
+              }
+            }
+            .year-hidden{
+              width: 312px;
+              height: 0;
+              background: #fff;
+              border-radius: 10px;
+              position: absolute;
+              top: 60px;
+              transition: height 0.5s ease-out;
+              overflow-y: scroll;
+              z-index: 1;
+
+              &.deactive{
+                overflow: hidden;
+              }
+
+              &.active{
+                height: 200px;
+                transition: height 0.5s ease-in;
+              }
+
+              .year-items{
+                width: 100%;
+                height: 12%;
+                @include Flex;
+                cursor: pointer;
+
+                span{
+                  @include Font(1rem , 24px, 500);
+                  color: #000;
+                  display: inline-block;
+                  width: 50px;
+                  text-align: center;
+                }
+              }
+            }
+          }
+
+          .event-month{
+            width: 312px;
+            height: 48px;
+            background: #fff;
+            border-radius: 10px;
+            position: relative;
+
+            .month-visible{
+              width: 100%;
+              height: 100%;
+              @include Flex;
+              cursor: pointer;
+
+              span{
+                @include Font(1rem , 24px, 500);
+                color: #000;
+                display: inline-block;
+                width: 50px;
+                text-align: center;
+              }
+
+              img{
+                margin-left: 20px;
+                transition: transform 0.5s ease-out;
+
+                &.img-active{
+                  transform: rotate(180deg);
+                  transition: transform 0.5s ease-in;
+                }
+              }
+            }
+
+            .months-hidden{
+              width: 312px;
+              height: 0;
+              position: absolute;
+              top: 60px;
+              background: #fff;
+              border-radius: 10px;
+              overflow-y: scroll;
+              transition: height 0.5s ease-out;
+
+              &.deactive{
+                overflow: hidden;
+              }
+
+              &.active{
+                height: 200px;
+                transition: height 0.5s ease-in;
+              }
+
+              .month-items{
+                width: 100%;
+                height: 12%;
+                @include Flex;
+                cursor: pointer;
+
+                span{
+                  @include Font(1rem , 24px, 500);
+                  color: #000;
+                  display: inline-block;
+                  width: 50px;
+                  text-align: center;
                 }
               }
             }
