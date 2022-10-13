@@ -30,6 +30,7 @@
       <app-pagination
       :data="getPartners"
       :limit="3"
+      @paginate="paginateData"
       />
 
 
@@ -80,6 +81,9 @@ export default {
   methods: {
     getPageData(){
         this.list = this.getPartners.slice(0, 3)
+    },
+    paginateData(data){
+      console.log(data)
     }
   }
 };
