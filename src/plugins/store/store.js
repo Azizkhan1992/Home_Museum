@@ -528,87 +528,309 @@ const store = new Vuex.Store({
     // About Scheme Museum
     schemeMuseum: {
       id: 1,
-      name: 'Схема музея',
-      img: 'img1.svg',
+      name: "Схема музея",
+      img: "img1.svg",
     },
 
     // About Partners
     partners: [
       {
         id: 1,
-        name: 'Партнёры',
-        img: 'img1.png',
-        title: 'Музей политической истории России традиционно находится в авангарде современных тенденций развития музейных технологий. Осуществление высокопрофессиональных научных, реставрационных, выставочных, образовательных, издательских и других музейных проектов возможно благодаря координации деятельности музея и его партнеров.С целью объединения усилий организаций и частных лиц, желающих оказать поддержку музею, в 2007 году, в год столетнего юбилея коллекции, было создано Общество друзей Музея политической истории России. Музей благодарит за плодотворное сотрудничество и многолетнее сотворчество надежных партнеров. Без вас многие наши идеи остались бы нереализованными! Музей выражает искреннюю признательность дарителям, благодаря которым пополняется уникальная коллекция музея. Благодарим всех за поддержку, надеемся на дальнейшее успешное сотрудничество и ждем вас в музее как дорогих гостей!'
+        name: "Партнёры",
+        img: "img1.png",
+        title:
+          "Музей политической истории России традиционно находится в авангарде современных тенденций развития музейных технологий. Осуществление высокопрофессиональных научных, реставрационных, выставочных, образовательных, издательских и других музейных проектов возможно благодаря координации деятельности музея и его партнеров.С целью объединения усилий организаций и частных лиц, желающих оказать поддержку музею, в 2007 году, в год столетнего юбилея коллекции, было создано Общество друзей Музея политической истории России. Музей благодарит за плодотворное сотрудничество и многолетнее сотворчество надежных партнеров. Без вас многие наши идеи остались бы нереализованными! Музей выражает искреннюю признательность дарителям, благодаря которым пополняется уникальная коллекция музея. Благодарим всех за поддержку, надеемся на дальнейшее успешное сотрудничество и ждем вас в музее как дорогих гостей!",
       },
       {
         id: 2,
         partners_items: [
           {
             id: 1,
-            name: 'The Voluntourist',
-            mail: 'thevoluntourist2021@gmail.com',
-            phone: ' + 998 71 000 00 00 ',
-            web: 'www.ivol.uz'
+            name: "The Voluntourist",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 71 000 00 00 ",
+            web: "www.ivol.uz",
           },
           {
             id: 2,
-            name: 'The Voluntourist',
-            mail: 'thevoluntourist2021@gmail.com',
-            phone: ' + 998 71 000 00 00 ',
-            web: 'www.ivol.uz'
+            name: "The Voluntourist",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 71 000 00 00 ",
+            web: "www.ivol.uz",
           },
           {
             id: 3,
-            name: 'The Voluntourist',
-            mail: 'thevoluntourist2021@gmail.com',
-            phone: ' + 998 71 000 00 00 ',
-            web: 'www.ivol.uz'
+            name: "The Voluntourist",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 71 000 00 00 ",
+            web: "www.ivol.uz",
           },
           {
             id: 4,
-            name: 'The Voluntourist',
-            mail: 'thevoluntourist2021@gmail.com',
-            phone: ' + 998 71 000 00 00 ',
-            web: 'www.ivol.uz'
+            name: "The Voluntourist",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 95 888 66 55 ",
+            web: "www.ivol.uz",
           },
           {
             id: 5,
-            name: 'The Voluntourist',
-            mail: 'thevoluntourist2021@gmail.com',
-            phone: ' + 998 71 000 00 00 ',
-            web: 'www.ivol.uz'
+            name: "The Voluntourist",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 95 888 66 55 ",
+            web: "www.ivol.uz",
           },
           {
             id: 6,
-            name: 'The Voluntourist',
-            mail: 'thevoluntourist2021@gmail.com',
-            phone: ' + 998 71 000 00 00 ',
-            web: 'www.ivol.uz'
+            name: "The Voluntourist",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 95 888 66 55 ",
+            web: "www.ivol.uz",
           },
           {
             id: 7,
-            name: 'The Voluntourist',
-            mail: 'thevoluntourist2021@gmail.com',
-            phone: ' + 998 71 000 00 00 ',
-            web: 'www.ivol.uz'
+            name: "The Voluntourist",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 99 555 99 00 ",
+            web: "www.ivol.uz",
           },
           {
             id: 8,
-            name: 'The Voluntourist',
-            mail: 'thevoluntourist2021@gmail.com',
-            phone: ' + 998 71 000 00 00 ',
-            web: 'www.ivol.uz'
+            name: "The Voluntourist",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 99 555 99 00 ",
+            web: "www.ivol.uz",
           },
           {
             id: 9,
-            name: 'The Voluntourist',
-            mail: 'thevoluntourist2021@gmail.com',
-            phone: ' + 998 71 000 00 00 ',
-            web: 'www.ivol.uz'
-          }
-        ]
-      }
-    ]
+            name: "The Voluntourist",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 99 555 99 00 ",
+            web: "www.ivol.uz",
+          },
+        ],
+      },
+    ],
+
+    // About Group Museum
+    museumGroup: [
+      {
+        id: 1,
+        title: "Команда музея",
+        img: "img1.png",
+      },
+      {
+        id: 2,
+        group: [
+          {
+            id: 1,
+            name: "Алимов Шерзод",
+            img: "img2.png",
+            position: "Директор музея",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 71 000 00 00 ",
+          },
+          {
+            id: 2,
+            name: "Азиза Юлдашева",
+            img: "img3.png",
+            position: "Директор музея",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 71 000 00 00 ",
+          },
+          {
+            id: 3,
+            name: "Худайберганов Умиджон",
+            img: "img4.png",
+            position: "Директор музея",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 71 000 00 00 ",
+          },
+          {
+            id: 4,
+            name: "Камола Хакимова",
+            img: "img5.png",
+            position: "Директор музея",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 71 000 00 00 ",
+          },
+          {
+            id: 5,
+            name: "Алимов Шерзод",
+            img: "img2.png",
+            position: "Директор музея",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 71 000 00 00 ",
+          },
+          {
+            id: 6,
+            name: "Худайберганов Умиджон",
+            img: "img4.png",
+            position: "Директор музея",
+            mail: "thevoluntourist2021@gmail.com",
+            phone: " + 998 71 000 00 00 ",
+          },
+        ],
+      },
+    ],
+
+    // About Documents
+    personDocuments: [
+      {
+        id: 1,
+        title: "Документы",
+        img: "img1.png",
+      },
+      {
+        id: 2,
+        documents: [
+          {
+            id: 1,
+            docName: "Свидетельство музея",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 2,
+            docName:
+              "уп-52 О СОЗДАНИИ ДОПОЛНИТЕЛЬНЫХ УСЛОВИЙ ДЛЯ ДАЛЬНЕЙШЕГО РАЗВИТИЯ СФЕР ТУРИЗМА, КУЛЬТУРЫ, КУЛЬТУРНОГО НАСЛЕДИЯ И СПОРТА",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 3,
+            docName:
+              "уп-52 О СОЗДАНИИ ДОПОЛНИТЕЛЬНЫХ УСЛОВИЙ ДЛЯ ДАЛЬНЕЙШЕГО РАЗВИТИЯ СФЕР ТУРИЗМА, КУЛЬТУРЫ, КУЛЬТУРНОГО НАСЛЕДИЯ И СПОРТА",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 4,
+            docName: "Свидетельство музея",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 5,
+            docName:
+              "уп-52 О СОЗДАНИИ ДОПОЛНИТЕЛЬНЫХ УСЛОВИЙ ДЛЯ ДАЛЬНЕЙШЕГО РАЗВИТИЯ СФЕР ТУРИЗМА, КУЛЬТУРЫ, КУЛЬТУРНОГО НАСЛЕДИЯ И СПОРТА",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 6,
+            docName:
+              "уп-52 О СОЗДАНИИ ДОПОЛНИТЕЛЬНЫХ УСЛОВИЙ ДЛЯ ДАЛЬНЕЙШЕГО РАЗВИТИЯ СФЕР ТУРИЗМА, КУЛЬТУРЫ, КУЛЬТУРНОГО НАСЛЕДИЯ И СПОРТА",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 7,
+            docName: "Свидетельство музея",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 8,
+            docName:
+              "уп-52 О СОЗДАНИИ ДОПОЛНИТЕЛЬНЫХ УСЛОВИЙ ДЛЯ ДАЛЬНЕЙШЕГО РАЗВИТИЯ СФЕР ТУРИЗМА, КУЛЬТУРЫ, КУЛЬТУРНОГО НАСЛЕДИЯ И СПОРТА",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 9,
+            docName:
+              "уп-52 О СОЗДАНИИ ДОПОЛНИТЕЛЬНЫХ УСЛОВИЙ ДЛЯ ДАЛЬНЕЙШЕГО РАЗВИТИЯ СФЕР ТУРИЗМА, КУЛЬТУРЫ, КУЛЬТУРНОГО НАСЛЕДИЯ И СПОРТА",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 10,
+            docName: "Свидетельство музея",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 11,
+            docName:
+              "уп-52 О СОЗДАНИИ ДОПОЛНИТЕЛЬНЫХ УСЛОВИЙ ДЛЯ ДАЛЬНЕЙШЕГО РАЗВИТИЯ СФЕР ТУРИЗМА, КУЛЬТУРЫ, КУЛЬТУРНОГО НАСЛЕДИЯ И СПОРТА",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 12,
+            docName:
+              "уп-52 О СОЗДАНИИ ДОПОЛНИТЕЛЬНЫХ УСЛОВИЙ ДЛЯ ДАЛЬНЕЙШЕГО РАЗВИТИЯ СФЕР ТУРИЗМА, КУЛЬТУРЫ, КУЛЬТУРНОГО НАСЛЕДИЯ И СПОРТА",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 13,
+            docName: "Свидетельство музея",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 14,
+            docName:
+              "уп-52 О СОЗДАНИИ ДОПОЛНИТЕЛЬНЫХ УСЛОВИЙ ДЛЯ ДАЛЬНЕЙШЕГО РАЗВИТИЯ СФЕР ТУРИЗМА, КУЛЬТУРЫ, КУЛЬТУРНОГО НАСЛЕДИЯ И СПОРТА",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 15,
+            docName:
+              "уп-52 О СОЗДАНИИ ДОПОЛНИТЕЛЬНЫХ УСЛОВИЙ ДЛЯ ДАЛЬНЕЙШЕГО РАЗВИТИЯ СФЕР ТУРИЗМА, КУЛЬТУРЫ, КУЛЬТУРНОГО НАСЛЕДИЯ И СПОРТА",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 16,
+            docName: "Свидетельство музея",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 17,
+            docName:
+              "уп-52 О СОЗДАНИИ ДОПОЛНИТЕЛЬНЫХ УСЛОВИЙ ДЛЯ ДАЛЬНЕЙШЕГО РАЗВИТИЯ СФЕР ТУРИЗМА, КУЛЬТУРЫ, КУЛЬТУРНОГО НАСЛЕДИЯ И СПОРТА",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+          {
+            id: 18,
+            docName:
+              "уп-52 О СОЗДАНИИ ДОПОЛНИТЕЛЬНЫХ УСЛОВИЙ ДЛЯ ДАЛЬНЕЙШЕГО РАЗВИТИЯ СФЕР ТУРИЗМА, КУЛЬТУРЫ, КУЛЬТУРНОГО НАСЛЕДИЯ И СПОРТА",
+            date: "Июнь 25, 2022 год",
+            downloaded: "250",
+          },
+        ],
+      },
+    ],
+
+    // About Questions
+    questions: [
+      {
+        id: 1,
+        title: "Часто задаваемые вопросы",
+        img: "img1.png",
+      },
+      {
+        id: 2,
+        questions: [
+          {
+            id: 1,
+            question: "КАК ПРИОБРЕСТИ БИЛЕТЫ ДЛЯ ГРУПП?",
+            answer:
+              "Билеты на посещение музея и экскурсионное обслуживание можно купить в кассе музея за наличный расчет. Время работы кассы: с 9:00 до 16:30 со вторника по субботу.",
+          },
+          {
+            id: 2,
+            question: "ЕСТЬ ЛИ ПАРКОВКА ДЛЯ ПОСЕТИТЕЛЕЙ?",
+            answer: "Да",
+          },
+        ],
+      },
+    ],
   },
   actions: {},
   mutations: {
@@ -651,19 +873,34 @@ const store = new Vuex.Store({
       return state.aboutTitleItems;
     },
     // About Title Items
-    getTitleItems(state){
-      return state.titleItems
+    getTitleItems(state) {
+      return state.titleItems;
     },
 
     // About Scheme Museum
-    getSchemeMuseum(state){
-      return state.schemeMuseum
+    getSchemeMuseum(state) {
+      return state.schemeMuseum;
     },
 
     // About Partners
-    getPartners(state){
-      return state.partners
-    }
+    getPartners(state) {
+      return state.partners;
+    },
+
+    // About Group Museum
+    getMuseumGroup(state) {
+      return state.museumGroup;
+    },
+
+    // About Person Documents
+    getPersonDocuments(state) {
+      return state.personDocuments;
+    },
+
+    // About Questions
+    getQuestions(state) {
+      return state.questions;
+    },
   },
 });
 

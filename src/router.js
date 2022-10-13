@@ -42,6 +42,14 @@ const routes = [
         path: "/partners",
         component: () => import("@/views/about-pages/AboutPartners.vue"),
       },
+      {
+        path: "/group-museum",
+        component: () => import("@/views/about-pages/AboutMuseumGroup.vue"),
+      },
+      {
+        path: "/documentation",
+        component: () => import("@/views/about-pages/AboutPersonDocuments.vue"),
+      },
     ],
   },
 ];

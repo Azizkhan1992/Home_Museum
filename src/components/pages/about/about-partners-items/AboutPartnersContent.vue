@@ -47,7 +47,7 @@ export default {
         }
     },
     mounted(){
-        this.getPageData()
+        this.getPageData();
     },
   computed: {
     getPartnersTitle() {
@@ -83,7 +83,7 @@ export default {
         this.list = this.getPartners.slice(0, 3)
     },
     paginateData(data){
-      console.log(data)
+      this.list = data
     }
   }
 };

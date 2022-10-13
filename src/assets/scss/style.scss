@@ -1,4 +1,4 @@
-@import './mixins.scss';
+@import "./mixins.scss";
 
 body {
   padding: 0;
@@ -62,7 +62,7 @@ body {
         background: #fff;
         border-radius: 5px;
         transition: height 1s ease-out;
-        background: url('@/assets/Items/bottomBg.png') no-repeat,
+        background: url("@/assets/Items/bottomBg.png") no-repeat,
           linear-gradient(43.11deg, #ba8846 21.75%, #ffffe8 100%);
         background-position: right bottom;
 
@@ -137,7 +137,7 @@ body {
   width: 100%;
   height: 1000px;
   background-repeat: no-repeat;
-  background: url('@/assets/Items/Footer/img2.png');
+  background: url("@/assets/Items/Footer/img2.png");
   background-position-x: center;
   background-size: 100% 100%;
 
@@ -590,7 +590,7 @@ body {
             height: 100%;
             position: absolute;
             top: 0;
-            @include BgImg('bgCenter.svg', left);
+            @include BgImg("bgCenter.svg", left);
             z-index: 1;
           }
 
@@ -602,7 +602,7 @@ body {
               height: 100%;
               position: absolute;
               top: 0;
-              @include BgImg('bgCenter.svg', right);
+              @include BgImg("bgCenter.svg", right);
               z-index: 1;
             }
           }
@@ -612,7 +612,7 @@ body {
             height: 100%;
             position: absolute;
             top: 0;
-            @include BgImg('bgCenter.svg', left);
+            @include BgImg("bgCenter.svg", left);
             z-index: 1;
           }
 
@@ -629,7 +629,7 @@ body {
               height: 100%;
               position: absolute;
               top: 0;
-              @include BgImg('bgCenter.svg', right);
+              @include BgImg("bgCenter.svg", right);
               z-index: 1;
             }
           }
@@ -776,7 +776,7 @@ body {
             width: 50%;
             height: 50%;
             position: absolute;
-            @include BgImg('bgCenter.svg', left);
+            @include BgImg("bgCenter.svg", left);
 
             &.person-bg-one {
               top: 0;
@@ -1116,7 +1116,7 @@ body {
           position: absolute;
           top: 0;
           right: 0;
-          @include BgImg('bgCenter.svg', right);
+          @include BgImg("bgCenter.svg", right);
           z-index: 1;
         }
 
@@ -1184,7 +1184,7 @@ body {
             position: absolute;
             left: 0;
             top: 20%;
-            @include BgImg('bgCenter.svg', left);
+            @include BgImg("bgCenter.svg", left);
             z-index: 1;
           }
 
@@ -1194,7 +1194,7 @@ body {
             position: absolute;
             right: 0;
             top: 40%;
-            @include BgImg('bgCenter.svg', right);
+            @include BgImg("bgCenter.svg", right);
             z-index: 1;
           }
 
@@ -1204,7 +1204,7 @@ body {
             position: absolute;
             left: 0;
             top: 60%;
-            @include BgImg('bgCenter.svg', left);
+            @include BgImg("bgCenter.svg", left);
             z-index: 1;
           }
 
@@ -1214,7 +1214,7 @@ body {
             position: absolute;
             right: 0;
             top: 80%;
-            @include BgImg('bgCenter.svg', right);
+            @include BgImg("bgCenter.svg", right);
           }
 
           h5 {
@@ -1407,20 +1407,20 @@ body {
   }
 
   // About Partners
-  .about-partners-container{
+  .about-partners-container {
     width: 100%;
     height: auto;
 
-    .partners-header-container{
+    .partners-header-container {
       width: 100%;
       height: 835px;
 
-      .partners-header-content{
+      .partners-header-content {
         width: 100%;
         height: 100%;
         @include Flex(row, flex-start);
 
-        h1{
+        h1 {
           @include Font(6.25rem, 120px, 700);
           color: #000;
           width: 65%;
@@ -1431,39 +1431,39 @@ body {
       }
     }
 
-    .partners-content-container{
+    .partners-content-container {
       width: 100%;
       margin-top: 75px;
 
-      .partners-content{
+      .partners-content {
         width: 100%;
         height: auto;
         position: relative;
 
-        .partners-bg{
+        .partners-bg {
           width: 50%;
           height: 750px;
           position: absolute;
           top: -5%;
           left: 0;
-          @include BgImg('bgCenter.svg', left);
+          @include BgImg("bgCenter.svg", left);
           z-index: 1;
         }
 
-        p{
+        p {
           @include Font(1.85rem, 170%, 500);
           color: rgba(0, 0, 0, 0.8);
           text-align: justify;
           z-index: 5;
         }
-        .partners-wrapper{
+        .partners-wrapper {
           width: 100%;
           height: auto;
           margin-top: 75px;
           @include Flex(column, space-between);
           align-items: flex-start;
 
-          .partner-items{
+          .partner-items {
             width: 875px;
             height: 135px;
             background: rgba(255, 255, 255, 0.4);
@@ -1472,42 +1472,250 @@ body {
             border-radius: 20px;
             @include Flex(row, space-around);
 
-            .item-circle{
+            .item-circle {
               width: 86px;
               height: 86px;
-              background: linear-gradient(180deg, #A56935 0%, #6F5539 100%);
+              background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
               border-radius: 50%;
               @include Flex;
             }
 
-            .partners-data{
+            .partners-data {
               width: 80%;
               height: 100%;
               @include Flex(column, space-around);
               flex-wrap: wrap;
               align-items: flex-start;
 
-              p{
+              p {
                 @include Font(1.15rem, 26px, 600);
                 color: #212529;
                 margin: 0;
                 margin: 10px 0;
               }
 
-              .items{
+              .items {
                 width: 50%;
                 height: 30%;
                 @include Flex(row, flex-start);
 
-                span{
+                span {
                   @include Font(1rem, 26px);
                   color: #212529;
                   display: inline-block;
                   margin-left: 10px;
                 }
 
-                &.partner-web{
+                &.partner-web {
                   margin-top: 95px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // About Museum Group
+  .museum-group-container {
+    width: 100%;
+
+    .museum-group-content {
+      width: 100%;
+      height: auto;
+
+      .museum-group-header {
+        width: 100%;
+        height: 835px;
+        @include Flex(row, flex-start);
+
+        h1 {
+          @include Font(6.25rem, 120px, 700);
+          color: #000;
+          width: 40%;
+          margin: 0;
+        }
+      }
+
+      .museum-group-wrapper {
+        width: 100%;
+        height: 1200px;
+        margin-top: 75px;
+        margin-bottom: 50px;
+        @include Flex(column, space-between);
+
+        h2 {
+          width: 65%;
+          margin: 0 auto;
+          @include Font(3.85rem, 70px, 700);
+          @include FontBg;
+        }
+
+        .group-items-wrapper {
+          width: 100%;
+          height: 90%;
+          @include Flex;
+          flex-wrap: wrap;
+
+          .group-items {
+            width: 21.5%;
+            height: 47%;
+            margin: 0 20px;
+            @include Flex(column, space-around);
+
+            img {
+              width: 100%;
+              height: 47%;
+            }
+
+            .group {
+              width: 100%;
+              height: 10%;
+              @include Flex;
+
+              img {
+                width: 20px;
+                height: 12px;
+              }
+
+              span {
+                @include Font(0.85rem, 28px, 400);
+                color: rgba(0, 0, 0, 0.6);
+                margin-left: 15px;
+              }
+            }
+
+            h5 {
+              @include Font(1.75rem, 36px, 700);
+              @include FontBg;
+              margin: 0;
+              text-align: center;
+            }
+
+            p {
+              @include Font(1.25rem, 36px, 400);
+              color: #000;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // About Person Docs
+  .person-docs-container {
+    width: 100%;
+
+    .person-docs-content {
+      width: 100%;
+      height: auto;
+
+      .person-docs-header {
+        width: 100%;
+        height: 835px;
+        @include Flex(row, flex-start);
+
+        h1 {
+          @include Font(6.25rem, 120px, 700);
+          color: #000;
+          margin-right: 150px;
+        }
+      }
+
+      .person-docs-wrapper {
+        width: 100%;
+        height: 900px;
+        margin-top: 75px;
+        @include Flex(row, space-between);
+        flex-wrap: wrap;
+
+        .person-docs-items {
+          width: 32%;
+          height: 28%;
+          background: linear-gradient(317.53deg, #a56936 21.75%, #ffffe8 100%);
+          border-radius: 10px;
+          @include Flex(column, space-between);
+
+          .items-top {
+            width: 100%;
+            height: 60%;
+            margin-top: 20px;
+            @include Flex(row, space-around);
+            align-items: flex-start;
+
+            h3 {
+              @include Font(1.15rem, 22px, 700);
+              color: #000;
+              margin: 0;
+              width: 75%;
+              text-align: left;
+            }
+          }
+
+          .items-bottom {
+            width: 100%;
+            height: 30%;
+            @include Flex(row, flex-end);
+
+            .items-date {
+              width: 40%;
+              height: 75%;
+              @include Flex(row, space-around);
+
+              img {
+                width: 16px;
+                height: 12px;
+              }
+              span {
+                @include Font(0.85rem, 25px, 400);
+                color: rgba(0, 0, 0, 0.6);
+              }
+            }
+            .items-downloaded {
+              width: 30%;
+              height: 75%;
+              @include Flex(row, space-around);
+
+              img {
+                width: 14px;
+                height: 12px;
+              }
+              span {
+                @include Font(0.85rem, 25px, 400);
+                color: rgba(0, 0, 0, 0.6);
+              }
+            }
+
+            .item-download {
+              width: 36px;
+              height: 36px;
+              margin-right: 20px;
+              margin-left: 20px;
+              border-radius: 50%;
+              background: linear-gradient(
+                180deg,
+                #191919 0%,
+                #565656 25.52%,
+                #000000 65.62%,
+                #797979 100%
+              );
+              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+              @include Flex;
+              cursor: pointer;
+
+              svg {
+                color: #fff;
+              }
+
+              &:hover {
+                background: #fff;
+                border: 1.5px solid #191919;
+                box-sizing: border-box;
+
+                svg {
+                  color: #191919;
                 }
               }
             }
