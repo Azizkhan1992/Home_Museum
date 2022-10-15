@@ -59,6 +59,15 @@ const routes = [
       {
         path: '/events',
         component: ()=> import('@/views/events-pages/EventsHomePage.vue')
+      },
+      {
+        path: "/events/:id",
+        component: () => import("@/components/pages/event/home-page-items/event-inner-page/_id.vue"),
+      },
+      // News
+      {
+        path: '/news',
+        component: ()=> import ('@/views/events-pages/NewsHomePage.vue')
       }
     ],
   },

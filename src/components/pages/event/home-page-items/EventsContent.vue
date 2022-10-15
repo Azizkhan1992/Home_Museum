@@ -4,13 +4,13 @@
       <div class="events-content-bg"></div>
       <div class="events-left-items">
         <div class="event-items" v-for="(item, idx) in list" :key="idx">
-          <div class="items-wrapper">
+          <router-link :to="`/events/${item.id }`" class="items-wrapper">
             <img
               :src="require('@/assets/Items/Events/EventsHome/' + item.img)"
               alt=""
             />
             <h3>{{ item.title }}</h3>
-            <p>{{ item.descript }}</p>
+            <p>{{ item.descript | filteredDesc }}</p>
             <div class="item-bottom">
               <div class="bottom-left">
                 <div class="item-one">
@@ -77,7 +77,7 @@
                 </router-link>
               </div>
             </div>
-          </div>
+          </router-link>
         </div>
       </div>
 
@@ -210,5 +210,10 @@ export default {
       }
     },
   },
+  filters:{
+    filteredDesc(value){
+      return value.slice(0,88) + ' ...'
+    }
+  }
 };
 </script>
