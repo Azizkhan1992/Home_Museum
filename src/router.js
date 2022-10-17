@@ -68,6 +68,26 @@ const routes = [
       {
         path: '/news',
         component: ()=> import ('@/views/events-pages/NewsHomePage.vue')
+      },
+      {
+        path: '/news/:id',
+        component: () => import ('@/views/events-pages/news-inner-page/_id.vue')
+      },
+
+      // Media Materials
+      {
+        path: '/materials',
+        component: ()=>import('@/views/events-pages/MediaMaterials.vue')
+      },
+
+      // Exhibits
+      {
+        path: '/exhibits',
+        component: ()=> import('@/views/collection-pages/ExhibitsPage.vue')
+      },
+      {
+        path: '/exhibits/:id',
+        component: ()=> import('@/views/collection-pages/exhibits-inner-page/ExhibitsInnerPage.vue')
       }
     ],
   },

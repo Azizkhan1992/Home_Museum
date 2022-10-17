@@ -9,7 +9,7 @@
             <div class="news-wrapper">
                 <div class="news-wrapper-bg"></div>
                 <div class="news-left">
-                    <div class="news-items" v-for="item, idx in list" :key="idx">
+                    <router-link :to="`/news/${item.id}`" class="news-items" v-for="item, idx in list" :key="idx">
                         <img :src="require('@/assets/Items/Events/News/' + item.img)" alt="">
                         <div class="item-wrapper">
                             <p>{{item.name}}</p>
@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </router-link>
                 </div>
                 <div class="news-right">
                     <div class="right-top">
