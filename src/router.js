@@ -88,6 +88,25 @@ const routes = [
       {
         path: '/exhibits/:id',
         component: ()=> import('@/views/collection-pages/exhibits-inner-page/ExhibitsInnerPage.vue')
+      },
+      // Books
+      {
+        path: '/books',
+        component: ()=> import('@/views/collection-pages/BooksPage.vue')
+      },
+      {
+        path: '/books/:id',
+        component: () => import('@/views/collection-pages/books-inner-page/_id.vue')
+      },
+
+      // Collection Tools
+      {
+        path: '/tools',
+        component: () => import('@/views/collection-pages/ToolsPage.vue')
+      },
+      {
+        path: '/tools/:id',
+        component: ()=> import('@/views/collection-pages/tools-inner-page/_id.vue')
       }
     ],
   },

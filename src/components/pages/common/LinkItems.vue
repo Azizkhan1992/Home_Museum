@@ -74,7 +74,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .links{
-    width: 100%;
+    width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
