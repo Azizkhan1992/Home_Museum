@@ -107,6 +107,18 @@ const routes = [
       {
         path: '/tools/:id',
         component: ()=> import('@/views/collection-pages/tools-inner-page/_id.vue')
+      },
+
+      // Gallery Photos
+      {
+        path: '/photos',
+        component: ()=>import('@/views/gallery-pages/PhotosPage.vue')
+      },
+
+      // Gallery 3D
+      {
+        path: '/3d-files',
+        component: ()=> import ('@/views/gallery-pages/3DFilesPage.vue')
       }
     ],
   },

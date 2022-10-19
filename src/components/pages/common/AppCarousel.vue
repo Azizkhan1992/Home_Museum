@@ -6,24 +6,24 @@
       class="carousel-wrapper"
       :class="{ active: carouselLeft }"
       :style="{
-        width: (100 * clonedData.length) / items + '%',
-        transform: `translateX(${-(
-          (100 / carouselItems.length) * items +
-          3.3
-        )}%)`,
+        width: (100 * carouselItems.length) / items + '%',
+        transform: `transformX(${-10}%)`,
       }"
     >
       <div
         class="carousel-items"
-        v-for="(item, idx) in clonedData"
+        v-for="item, idx in carouselItems"
         :key="item.id"
         :id="item.id"
         :style="{
-          width: 100 / items - 2 + '%',
+          width: 100 / carouselItems.length + '%',
+        }"
+        :class="{
+          'left-item': idx == 0,
+          'last-item': idx >= items+1,
+          active: idx == 1 || idx == 2 || idx == 3,
         }"
       >
-        {{ idChecker }}
-        {{idx+1}}
         <div class="item-top" :class="istopActive ? 'top-active' : ''">
           <img
             :src="require('@/assets/Items/Collection/Tools/' + item.img)"
@@ -36,6 +36,10 @@
 
         <button v-if="isButtonActive">Подробнее</button>
       </div>
+    </div>
+
+    <div class="carousel-dots" v-if="isDotsActive">
+      <button v-for="btn in carouselItems" :key="btn.id" :id="btn.id"></button>
     </div>
   </div>
 </template>
@@ -67,41 +71,54 @@ export default {
       type: Boolean,
       default: false,
     },
+    isDotsActive: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       carouselItems: [],
       carouselLeft: false,
-      idChecker: 10,
+      idChecker: 1,
+      lastId: 0,
+      checkBtn: 1,
     };
   },
   mounted() {
     this.getCarouselItems();
-    setInterval(() =>{
-        this.moveCarousel();
-    },2500)
-  },
-  computed: {
-    cloned() {
-      return JSON.parse(JSON.stringify(this.carouselItems));
-    },
-    clonedData() {
-      return [...this.cloned, ...this.carouselItems, ...this.cloned];
-    },
+    setInterval(() => {
+      this.moveCarousel();
+    }, 3000);
   },
   methods: {
     getCarouselItems() {
       this.carouselItems = this.data;
     },
     moveCarousel() {
-      let item = this.clonedData.shift();
-      this.clonedData.push(item);
+        let item = this.carouselItems.shift();
+        this.carouselItems.push(item);
 
-      if (this.idChecker == this.clonedData.length-1) {
-        this.idChecker = 10;
-      } else {
-        this.idChecker++;
-      }
+        // if (this.idChecker == this.carouselItems.length) {
+        //   this.idChecker = 1;
+        // } else {
+        //   this.idChecker++;
+        // }
+        if (this.checkBtn == this.carouselItems.length) {
+          this.checkBtn = 1;
+        } else {
+          this.checkBtn++;
+        }
+
+        // if (this.lastId == this.carouselItems.length) {
+        //   this.lastId = 1;
+        // } else {
+        //   this.lastId++;
+        // }
+    },
+
+    moveLeft() {
+      // let item = document.getElementsByClassName('left-item')
     },
   },
   filters: {
@@ -153,29 +170,42 @@ export default {
   }
 
   .carousel-wrapper {
-    height: 100%;
+    height: 90%;
     display: flex;
     flex-direction: row;
-    column-gap: 20px;
-
-    // @keyframes CarouselLeft {
-    //     0%{
-    //         margin-left: 0;
-    //     }
-    //     100%{
-    //         margin-left: -33%;
-    //     }
-    // }
-
-    // &.active{
-    //     animation: CarouselLeft 2.51s ease-in;
-    // }
+    // column-gap: 20px;
 
     .carousel-items {
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      margin-left: 0;
+      margin-right: 10px;
+      transition:  3s ;
+
+      &.left-item {
+        margin-left: -10%;
+        margin-right: 0;
+        // animation: RunCarousel 0.9999s ease-in-out;
+      }
+
+      &.last-item {
+        position: absolute;
+        right: -30%;
+      }
+
+      @keyframes RunCarousel {
+        0% {
+          margin-left: 0;
+        }
+        100% {
+          margin-left: -10%;
+        }
+      }
+      // &.active {
+      //   animation: RunCarousel 1.9999s ease-in-out;
+      // }
 
       .item-top {
         width: 100%;
@@ -234,6 +264,26 @@ export default {
           transition: all 0.25s ease-in;
         }
       }
+    }
+  }
+
+  .carousel-dots {
+    width: auto;
+    height: 40px;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    button {
+      width: 16px;
+      height: 16px;
+      background: #a56935;
+      margin-right: 16px;
+      border-radius: 50%;
+      padding: 0;
+      border: none;
     }
   }
 }
