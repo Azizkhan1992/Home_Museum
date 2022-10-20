@@ -3819,6 +3819,193 @@ body {
       }
     }
   }
+
+  // Gallery 3D Files
+  .files-container {
+    width: 100%;
+
+    .files-content {
+      width: 100%;
+      height: auto;
+
+      .files-header {
+        width: 100%;
+        height: 835px;
+        @include Flex(row, space-around);
+
+        h1 {
+          @include Font(6.25rem, 120px, 700);
+          color: #000;
+          width: 45%;
+        }
+
+        .header-items {
+          width: 40%;
+          height: 65%;
+          position: relative;
+
+          img {
+            position: absolute;
+
+            &.one {
+              top: 15%;
+              left: 0;
+            }
+
+            &.two {
+              top: 0;
+              right: 0;
+            }
+            &.three {
+              bottom: 0;
+              left: 15%;
+            }
+          }
+        }
+      }
+
+      .files-wrapper {
+        width: 100%;
+        height: auto;
+        margin-top: 100px;
+        margin-bottom: 50px;
+        @include Flex(column, space-between);
+        align-items: flex-start;
+        row-gap: 40px;
+
+        .file-items {
+          width: 100%;
+          height: 300px;
+          text-decoration: none;
+          @include Flex(row, flex-start);
+
+          .items-left {
+            width: 312px;
+            height: 100%;
+            margin-right: 25px;
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 20px;
+            @include Flex;
+
+            img {
+              width: 60%;
+              height: 70%;
+            }
+          }
+
+          .item-right {
+            width: 75%;
+            height: 100%;
+            @include Flex(column, space-between);
+            align-items: flex-start;
+
+            h3 {
+              @include Font(2.5rem, 34px, 700);
+              @include FontBg;
+              margin: 0;
+              margin-top: 10px;
+            }
+            p {
+              @include Font(1.85rem, 160%, 500);
+              margin: 0;
+            }
+
+            button {
+              width: 312px;
+              height: 75px;
+              border: 2px solid #a56936;
+              border-radius: 20px;
+              cursor: pointer;
+              padding: 0;
+              @include Font(1.85rem, 40px, 700);
+              @include FontBg;
+
+              &:hover {
+                background: #a56936;
+                -webkit-text-fill-color: #fff;
+                border: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Gallery 3D Files Inner Page
+  .file-inner-container{
+    width: 100%;
+
+    .file-inner-content{
+      width: 100%;
+      height: auto;
+
+      .file-inner-header{
+        width: 100%;
+        height: 835px;
+        @include Flex(row, space-around);
+
+        h1{
+          @include Font(6.25rem, 120px, 700);
+          color: #000;
+        }
+
+        img{
+          width: 15%;
+        }
+      }
+
+      .file-inner-wrapper{
+        width: 100%;
+        height: auto;
+        margin-top: 100px;
+        margin-bottom: 50px;
+
+        .inner-title{
+          width: 100%;
+          height: 950px;
+          @include Flex(column, space-between);
+
+          .title-top{
+            width: 100%;
+            height: 50px;
+            @include Flex(row, space-between);
+
+            h3{
+              @include Font(2.5rem, 50px, 700);
+              @include FontBg;
+              margin: 0;
+            }
+            .title-right{
+              width: 25%;
+              height: 100%;
+              @include Flex(row, space-between);
+
+              p{
+                @include Font(1.25rem, 110%, 500);
+                color: rgba(0, 0, 0, 0.6);
+              }
+            }
+          }
+
+          span{
+            @include Font(1.25rem, 160%, 500);
+            color: rgba(0, 0, 0, 0.8);
+          }
+        }
+
+        .inner-3d-wrapper{
+          width: 100%;
+          height: 750px;
+          margin-top: 200px;
+          background: #fff;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          border-radius: 20px;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1440px) {

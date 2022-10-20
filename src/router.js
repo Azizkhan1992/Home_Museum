@@ -117,8 +117,12 @@ const routes = [
 
       // Gallery 3D
       {
-        path: '/3d-files',
-        component: ()=> import ('@/views/gallery-pages/3DFilesPage.vue')
+        path: '/files',
+        component: ()=> import ('@/views/gallery-pages/FilesPage.vue')
+      },
+      {
+        path: '/files/:id',
+        component: () => import ('@/views/gallery-pages/file-inner-pages/_id.vue')
       }
     ],
   },
