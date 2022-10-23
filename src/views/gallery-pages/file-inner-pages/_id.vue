@@ -19,11 +19,16 @@
             </div>
           </div>
 
-          <span>{{getInnerHeader.descript}}</span>
+          <span>{{getInnerHeader.descript | filteredDesc}}</span>
         </div>
 
         <div class="inner-3d-wrapper">
-            
+          <div class="file-items" :style="{transform: `translateX(${-width}%)`}">
+            <img :src="require('@/assets/Items/Gallery/3D/' + item)" v-for="item, idx in get3D" :key="idx" alt="">
+          </div>
+          <div class="play-items">
+            <button @click="play">Play</button>
+          </div>
         </div>
       </div>
     </div>
@@ -36,6 +41,8 @@ export default {
   data() {
     return {
       id: this.$route.path,
+      width: 0,
+      step: 1
     };
   },
   computed: {
@@ -60,6 +67,33 @@ export default {
       });
       return item;
     },
+    get3D(){
+      return this.$store?.getters && this.$store.getters?.getInner3dFiles && this.$store.getters.getInner3dFiles
+    }
   },
+  methods: {
+    play(){
+      setTimeout(() => {
+        this.playImg()
+      }, 100)
+    },
+    playImg(){
+      setInterval(() => {
+        if(this.step <= this.get3D.length){
+          this.step++
+          this.width += 4
+        }else{
+          this.step--
+          this.width -= 4
+        }
+      }, 400)
+    }
+  },
+  filters: {
+    filteredDesc(val){
+      let desc = val.slice(0, 1740) + ' ...'
+      return desc
+    }
+  }
 };
 </script>
