@@ -148,6 +148,12 @@ const routes = [
       {
         path: '/magazine/:id',
         component: () => import('@/views/service-pages/magazine-inner-page/_id.vue')
+      },
+
+      // Service Visit Museum
+      {
+        path: '/visit-museum',
+        component: ()=>import('@/views/service-pages/VisitMuseumPage.vue')
       }
     ],
   },

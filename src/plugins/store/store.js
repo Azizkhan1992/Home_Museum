@@ -2162,7 +2162,17 @@ const store = new Vuex.Store({
           }
         ]
       }
-    ]
+    ],
+
+    // Service Visit Museum
+    visitMuseum: {
+      id: 1,
+      header: 'Спланировать визит',
+      directorMuseum: 'Чурсина Юлия Александровна',
+      mail: 'muzeicvetaevoi@culture.mos.ru.',
+      phone: '+7 (495) 695 35 43',
+      contact: 'ksenia.dsmp@gmail.com'
+    }
   },
   actions: {},
   mutations: {
@@ -2302,6 +2312,11 @@ const store = new Vuex.Store({
     // service Magazine
     getMagazine(state){
       return state.magazine
+    },
+    
+    // Service Visit Museum
+    getVisit(state){
+      return state.visitMuseum
     }
   },
 });

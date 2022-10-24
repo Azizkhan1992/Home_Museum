@@ -25,7 +25,7 @@
         }"
       >
         <div class="item-top" :class="istopActive ? 'top-active' : ''">
-          <img :src="require(url + item.img)" alt="" />
+          <img :src="url + item.img" alt="" />
         </div>
 
         <h1 class="carousel-header">{{ item.name }}</h1>
