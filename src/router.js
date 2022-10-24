@@ -57,72 +57,97 @@ const routes = [
 
       // Events
       {
-        path: '/events',
-        component: ()=> import('@/views/events-pages/EventsHomePage.vue')
+        path: "/events",
+        component: () => import("@/views/events-pages/EventsHomePage.vue"),
       },
       {
         path: "/events/:id",
-        component: () => import("@/components/pages/event/home-page-items/event-inner-page/_id.vue"),
+        component: () =>
+          import(
+            "@/components/pages/event/home-page-items/event-inner-page/_id.vue"
+          ),
       },
       // News
       {
-        path: '/news',
-        component: ()=> import ('@/views/events-pages/NewsHomePage.vue')
+        path: "/news",
+        component: () => import("@/views/events-pages/NewsHomePage.vue"),
       },
       {
-        path: '/news/:id',
-        component: () => import ('@/views/events-pages/news-inner-page/_id.vue')
+        path: "/news/:id",
+        component: () => import("@/views/events-pages/news-inner-page/_id.vue"),
       },
 
       // Media Materials
       {
-        path: '/materials',
-        component: ()=>import('@/views/events-pages/MediaMaterials.vue')
+        path: "/materials",
+        component: () => import("@/views/events-pages/MediaMaterials.vue"),
       },
 
       // Exhibits
       {
-        path: '/exhibits',
-        component: ()=> import('@/views/collection-pages/ExhibitsPage.vue')
+        path: "/exhibits",
+        component: () => import("@/views/collection-pages/ExhibitsPage.vue"),
       },
       {
-        path: '/exhibits/:id',
-        component: ()=> import('@/views/collection-pages/exhibits-inner-page/ExhibitsInnerPage.vue')
+        path: "/exhibits/:id",
+        component: () =>
+          import(
+            "@/views/collection-pages/exhibits-inner-page/ExhibitsInnerPage.vue"
+          ),
       },
       // Books
       {
-        path: '/books',
-        component: ()=> import('@/views/collection-pages/BooksPage.vue')
+        path: "/books",
+        component: () => import("@/views/collection-pages/BooksPage.vue"),
       },
       {
-        path: '/books/:id',
-        component: () => import('@/views/collection-pages/books-inner-page/_id.vue')
+        path: "/books/:id",
+        component: () =>
+          import("@/views/collection-pages/books-inner-page/_id.vue"),
       },
 
       // Collection Tools
       {
-        path: '/tools',
-        component: () => import('@/views/collection-pages/ToolsPage.vue')
+        path: "/tools",
+        component: () => import("@/views/collection-pages/ToolsPage.vue"),
       },
       {
-        path: '/tools/:id',
-        component: ()=> import('@/views/collection-pages/tools-inner-page/_id.vue')
+        path: "/tools/:id",
+        component: () =>
+          import("@/views/collection-pages/tools-inner-page/_id.vue"),
       },
 
       // Gallery Photos
       {
-        path: '/photos',
-        component: ()=>import('@/views/gallery-pages/PhotosPage.vue')
+        path: "/photos",
+        component: () => import("@/views/gallery-pages/PhotosPage.vue"),
       },
 
       // Gallery 3D
       {
-        path: '/files',
-        component: ()=> import ('@/views/gallery-pages/FilesPage.vue')
+        path: "/files",
+        component: () => import("@/views/gallery-pages/FilesPage.vue"),
       },
       {
-        path: '/files/:id',
-        component: () => import ('@/views/gallery-pages/file-inner-pages/_id.vue')
+        path: "/files/:id",
+        component: () =>
+          import("@/views/gallery-pages/file-inner-pages/_id.vue"),
+      },
+
+      // Gallery Videos
+      {
+        path: "/videos",
+        component: () => import("@/views/gallery-pages/VideosPage.vue"),
+      },
+
+      // Service Magazine
+      {
+        path: "/magazine",
+        component: () => import("@/views/service-pages/MagazinePage.vue"),
+      },
+      {
+        path: '/magazine/:id',
+        component: () => import('@/views/service-pages/magazine-inner-page/_id.vue')
       }
     ],
   },

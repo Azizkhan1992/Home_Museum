@@ -12,7 +12,7 @@
     >
       <div
         class="carousel-items"
-        v-for="item, idx in carouselItems"
+        v-for="(item, idx) in carouselItems"
         :key="item.id"
         :id="item.id"
         :style="{
@@ -20,15 +20,12 @@
         }"
         :class="{
           'left-item': idx == 0,
-          'last-item': idx >= items+1,
+          'last-item': idx >= items + 1,
           active: idx == 1 || idx == 2 || idx == 3,
         }"
       >
         <div class="item-top" :class="istopActive ? 'top-active' : ''">
-          <img
-            :src="require('@/assets/Items/Collection/Tools/' + item.img)"
-            alt=""
-          />
+          <img :src="require(url + item.img)" alt="" />
         </div>
 
         <h1 class="carousel-header">{{ item.name }}</h1>
@@ -50,6 +47,10 @@ export default {
     data: {
       type: Array,
       default: () => [],
+    },
+    url: {
+      type: String,
+      default: "@/assets/Items/Collection/Tools/",
     },
     items: {
       type: [Number, String],
@@ -96,25 +97,25 @@ export default {
       this.carouselItems = this.data;
     },
     moveCarousel() {
-        let item = this.carouselItems.shift();
-        this.carouselItems.push(item);
+      let item = this.carouselItems.shift();
+      this.carouselItems.push(item);
 
-        // if (this.idChecker == this.carouselItems.length) {
-        //   this.idChecker = 1;
-        // } else {
-        //   this.idChecker++;
-        // }
-        if (this.checkBtn == this.carouselItems.length) {
-          this.checkBtn = 1;
-        } else {
-          this.checkBtn++;
-        }
+      // if (this.idChecker == this.carouselItems.length) {
+      //   this.idChecker = 1;
+      // } else {
+      //   this.idChecker++;
+      // }
+      if (this.checkBtn == this.carouselItems.length) {
+        this.checkBtn = 1;
+      } else {
+        this.checkBtn++;
+      }
 
-        // if (this.lastId == this.carouselItems.length) {
-        //   this.lastId = 1;
-        // } else {
-        //   this.lastId++;
-        // }
+      // if (this.lastId == this.carouselItems.length) {
+      //   this.lastId = 1;
+      // } else {
+      //   this.lastId++;
+      // }
     },
 
     moveLeft() {
@@ -182,7 +183,7 @@ export default {
       justify-content: space-between;
       margin-left: 0;
       margin-right: 10px;
-      transition:  3s ;
+      transition: 3s;
 
       &.left-item {
         margin-left: -10%;
