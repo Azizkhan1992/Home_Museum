@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+    isModal: false,
     // Header
     menuItems: [
       {
@@ -2162,12 +2163,25 @@ const store = new Vuex.Store({
           }
         ]
       }
-    ]
+    ],
+
+    // Service Visit Museum
+    visitMuseum: {
+      id: 1,
+      header: 'Спланировать визит',
+      directorMuseum: 'Чурсина Юлия Александровна',
+      mail: 'muzeicvetaevoi@culture.mos.ru.',
+      phone: '+7 (495) 695 35 43',
+      contact: 'ksenia.dsmp@gmail.com'
+    }
   },
   actions: {},
   mutations: {
     setActiveSubmenu(state, activeItem) {
       state.activeSubmenu = activeItem;
+    },
+    isModalActive(state, isModal){
+      state.isModal = isModal
     },
     setActiveSubmenuItem(state, activeMenu) {
       state.activeSubmenuItem = activeMenu;
@@ -2185,6 +2199,11 @@ const store = new Vuex.Store({
     },
     getSocialMedia(state) {
       return state.socialMedia;
+    },
+
+    // Modal
+    getModal(state){
+      return state.isModal
     },
 
     // About Museum
@@ -2302,6 +2321,11 @@ const store = new Vuex.Store({
     // service Magazine
     getMagazine(state){
       return state.magazine
+    },
+    
+    // Service Visit Museum
+    getVisit(state){
+      return state.visitMuseum
     }
   },
 });

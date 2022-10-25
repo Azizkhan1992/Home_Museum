@@ -1,5 +1,5 @@
 <template>
-<div >
+<div class="museum-home-container">
     <museum-header-layout />
     <div class="museum-main-container">
 
@@ -70,7 +70,7 @@ export default {
                     })
                 }
             });
-        }
+        },
     },
 
     watch: {
