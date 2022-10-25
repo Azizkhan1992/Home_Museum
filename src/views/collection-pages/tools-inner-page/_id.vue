@@ -34,6 +34,7 @@
             :data="getCarouselData"
             :istop-active="true"
             :isButtonActive="true"
+            :url="'@/assets/Items/Collection/Tools/InnerPage/'"
           />
         </div>
       </div>
