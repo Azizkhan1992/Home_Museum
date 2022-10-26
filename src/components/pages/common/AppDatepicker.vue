@@ -2,16 +2,23 @@
   <div class="calendar-container">
     <div class="calendar-wrapper" v-if="datepickerActive">
       <div class="datepicker-top">
-        <button class="prev-date"></button>
-        <button class="prev-month"></button>
-        <p class="chosen-year" @click.stop="chooseYear = true, chooseMonth = false">{{today.getFullYear()}}</p>
-        <p class="chosen-month" @click.stop="chooseMonth = true">{{months[today.getMonth()].label}}</p>
-        <button class="next-month"></button>
-        <button class="next-date"></button>
+        <button class="prev-date" @click.stop="goPrevYear"></button>
+        <button class="prev-month" @click.stop="goPrevMonth"></button>
+        <p
+          class="chosen-year"
+          @click.stop="(chooseYear = true), (chooseMonth = false)"
+        >
+          {{ today.getFullYear() }}
+        </p>
+        <p class="chosen-month" @click.stop="chooseMonth = true">
+          {{ months[today.getMonth()].label }}
+        </p>
+        <button class="next-month" @click.stop="goNextMonth"></button>
+        <button class="next-date" @click.stop="goNextYear"></button>
       </div>
 
       <div v-if="!chooseYear && !chooseMonth">
-        <table class="weekdays days" >
+        <table class="weekdays days">
           <th>Mon</th>
           <th>Tue</th>
           <th>Wed</th>
@@ -31,7 +38,9 @@
                 ? 'current-day'
                 : '' || activeDayChecker(day)
                 ? 'active-day'
-                : ''
+                : '' || currentMonthChecker(day)
+                ? ''
+                : 'not-currrent-month'
             "
           >
             {{
@@ -42,13 +51,34 @@
       </div>
 
       <div v-else-if="chooseMonth" class="months-years">
-        <hr>
+        <hr />
         <table>
-            <tr v-for="mon, idx in months" :key="idx">
-                {{mon.shortLabel}}
-            </tr>
+          <tr
+            v-for="(mon, idx) in months"
+            :key="idx"
+            @click.stop="changeMonthValue(idx)"
+          >
+            {{
+              mon.shortLabel
+            }}
+          </tr>
         </table>
-    </div>
+      </div>
+
+      <div v-else class="months-years">
+        <hr />
+        <table>
+          <tr
+            v-for="(year, idy) in years"
+            :key="idy"
+            @click.stop="changeYearValue(year)"
+          >
+            {{
+              year
+            }}
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </template>
@@ -66,6 +96,8 @@ export default {
       newMonth: 0,
       newDate: 0,
       newYear: 0,
+      years: [],
+      changeYearList: 0,
       currentMonthBlock: [],
       currentMonth: [],
       previousMonth: [],
@@ -74,19 +106,19 @@ export default {
       chooseYear: false,
       chooseMonth: false,
       months: [
-        {label: 'Yanvar', val: 1, shortLabel: 'Yan'},
-        {label: 'Fevral', val: 2, shortLabel: 'Fev'},
-        {label: 'Mart', val: 3, shortLabel: 'Mar'},
-        {label: 'Aprel', val: 4, shortLabel: 'Apr'},
-        {label: 'May', val: 5, shortLabel: 'May'},
-        {label: 'Iyun', val: 6, shortLabel: 'Iyun'},
-        {label: 'Iyul', val: 7, shortLabel: 'Iyul'},
-        {label: 'Avgust', val: 8, shortLabel: 'Avg'},
-        {label: 'Sentabr', val: 9, shortLabel: 'Sen'},
-        {label: 'Oktabr', val: 10, shortLabel: 'Okt'},
-        {label: 'Noyabr', val: 11, shortLabel: 'Noy'},
-        {label: 'Dekabr', val: 12, shortLabel: 'Dek'}
-      ]
+        { label: "Yanvar", val: 1, shortLabel: "Yan" },
+        { label: "Fevral", val: 2, shortLabel: "Fev" },
+        { label: "Mart", val: 3, shortLabel: "Mar" },
+        { label: "Aprel", val: 4, shortLabel: "Apr" },
+        { label: "May", val: 5, shortLabel: "May" },
+        { label: "Iyun", val: 6, shortLabel: "Iyun" },
+        { label: "Iyul", val: 7, shortLabel: "Iyul" },
+        { label: "Avgust", val: 8, shortLabel: "Avg" },
+        { label: "Sentabr", val: 9, shortLabel: "Sen" },
+        { label: "Oktabr", val: 10, shortLabel: "Okt" },
+        { label: "Noyabr", val: 11, shortLabel: "Noy" },
+        { label: "Dekabr", val: 12, shortLabel: "Dek" },
+      ],
     };
   },
   mounted() {
@@ -96,7 +128,8 @@ export default {
     this.getPreviousMonth();
     this.createMonth();
     this.getNextMonth();
-    this.currentDaySetter()
+    this.currentDaySetter();
+    this.getYears();
   },
   computed: {
     today() {
@@ -106,6 +139,21 @@ export default {
     },
   },
   methods: {
+    getYears() {
+      let date = new Date();
+      let currDate = new Date(
+        date.getFullYear() - this.changeYearList,
+        date.getMonth(),
+        date.getDate()
+      );
+      for (
+        let i = currDate.getFullYear();
+        i < currDate.getFullYear() + 12;
+        i++
+      ) {
+        this.years.push(i);
+      }
+    },
     getCurrentDate() {
       let newDate = new Date();
       this.newMonth = newDate.getMonth();
@@ -123,7 +171,6 @@ export default {
         this.currentMonth.push(new Date(date));
         date.setDate(date.getDate() + 1);
       }
-      // console.log(this.currentMonth)
     },
     createMonth() {
       const weekday = this.currentMonth[0]?.getDay();
@@ -154,7 +201,6 @@ export default {
           }
         }
       }
-      // console.log(this.currentMonthBlock)
     },
     getPreviousMonth() {
       let year = this.today.getFullYear();
@@ -168,7 +214,6 @@ export default {
         this.previousMonth.push(new Date(date));
         date.setDate(date.getDate() + 1);
       }
-      // console.log(this.previousMonth)
     },
     getNextMonth() {
       let year = this.today.getFullYear();
@@ -220,6 +265,73 @@ export default {
 
       this.$emit("date", result);
     },
+    changeMonthValue(val) {
+      this.chooseMonth = false;
+      this.chooseYear = false;
+      this.newMonth = val;
+      this.currentDaySetter();
+      this.getPreviousMonth();
+      this.getCurrentMonth();
+      this.getNextMonth();
+      this.createMonth();
+    },
+    currentMonthChecker(val) {
+      if (val.getMonth() === this.today.getMonth()) {
+        return true;
+      } else return false;
+    },
+    changeYearValue(val) {
+      this.chooseMonth = !this.chooseMonth;
+      this.newYear = val;
+      this.getPreviousMonth();
+      this.getCurrentMonth();
+      this.getNextMonth();
+      this.createMonth();
+      this.currentDaySetter();
+    },
+    goPrevYear() {
+      if (!this.chooseYear && !this.chooseMonth) {
+        this.newYear--;
+        this.getPreviousMonth();
+        this.getCurrentMonth();
+        this.getNextMonth();
+        this.createMonth();
+        this.currentDaySetter();
+      }
+    },
+    goNextYear() {
+      if (!this.chooseYear && !this.chooseMonth) {
+        this.newYear++;
+        this.getPreviousMonth();
+        this.getCurrentMonth();
+        this.getNextMonth();
+        this.createMonth();
+        this.currentDaySetter();
+      }
+    },
+    goPrevMonth() {
+      this.newMonth--;
+      if (this.newMonth < 0) {
+        (this.newMonth = 11), this.newYear--;
+      }
+      this.getPreviousMonth();
+      this.getCurrentMonth();
+      this.getNextMonth();
+      this.createMonth();
+      this.currentDaySetter();
+    },
+    goNextMonth() {
+      this.newMonth++;
+      if (this.newMonth > 11) {
+        this.newMonth = 0;
+        this.newYear++;
+      }
+      this.getPreviousMonth();
+      this.getCurrentMonth();
+      this.getNextMonth();
+      this.createMonth();
+      this.currentDaySetter();
+    },
   },
 };
 </script>
@@ -230,6 +342,7 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
+  z-index: 100;
 
   .calendar-wrapper {
     @include Flex(column, space-around);
@@ -262,8 +375,6 @@ export default {
         &:hover {
           color: #e6a958;
         }
-
-
       }
 
       button {
@@ -367,51 +478,53 @@ export default {
           }
         }
 
-        &.active-day{
-            border: 1px solid #e6a958;
-            color: #e6a958;
-            box-sizing: border-box;
+        &.active-day {
+          border: 1px solid #e6a958;
+          color: #e6a958;
+          box-sizing: border-box;
+        }
+        .not-current-month {
+          color: #a4abbd;
         }
       }
     }
 
-    .months-years{
-        width: 100%;
-        height: auto;
-        hr{
-            margin-top: 20px;
+    .months-years {
+      width: 100%;
+      height: auto;
+      hr {
+        margin-top: 20px;
+      }
+
+      table {
+        display: grid;
+        -moz-column-gap: 36px;
+        margin-top: 6px;
+        grid-row: 1/3;
+        grid-template-columns: repeat(3, 33%);
+        grid-template-rows: 3;
+
+        tr {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 64px;
+          height: 64px;
+          font-size: 1.15rem;
+          line-height: 20px;
+          border-radius: 20px;
+          margin: 0 auto;
+          cursor: pointer;
+          padding: 20px 3px;
+          box-sizing: border-box;
+          text-align: center;
+          color: #a4abbd;
+
+          &:hover {
+            color: #e6a958;
+          }
         }
-
-        table{
-            display: grid;
-            -moz-column-gap: 36px;
-            margin-top: 6px;
-            grid-row: 1/3;
-            grid-template-columns: repeat(3, 33%);
-            grid-template-rows: 3;
-
-            tr{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 64px;
-                height: 64px;
-                font-size: 1.15rem;
-                line-height: 20px;
-                border-radius: 20px;
-                margin: 0 auto;
-                cursor: pointer;
-                padding: 20px 3px;
-                box-sizing: border-box;
-                text-align: center;
-                color: #a4abbd;
-
-                &:hover{
-                    color: #e6a958;
-                }
-            }
-
-        }
+      }
     }
   }
 }

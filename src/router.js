@@ -154,6 +154,18 @@ const routes = [
       {
         path: '/visit-museum',
         component: ()=>import('@/views/service-pages/VisitMuseumPage.vue')
+      },
+
+      // Service Volunteers Museum
+      {
+        path: '/volunteers',
+        component: () => import('@/views/service-pages/MuseumVolunteers.vue')
+      },
+
+      // Service Bank Cards
+      {
+        path: '/bank-cards',
+        component: () => import ('@/views/service-pages/MuseumBankCards.vue')
       }
     ],
   },
