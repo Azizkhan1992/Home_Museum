@@ -7,7 +7,9 @@
             </div>
 
             <div class="bank-cards-progress">
+                <div class="bank-cards-bg"></div>
                 <progress-bar :progress-items="getProgressItems"/>
+                
             </div>
         </div>
     </div>

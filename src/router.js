@@ -166,6 +166,11 @@ const routes = [
       {
         path: '/bank-cards',
         component: () => import ('@/views/service-pages/MuseumBankCards.vue')
+      },
+      // Service Bank Cards Inner Page
+      {
+        path: '/bank-cards/:id',
+        component: () => import('@/views/service-pages/bank-card-inner-page/_id.vue')
       }
     ],
   },
