@@ -26,6 +26,13 @@
               <span>{{ getFooterInfo.facs }}</span>
               <span>{{ getFooterInfo.mail }}</span>
             </div>
+
+            <div class="mobile-items">
+              <p>Наши социальные сети</p>
+              <link-items :twit-active="true"/> 
+            </div>
+
+
           </div>
           <div class="content-right">
             <div
@@ -114,8 +121,10 @@
   </div>
 </template>
 <script>
+import LinkItems from '../pages/common/LinkItems.vue';
 export default {
   name: "museum-footer",
+  components: {LinkItems},
   data() {
     return {};
   },

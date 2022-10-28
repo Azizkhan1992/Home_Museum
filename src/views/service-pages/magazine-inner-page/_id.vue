@@ -21,13 +21,10 @@
         </div>
 
         <div class="wrapper-content">
+          <div class="inner-bg"></div>
           <div class="content-left">
             <div class="left-slider">
-              <app-carousel
-                :data="getMagazineInner"
-                :url="'@/assets/Items/Service/Magazine/'"
-                :items="1"
-              />
+              <one-itemous-slider :data="getMagazineSlide" />
             </div>
           </div>
           <div class="content-right">
@@ -55,9 +52,9 @@
 </template>
 <script>
 import LinkItems from "@/components/pages/common/LinkItems.vue";
-import AppCarousel from "@/components/pages/common/AppCarousel.vue";
+import OneItemousSlider from "@/components/pages/common/OneItemousSlider.vue";
 export default {
-  components: { LinkItems, AppCarousel },
+  components: { LinkItems, OneItemousSlider },
   data() {
     return {
       id: this.$route.path,
@@ -98,6 +95,9 @@ export default {
       });
       return item;
     },
+    getMagazineSlide(){
+      return this.$store?.getters && this.$store.getters?.getMagazineSlide && this.$store.getters.getMagazineSlide
+    }
   },
 };
 </script>

@@ -26,7 +26,7 @@
       >
         <div class="item-top" :class="istopActive ? 'top-active' : ''">
           <img
-            :src="url + item.img"
+            :src="require('@/assets/Items/Collection/Tools/' + item.img)"
             alt=""
           />
 
@@ -52,10 +52,6 @@ export default {
     data: {
       type: Array,
       default: () => [],
-    },
-    url:{
-      type: String,
-      default: ''
     },
     items: {
       type: [Number, String],
@@ -105,26 +101,11 @@ export default {
         let item = this.carouselItems.shift();
         this.carouselItems.push(item);
 
-        // if (this.idChecker == this.carouselItems.length) {
-        //   this.idChecker = 1;
-        // } else {
-        //   this.idChecker++;
-        // }
         if (this.checkBtn == this.carouselItems.length) {
           this.checkBtn = 1;
         } else {
           this.checkBtn++;
         }
-
-        // if (this.lastId == this.carouselItems.length) {
-        //   this.lastId = 1;
-        // } else {
-        //   this.lastId++;
-        // }
-    },
-
-    moveLeft() {
-      // let item = document.getElementsByClassName('left-item')
     },
   },
   filters: {

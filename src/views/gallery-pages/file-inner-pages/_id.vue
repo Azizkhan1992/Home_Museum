@@ -73,19 +73,20 @@ export default {
   },
   methods: {
     play(){
+      this.step = 0
+      this.width = 0
       setTimeout(() => {
         this.playImg()
       }, 100)
     },
     playImg(){
       setInterval(() => {
-        if(this.step <= this.get3D.length){
+        if(this.step < this.get3D.length-1){
           this.step++
           this.width += 4
-        }else{
-          this.step--
-          this.width -= 4
         }
+        clearInterval()
+        console.log(this.step)
       }, 400)
     }
   },

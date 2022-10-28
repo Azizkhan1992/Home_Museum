@@ -9,7 +9,7 @@
       :items="submenuItems"
     ></menu-items>
     <router-view />
-    <breadcrumbs-page v-if="isMenuActive" :path="breadItems"/>
+    <breadcrumbs-page v-if="isBreadActive && currentPath !== '/' && currentPath !== '/contacts'" :path="breadItems"/>
     </div>
     <museum-footer-layout />
 </div>
@@ -35,7 +35,8 @@ export default {
             currentPath: null,
             activeItem: null,
             submenuItems: [],
-            breadItems: ''
+            breadItems: '',
+            isBreadActive: false
         };
     },
     mounted() {
@@ -44,11 +45,9 @@ export default {
     },
     methods: {
         currentRoute() {
-        //   console.log('route', this.viewMenuItems)
           this.$store.state.menuItems.forEach((element) => {
                 if (element.subMenu.length > 0) {
                     element.subMenu.forEach(elem => {
-                        // let url = elem.url.split('/')
                         const anyPath = this.currentPath ? this.currentPath : this.$route.path;
                         if (elem.url == anyPath) {
                             this.activeItem = elem
@@ -61,15 +60,32 @@ export default {
         },
 
         setBreadItems(){
-            this.$store.state.menuItems.forEach(element => {
+            if(this.currentPath){
+                this.$store.state.menuItems.forEach(element => {
                 if(element.subMenu.length > 0){
                     element.subMenu.forEach(elem=>{
                         if(elem.url == this.currentPath){
                             this.breadItems = elem.name
+                            this.isBreadActive = true
                         }
                     })
                 }
             });
+            }else{
+                this.currentPath = this.$route.path
+                if(this.currentPath !== '/' && this.currentPath !== '/contacts'){
+                    this.$store.state.menuItems.forEach(element => {
+                if(element.subMenu.length > 0){
+                    element.subMenu.forEach(elem=>{
+                        if(elem.url == this.currentPath){
+                            this.breadItems = elem.name
+                            this.isBreadActive = true
+                        }
+                    })
+                }
+            });
+                }
+            }
         },
     },
 

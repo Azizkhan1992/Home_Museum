@@ -2191,6 +2191,11 @@ const store = new Vuex.Store({
         ],
       },
     ],
+    magazineSlide: [
+      'img1.png',
+      'img2.png',
+      'img3.png'
+    ],
 
     // Service Visit Museum
     visitMuseum: {
@@ -2770,6 +2775,9 @@ const store = new Vuex.Store({
     // service Magazine
     getMagazine(state) {
       return state.magazine;
+    },
+    getMagazineSlide(state){
+      return state.magazineSlide
     },
 
     // Service Visit Museum

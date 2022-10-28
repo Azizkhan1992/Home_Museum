@@ -76,6 +76,7 @@
         <div class="bread-items">
             <router-link to="/">Главная</router-link>
             <img src="@/assets/Items/Common/Items/Right.png" alt="">
+            <span>Контакты</span>
         </div>
       </div>
     </div>

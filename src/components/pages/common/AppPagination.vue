@@ -9,6 +9,9 @@
         <span>Страница</span>
             <input type="text" :value="pageNumber" />
             <span>из {{currentPages}}</span>
+            <button>
+              <img src="@/assets/Items/Common/Items/arrow-right.png" alt="">
+            </button>
       </div>
     </div>
   </div>
@@ -130,6 +133,15 @@ export default {
       align-items: center;
       justify-content: flex-end;
 
+      button{
+        width: 90px;
+        height: 100%;
+        border-radius: 25px;
+        border: 2px solid #a98855;
+        cursor: pointer;
+        background: transparent;
+      }
+
       input{
         width: 90px;
         height: 100%;
@@ -161,5 +173,73 @@ export default {
       }
     }
   }
+}
+
+@media screen and (min-width: 320px) and (max-width: 540px) {
+  .pagination-container{
+    height: 200px;
+  }
+  .pagination-container .pagination-content{
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .pagination-container .pagination-content .pagination-left{
+    width: 100%;
+  }
+
+  .pagination-container .pagination-content .pagination-left button{
+    width: 135px;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    line-height: 20px;
+  }
+  .pagination-container .pagination-content .pagination-right{
+    width: 100%;
+    justify-content: space-between;
+  }
+  .pagination-container .pagination-content .pagination-right span{
+    font-size: 1rem;
+  }
+  .pagination-container .pagination-content .pagination-right input{
+    width: 60px;
+    height: 75%;
+    border-radius: 15px;
+  }
+  .pagination-container .pagination-content .pagination-right button{
+    width: 60px;
+    height: 75%;
+    border-radius: 15px;
+  }
+  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .title-review-content .title-review-header h1{
+    font-size: 2.25rem;
+    line-height: 34px;
+  }
+  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .title-review-content .title-review-header span{
+    width: 100%;
+    font-size: 1rem;
+    line-height: 20px;
+  }
+  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .title-review-content .title-review-header span.title{
+    width: 95%;
+  }
+  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .title-review-content .title-review-items{
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .title-review-content .title-review-items .input-name{
+    width: 100%;
+  }
+  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .title-review-content .title-review-items .input-lastname{
+    width: 100%;
+  }
+  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .title-review-content{
+    width: 100%;
+    height: 900px;
+  }
+  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .title-review-content .title-review-items button{
+    width: 100%;
+  }
+  
 }
 </style>

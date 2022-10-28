@@ -63,7 +63,7 @@ export default {
     &.active {
       font-size: 1.15rem;
       line-height: 24px;
-      font-weight: 500;
+      font-weight: 700;
       background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -72,6 +72,15 @@ export default {
 
   img {
     margin-right: 10px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 540px) {
+  .breadcrumbs-container a{
+    font-size: 0.85rem;
+  }
+  .breadcrumbs-container p.active{
+    font-size: 0.95rem;
   }
 }
 </style>

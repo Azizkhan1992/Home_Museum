@@ -49,7 +49,7 @@ export default {
   position: fixed;
   bottom: 0;
   left: 60px;
-  z-index: 5;
+  z-index: 50;
 
   ul {
     width: 100%;
@@ -135,6 +135,27 @@ export default {
         transition: transform 0.5s ease-in;
       }
     }
+  }
+}
+
+@media screen and(min-width: 320px) and (max-width: 540px) {
+  .menu-items-container{
+    width: 50%;
+  }
+  .menu-items-container .active-item{
+    height: 65px;
+  }
+  .menu-items-container .active-item img.img-active{
+    margin-left: 10px;
+  }
+  .menu-items-container .active-item img.img-deactive{
+    margin-left: 10px;
+  }
+  .menu-items-container ul{
+    row-gap: 10px;
+  }
+  .menu-items-container ul li{
+    height: 35px;
   }
 }
 </style>
