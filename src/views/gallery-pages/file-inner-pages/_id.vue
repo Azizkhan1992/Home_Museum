@@ -86,7 +86,7 @@ export default {
           this.width += 4
         }
         clearInterval()
-        console.log(this.step)
+        // console.log(this.step)
       }, 400)
     }
   },

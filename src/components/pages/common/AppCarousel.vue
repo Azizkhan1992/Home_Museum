@@ -274,4 +274,11 @@ export default {
     }
   }
 }
+
+
+@media screen and (min-width: 320px) and (max-width: 540px) {
+  .carousel-container{
+    display: none;
+  }
+}
 </style>

@@ -96,6 +96,8 @@
               />
             </svg>
 
+            <img src="@/assets/Items/Common/Items/Vector5.png" alt="">
+
             <span>{{getInnerItems.date_end}}</span>
           </div>
         </div>

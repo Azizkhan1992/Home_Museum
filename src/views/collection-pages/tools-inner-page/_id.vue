@@ -30,6 +30,19 @@
 
         <div class="tools-inner-carousel">
           <h1 class="tools-header">Посмотреть также</h1>
+
+          <div class="inner-mobile-items">
+            <div class="mobile-wrapper">
+              <div class="mobile-items" v-for="item, idx in mobile" :key="idx">
+              <div class="mobile-top-img">
+                <img :src="require('@/assets/Items/Collection/Tools/' + item.img)" alt="">
+              </div>
+              <p>{{item.name}}</p>
+              <span>{{item.descript | filteredDesc}}</span>
+              </div>
+            </div>
+          </div>
+
           <app-carousel
             :data="getCarouselData"
             :istop-active="true"
@@ -49,7 +62,11 @@ export default {
   data() {
     return {
       checkId: this.$route.path,
+      mobile: null
     };
+  },
+  mounted(){
+    this.getMobileItems()
   },
   computed: {
     getCheckId() {
@@ -98,5 +115,16 @@ export default {
       return item;
     },
   },
+  methods: {
+    getMobileItems(){
+      this.mobile = this.getCarouselData.slice(0,3)
+      console.log(this.mobile)
+    }
+  },
+  filters: {
+    filteredDesc(val){
+      return val.slice(0, 250) + ' ...'
+    }
+  }
 };
 </script>

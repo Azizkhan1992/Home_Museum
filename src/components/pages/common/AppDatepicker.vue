@@ -340,9 +340,9 @@ export default {
 
 .calendar-container {
   width: 100%;
-  height: 100%;
+  height: auto;
   position: relative;
-  z-index: 100;
+  z-index: 500;
 
   .calendar-wrapper {
     @include Flex(column, space-around);
@@ -356,6 +356,7 @@ export default {
     overflow: hidden;
     padding: 24px;
     box-sizing: border-box;
+    z-index: 500;
 
     .datepicker-top {
       width: 100%;

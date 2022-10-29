@@ -89,6 +89,7 @@ export default {
     background: transparent;
     border: 0;
     cursor: pointer;
+    z-index: 50;
 
     &.btn-left {
       left: 10px;

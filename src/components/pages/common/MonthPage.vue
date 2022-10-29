@@ -65,6 +65,7 @@ export default {
   background: #fff;
   border-radius: 10px;
   position: relative;
+  z-index: 20;
 
   .month-visible {
     width: 100%;
@@ -105,6 +106,7 @@ export default {
     transition: height 0.5s ease-out;
     padding: 10px 0;
     box-sizing: border-box;
+    z-index: 20;
 
     &.deactive {
       overflow: hidden;
@@ -115,6 +117,7 @@ export default {
       height: 200px;
       overflow-y: scroll;
       transition: height 0.5s ease-in;
+      z-index: 20;
     }
 
     .month-items {
@@ -124,6 +127,7 @@ export default {
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      z-index: 20;
 
       span {
         font-size: 1rem;

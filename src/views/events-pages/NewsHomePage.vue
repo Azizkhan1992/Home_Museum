@@ -26,9 +26,7 @@
                                     </div>
                                 </div>
                                 <div class="right">
-                                    <img src="@/assets/Items/Events/News/Icon.png" alt="">
-                                    <img src="@/assets/Items/Events/News/Icon3.png" alt="">
-                                    <img src="@/assets/Items/Events/News/Icon2.png" alt="">
+                                    <link-items/>
                                 </div>
                             </div>
                         </div>
@@ -63,9 +61,10 @@
 import YearPage from '@/components/pages/common/YearPage.vue'
 import MonthPage from '@/components/pages/common/MonthPage.vue'
 import AppPagination from '@/components/pages/common/AppPagination.vue'
+import LinkItems from '@/components/pages/common/LinkItems.vue'
 export default {
     name: 'museum-news',
-    components: {YearPage, MonthPage, AppPagination},
+    components: {YearPage, MonthPage, AppPagination, LinkItems},
     data(){
         return{
             list: []
