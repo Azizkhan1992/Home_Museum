@@ -8,7 +8,7 @@
 
             <div class="bank-cards-progress">
                 <div class="bank-cards-bg"></div>
-                <progress-bar :progress-items="getProgressItems"/>
+                <progress-bar :progress-items="getProgressItems" :is-header="false"/>
                 
             </div>
         </div>

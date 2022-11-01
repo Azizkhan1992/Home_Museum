@@ -14,122 +14,334 @@ body {
   // Museum Header Layout
   .museum-header-container {
     width: 100%;
-    height: 170px;
+    height: 180px;
 
     background: rgba(225, 225, 225, 0.5);
     position: relative;
 
     .museum-header-content {
-      width: 91.5%;
       height: 100%;
       margin: auto;
-      @include Flex;
+      @include Flex(column, space-around);
 
-      ul {
+      .mobile-content{
+        display: none;
+      }
+
+      .desctop-content{
         width: 100%;
-        height: 25%;
-        padding: 0;
-        @include Flex(row, flex-end);
-        list-style: none;
+        height: 100%;
+        @include Flex(column, space-around);
 
-        li {
-          width: 12%;
-          height: 100%;
-          @include Flex;
-          margin-left: 20px;
 
-          .items {
-            width: 100%;
-            height: 100%;
-            @include Flex;
-
-            a {
-              @include Font(1.15rem, 24px, 500);
-              @include FontBg;
-              text-decoration: none;
-            }
+        .header-top{
+          width: 100%;
+          height: 40%;
+          @include Flex(row, space-between);
+  
+          .mobile{
+            display: none;
           }
-
-          .drop-items {
-            width: 100%;
+  
+          .mobile-lang{
+            display: none;
+          }
+  
+          .header-logo{
+            width: 20%;
             height: 100%;
             @include Flex(row, space-around);
-            @include FontBg;
-            cursor: pointer;
+  
+            .logo-title{
+              width: 75%;
+              height: 75%;
+              @include Flex(column, space-around);
+              align-items: flex-start;
+  
+              h1{
+                @include Font(1.25rem, 25px);
+                color: #000;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin: 0;
+              }
+  
+              p{
+                @include Font(1rem, 20px);
+                @include FontBg;
+                text-transform: uppercase;
+                margin: 0;
+                letter-spacing: 0.025em;
+              }
+            }
           }
-        }
-        .dropdown-hidden {
-          width: 100%;
-          height: 0;
-          position: absolute;
-          top: 170px;
-          left: 0;
-          background: #fff;
-          border-radius: 5px;
-          transition: height 1s ease-out;
-          background: url("@/assets/Items/bottomBg.png") no-repeat,
-            linear-gradient(43.11deg, #ba8846 21.75%, #ffffe8 100%);
-          background-position: right bottom;
-
-          &.deactive {
-            overflow: hidden;
-          }
-
-          &.active {
-            height: 290px;
-            transition: height 1s ease-in;
-            z-index: 5;
-            overflow: hidden;
-          }
-
-          .drop-content {
-            width: 91%;
-            height: auto;
-            margin: 0 auto;
-            @include Flex(row, flex-start);
-            align-items: flex-start;
-            position: relative;
-
-            .drop-wrapper {
-              width: 55%;
-              margin-top: 50px;
-              @include Flex(row, unset);
-              align-items: center;
-              flex-wrap: wrap;
-              flex: 0 auto;
-
-              .dropdown-items {
-                width: 50%;
-                height: 35px;
-                @include Flex(row, flex-start);
-
-                a {
-                  @include Font(1.15rem, 24px, 700);
-                  color: #fff;
-                  text-decoration: none;
+  
+          .top-center{
+            width: 40%;
+            height: 100%;
+            @include Flex(row, space-between);
+  
+            .center-input{
+              width: 280px;
+              height: 100%;
+              position: relative;
+              @include Flex;
+  
+              img{
+                position: absolute;
+                top: 25px;
+                left: 10px;
+              }
+  
+              input{
+                width: 100%;
+                height: 45px;
+                padding: 5px 0 5px 35px;
+                box-sizing: border-box;
+                @include Font(1.15rem, 20px);
+                @include FontBg;
+                opacity: 0.7;
+                // background: #fff;
+                border-radius: 10px;
+  
+  
+                &:hover{
+                  border: 2px solid #a56935;
+                }
+  
+                &:focus{
+                  border: 1px solid #000;
+                  outline: none;
                 }
               }
             }
-
-            .quote-content {
-              width: 40%;
-              height: 65%;
-              margin-top: 50px;
-              @include Flex(column, space-around);
-
-              p {
-                align-self: flex-start;
-                @include Font(1.25rem, 30px, 600);
-                @include FontBg;
-                margin: 0;
-                margin-bottom: 20px;
+  
+            button{
+              width: 48px;
+              height: 48px;
+              background: transparent;
+              border-radius: 10px;
+              border: 2px solid #a56935;
+              cursor: pointer;
+            }
+          }
+  
+          .top-right{
+            width: 35%;
+            height: 100%;
+            @include Flex(row, space-around);
+  
+            button{
+              width: 200px;
+              height: 48px;
+              border-radius: 10px;
+              cursor: pointer;
+              @include Font(1.15rem, 20px, 700);
+  
+  
+              &.btn-one{
+                background: linear-gradient(180deg, #A56935 0%, #6F5539 100%);
+                border: 0;
+                color: #fff;
               }
-
-              span {
-                display: inline-block;
-                margin-left: 10%;
-                @include Font(1.25rem, 30px, 600);
+  
+              &.btn-two{
+                @include Flex(row, space-around);
                 @include FontBg;
+                border: 2px solid #a56935;
+  
+                img{
+                    /* Start the shake animation and make the animation last for 0.5 seconds */
+                    animation: shake 0.75s;
+                  
+                    /* When the animation is finished, start again */
+                    animation-iteration-count: infinite;
+                  
+                  @keyframes shake {
+                    0% { transform: translate(1px, 1px) rotate(0deg); }
+                    20% { transform: translate(-3px, 0px) rotate(1deg); }
+                    40% { transform: translate(1px, -1px) rotate(1deg); }
+                    60% { transform: translate(-3px, 1px) rotate(0deg); }
+                    80% { transform: translate(-1px, -1px) rotate(1deg); }
+                    100% { transform: translate(1px, -2px) rotate(-1deg); }
+                  }
+                }
+              }
+            }
+          }
+        }
+  
+        ul {
+          width: 100%;
+          height: 40%;
+          padding: 0;
+          margin: 0;
+          @include Flex(row, flex-end);
+          list-style: none;
+  
+          li {
+            width: 12%;
+            height: 100%;
+            @include Flex;
+            margin-left: 20px;
+  
+            &:first-child{
+              margin-left: 0;
+            }
+  
+            &.li-drop{
+              width: 5%;
+              position: relative;
+  
+              .drop-visible{
+                width: 100%;
+                height: 75%;
+                @include Flex(row, space-around);
+                cursor: pointer;
+  
+                img{
+                  transition: all 0.75s ease-in-out;
+  
+                  &.lang-img-active{
+                    transform: rotate(180deg);
+                    transition: all 0.75s ease-in-out;
+                  }
+                }
+  
+                p{
+                  @include Font(1.15rem, 20px);
+                  @include FontBg;
+                }
+              }
+  
+              .lang-drop-hidden{
+                width: 50px;
+                height: auto;
+                @include Flex(column, space-between);
+                position: absolute;
+                top: 65px;
+                left: 0;
+                z-index: 50;
+                overflow: hidden;
+                transition: all 0.75s ease-in-out;
+  
+                &.deactive{
+                  height: 0;
+                  overflow: hidden;
+                }
+  
+                &.active{
+                  height: 100px;
+                  transition: all 0.75s ease-in-out;
+                }
+  
+                .lang-drop-items{
+                  width: 100%;
+                  height: 20px;
+                  @include Flex;
+                  cursor: pointer;
+  
+                  span{
+                    @include Font(1.15rem, 20px);
+                    @include FontBg;
+                  }
+                }
+              }
+            }
+  
+            .items {
+              width: 100%;
+              height: 100%;
+              @include Flex;
+  
+              a {
+                @include Font(1.15rem, 24px, 500);
+                @include FontBg;
+                text-decoration: none;
+              }
+            }
+  
+            .drop-items {
+              width: 100%;
+              height: 100%;
+              @include Flex(row, space-around);
+              @include FontBg;
+              cursor: pointer;
+            }
+          }
+          .dropdown-hidden {
+            width: 100%;
+            height: 0;
+            position: absolute;
+            top: 170px;
+            left: 0;
+            background: #fff;
+            border-radius: 5px;
+            transition: height 1s ease-out;
+            background: url("@/assets/Items/bottomBg.png") no-repeat,
+              linear-gradient(43.11deg, #ba8846 21.75%, #ffffe8 100%);
+            background-position: right bottom;
+  
+            &.deactive {
+              overflow: hidden;
+            }
+  
+            &.active {
+              height: 290px;
+              transition: height 1s ease-in;
+              z-index: 5;
+              overflow: hidden;
+            }
+  
+            .drop-content {
+              width: 91%;
+              height: auto;
+              margin: 0 auto;
+              @include Flex(row, flex-start);
+              align-items: flex-start;
+              position: relative;
+  
+              .drop-wrapper {
+                width: 55%;
+                margin-top: 50px;
+                @include Flex(row, unset);
+                align-items: center;
+                flex-wrap: wrap;
+                flex: 0 auto;
+  
+                .dropdown-items {
+                  width: 50%;
+                  height: 35px;
+                  @include Flex(row, flex-start);
+  
+                  a {
+                    @include Font(1.15rem, 24px, 700);
+                    color: #fff;
+                    text-decoration: none;
+                  }
+                }
+              }
+  
+              .quote-content {
+                width: 40%;
+                height: 65%;
+                margin-top: 50px;
+                @include Flex(column, space-around);
+  
+                p {
+                  align-self: flex-start;
+                  @include Font(1.25rem, 30px, 600);
+                  @include FontBg;
+                  margin: 0;
+                  margin-bottom: 20px;
+                }
+  
+                span {
+                  display: inline-block;
+                  margin-left: 10%;
+                  @include Font(1.25rem, 30px, 600);
+                  @include FontBg;
+                }
               }
             }
           }
@@ -204,7 +416,7 @@ body {
             border-radius: 24px;
             @include Flex(column, space-around);
 
-            .mobile-items{
+            .mobile-items {
               display: none;
             }
 
@@ -1355,78 +1567,70 @@ body {
           @include Flex(column, flex-start);
           flex-wrap: wrap;
 
-         
+          .img-wrapper {
+            width: 60%;
+            height: 100%;
 
-            .img-wrapper{
-              width: 60%;
-              height: 100%;
+            img {
+              width: 100%;
+              height: 85%;
+              object-fit: cover;
+            }
+          }
 
-              img {
-                width: 100%;
-                height: 85%;
-                object-fit: cover;
+          .part-one {
+            width: 30%;
+            height: 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            button {
+              width: 312px;
+              height: 75px;
+              border-radius: 20px;
+              border: 2px solid #a56936;
+              background: #fff;
+              @include Font(1.25rem, 26px, 700);
+              @include FontBg;
+              cursor: pointer;
+              transition: -webkit-text-fill-color 0.5s ease-out;
+
+              &:hover {
+                background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
+                -webkit-text-fill-color: #fff;
+                border: none;
+                transition: -webkit-text-fill-color 0.5s ease-in;
               }
             }
+          }
 
-            .part-one{
-              width: 30%;
-              height: 45%;
-              display: flex;
-              flex-direction: column;
-              justify-content: space-around;
+          .part-two {
+            width: 30%;
+            height: 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
 
+            button {
+              width: 312px;
+              height: 75px;
+              border-radius: 20px;
+              border: 2px solid #a56936;
+              background: #fff;
+              @include Font(1.25rem, 26px, 700);
+              @include FontBg;
+              cursor: pointer;
+              transition: -webkit-text-fill-color 0.5s ease-out;
 
-              button {
-                width: 312px;
-                height: 75px;
-                border-radius: 20px;
-                border: 2px solid #a56936;
-                background: #fff;
-                @include Font(1.25rem, 26px, 700);
-                @include FontBg;
-                cursor: pointer;
-                transition: -webkit-text-fill-color 0.5s ease-out;
-  
-                &:hover {
-                  background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
-                  -webkit-text-fill-color: #fff;
-                  border: none;
-                  transition: -webkit-text-fill-color 0.5s ease-in;
-                }
+              &:hover {
+                background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
+                -webkit-text-fill-color: #fff;
+                border: none;
+                transition: -webkit-text-fill-color 0.5s ease-in;
               }
             }
-
-            .part-two{
-              width: 30%;
-              height: 45%;
-              display: flex;
-              flex-direction: column;
-              justify-content: space-around;
-
-
-              button {
-                width: 312px;
-                height: 75px;
-                border-radius: 20px;
-                border: 2px solid #a56936;
-                background: #fff;
-                @include Font(1.25rem, 26px, 700);
-                @include FontBg;
-                cursor: pointer;
-                transition: -webkit-text-fill-color 0.5s ease-out;
-  
-                &:hover {
-                  background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
-                  -webkit-text-fill-color: #fff;
-                  border: none;
-                  transition: -webkit-text-fill-color 0.5s ease-in;
-                }
-              }
-            }
-
-            
-          
-          
+          }
         }
 
         .part-bottom {
@@ -3810,8 +4014,8 @@ body {
             margin-top: 150px;
             @include Flex(column, space-between);
 
-            .inner-mobile-items{
-              display: none
+            .inner-mobile-items {
+              display: none;
             }
 
             .tools-header {
@@ -4443,10 +4647,10 @@ body {
             @include Flex(row, space-between);
             position: relative;
 
-            .inner-bg{
+            .inner-bg {
               width: 65%;
               height: 550px;
-              @include BgImg('bgCenter.svg', 'center');
+              @include BgImg("bgCenter.svg", "center");
               position: absolute;
               top: -25%;
               left: 0;
@@ -4642,8 +4846,8 @@ body {
               left: 25%;
               @include Flex(column, space-between);
 
-              .exit{
-                display: none
+              .exit {
+                display: none;
               }
 
               h3 {
@@ -4934,6 +5138,12 @@ body {
                   width: 100%;
                   height: 25%;
                   @include Flex(row, space-between);
+
+                  img {
+                    &:nth-child(3) {
+                      display: none;
+                    }
+                  }
 
                   span {
                     @include Font(1.15rem, 25px);
@@ -5519,11 +5729,29 @@ body {
   }
 }
 
+
+
+
+
+
+
 @media screen and (min-width: 1440px) {
   .museum-main-container {
     width: 1320px;
   }
+  .museum-header-content{
+    width: 1320px;
+  }
 }
+
+
+
+
+
+
+
+
+
 
 
 @media screen and (min-width: 1200px) and (max-width: 1440px) {
@@ -5533,79 +5761,161 @@ body {
 }
 
 @media screen and (min-width: 320px) and (max-width: 540px) {
-
   // Museum Header
-  .museum-home-container .museum-header-container{
-    height: 550px;
-  }
-  .museum-home-container .museum-header-container .museum-header-content{
-    width: 95%;
-  }
-  .museum-home-container .museum-header-container .museum-header-content ul{
-    height: 85%;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .museum-home-container .museum-header-container .museum-header-content ul li{
-    width: 25%;
-    margin-left: 0;
-  }
-  .museum-home-container .museum-header-container .museum-header-content ul .dropdown-hidden{
-    width: 65%;
-    top: 0;
-    left: initial;
-    right: 0;
-    background: linear-gradient(43.11deg, #ba8846 21.75%, #ffffe8 100%);
-  }
-  .museum-home-container .museum-header-container .museum-header-content ul .dropdown-hidden.active{
-    width: 65%;
-    height: 100%;
-    left: initial;
-    right: 0;
-    top: 0;
-    background: linear-gradient(43.11deg, #ba8846 21.75%, #ffffe8 100%);
-  }
-  .museum-home-container .museum-header-container .museum-header-content ul .dropdown-hidden .drop-content .quote-content{
+  .museum-home-container .museum-header-container .museum-header-content .desctop-content{
     display: none;
   }
-  .museum-home-container .museum-header-container .museum-header-content ul .dropdown-hidden .drop-content .drop-wrapper{
-    flex-direction: column;
-    row-gap: 10px;
-    width: 90%;
-  }
-  .museum-home-container .museum-header-container .museum-header-content ul .dropdown-hidden .drop-content .drop-wrapper .dropdown-items{
-    width: 85%;
-    height: 50px;
-  }
+  .museum-home-container .museum-header-container{
+    height: 120px;
+    
+    .museum-header-content{
 
+      .mobile-content{
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: relative;
+
+        .mobile-header-visible{
+          width: 100%;
+          height: 100%;
+          @include Flex(row, space-around);
+
+          img{
+            cursor: pointer;
+          }
+
+          .header-logo{
+            width: 50%;
+            height: 100%;
+            @include Flex(row, space-around);
+
+            .logo-title{
+              width: 75%;
+              height: 50%;
+              @include Flex(column, space-around);
+              align-items: flex-start;
+              h1{
+                @include Font(1.15rem, 24px);
+                color: #000;
+                text-transform: uppercase;
+                margin: 0;
+              }
+
+              p{
+                @include Font(1rem, 20px);
+                @include FontBg;
+                text-transform: uppercase;
+                margin: 0;
+              }
+            }
+          }
+        }
+
+        .mobile-header-hidden{
+          width: 100vw;
+          height: 100vh;
+          position: absolute;
+          top: 0;
+          left: 0;
+          transition: all 0.5s ease-in-out;
+
+          &.mobile-deactive{
+            z-index: -10;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+          }
+
+          &.mobile-active{
+            background: linear-gradient(43.11deg, #BA8846 38.02%, #FFFFE8 100%);
+            z-index: 10;
+          }
+
+          .exit{
+            width: 38px;
+            height: 38px;
+            @include Flex;
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            cursor: pointer;
+            background: linear-gradient(180deg, #A56935 0%, #6F5539 100%);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 50%;
+
+            svg path{
+              fill: #fff;
+            }
+
+            &:hover{
+              background: #fff;
+
+              svg path{
+                fill: #a56935;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 
   // Museum Footer
-  .museum-home-container .museum-footer-container{
+  .museum-home-container .museum-footer-container {
     height: 2000px;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg{
+  .museum-home-container .museum-footer-container .museum-footer-bg {
     border-radius: 0;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-header{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-header {
     height: 7%;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-header .header-title{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-header
+    .header-title {
     width: 75%;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-header .header-title p{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-header
+    .header-title
+    p {
     -webkit-text-fill-color: #fff;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content {
     height: 77%;
     flex-direction: column;
     flex-wrap: nowrap;
     row-gap: 20px;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-left{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-left {
     width: 100%;
     height: 40%;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right {
     height: 50%;
     width: 100%;
     flex-direction: row;
@@ -5613,16 +5923,28 @@ body {
     column-gap: 10px;
     justify-content: space-between;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .items{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .items {
     width: 45%;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-left .mobile-items{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-left
+    .mobile-items {
     display: flex;
     flex-direction: column;
     width: 92%;
     height: 20%;
 
-    p{
+    p {
       @include Font(1.25rem, 26px, 700);
       color: #fff;
       margin: 0;
@@ -5630,669 +5952,1427 @@ body {
     .links {
       width: 85%;
 
-      svg{
+      svg {
         color: #fff;
 
-        path{
+        path {
           fill-opacity: 1;
         }
       }
     }
   }
 
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .about-museum{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .about-museum {
     height: 50%;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .about-museum .menu-items{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .about-museum
+    .menu-items {
     height: 20%;
   }
 
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .items h3{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .items
+    h3 {
     font-size: 1rem;
     letter-spacing: 0.025em;
     margin-top: 0;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .collection{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .collection {
     height: 20%;
   }
 
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .media{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .media {
     height: 20%;
   }
 
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .services{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .services {
     height: 20%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .services .menu-items{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .services
+    .menu-items {
     height: 15%;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .services .menu-items a{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .services
+    .menu-items
+    a {
     font-size: 0.85rem;
   }
 
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .about-museum .menu-items a{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .about-museum
+    .menu-items
+    a {
     font-size: 0.85rem;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .collection .menu-items a{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .collection
+    .menu-items
+    a {
     font-size: 0.85rem;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .press-service{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .press-service {
     height: 20%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .press-service .menu-items{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .press-service
+    .menu-items {
     height: 15%;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .press-service .menu-items a{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .press-service
+    .menu-items
+    a {
     font-size: 0.85rem;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-right .media .menu-items a{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-right
+    .media
+    .menu-items
+    a {
     font-size: 0.85rem;
   }
 
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-footer p:nth-child(2){
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-footer
+    p:nth-child(2) {
     display: none;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-footer .museum-social{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-footer
+    .museum-social {
     display: none;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-footer{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-footer {
     height: 15%;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-content .content-footer p{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-content
+    .content-footer
+    p {
     width: 100%;
     font-size: 0.85rem;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-footer{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-footer {
     flex-direction: column;
     height: 15%;
     border-top: 0;
   }
 
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-footer .footer-left-items{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-footer
+    .footer-left-items {
     width: 100%;
     height: 45%;
     flex-wrap: wrap;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-footer .footer-left-items p{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-footer
+    .footer-left-items
+    p {
     width: 47%;
     font-size: 0.85rem;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-footer .footer-right-items{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-footer
+    .footer-right-items {
     width: 100%;
     height: 45%;
     justify-content: center;
     column-gap: 10px;
   }
-  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content .footer-footer .footer-right-items p{
+  .museum-home-container
+    .museum-footer-container
+    .museum-footer-bg
+    .museum-footer-content
+    .footer-footer
+    .footer-right-items
+    p {
     font-size: 0.85rem;
     margin-right: 0;
   }
-
-
-
 
   // Museum Content
   .museum-main-container {
     width: 300px;
   }
 
-
-
   // About Museum
-  .museum-home-container .museum-main-container .about-museum-container .museum-content-header .museum-top-content{
+  .museum-home-container
+    .museum-main-container
+    .about-museum-container
+    .museum-content-header
+    .museum-top-content {
     flex-direction: column;
   }
 
-  .museum-home-container .museum-main-container .about-museum-container .museum-content-header{
+  .museum-home-container
+    .museum-main-container
+    .about-museum-container
+    .museum-content-header {
     height: 600px;
   }
 
-  .museum-home-container .museum-main-container .about-museum-container .museum-content-header .museum-top-content h1{
+  .museum-home-container
+    .museum-main-container
+    .about-museum-container
+    .museum-content-header
+    .museum-top-content
+    h1 {
     font-size: 2.5rem;
     line-height: 115%;
   }
-  .museum-home-container .museum-main-container .about-museum-container .museum-content-header .museum-top-content img{
+  .museum-home-container
+    .museum-main-container
+    .about-museum-container
+    .museum-content-header
+    .museum-top-content
+    img {
     width: 100%;
   }
-  .museum-home-container .museum-main-container .about-museum-container .about-museum-content{
+  .museum-home-container
+    .museum-main-container
+    .about-museum-container
+    .about-museum-content {
     margin-top: 150px;
   }
 
-  .museum-home-container .museum-main-container .about-museum-container .about-museum-content .about-museum-wrapper .items{
+  .museum-home-container
+    .museum-main-container
+    .about-museum-container
+    .about-museum-content
+    .about-museum-wrapper
+    .items {
     flex-direction: column;
     row-gap: 20px;
 
-    img{
+    img {
       width: 100%;
     }
   }
-  .museum-home-container .museum-main-container .about-museum-container .about-museum-content .about-museum-wrapper .content-header{
+  .museum-home-container
+    .museum-main-container
+    .about-museum-container
+    .about-museum-content
+    .about-museum-wrapper
+    .content-header {
     width: 100%;
 
-    img{
+    img {
       width: 100%;
     }
   }
 
-  .museum-home-container .museum-main-container .about-museum-container .about-museum-content .about-museum-wrapper .items p{
+  .museum-home-container
+    .museum-main-container
+    .about-museum-container
+    .about-museum-content
+    .about-museum-wrapper
+    .items
+    p {
     width: 100%;
     font-size: 1rem;
   }
 
-  .museum-home-container .museum-main-container .about-museum-container .about-museum-content .about-museum-wrapper .items.content-two{
+  .museum-home-container
+    .museum-main-container
+    .about-museum-container
+    .about-museum-content
+    .about-museum-wrapper
+    .items.content-two {
     flex-direction: column;
   }
 
-  .museum-home-container .museum-main-container .about-museum-container .about-museum-content .about-museum-wrapper .items.content-three img{
+  .museum-home-container
+    .museum-main-container
+    .about-museum-container
+    .about-museum-content
+    .about-museum-wrapper
+    .items.content-three
+    img {
     width: 100%;
   }
-  .museum-home-container .museum-main-container .about-museum-container .about-museum-content .about-museum-wrapper .items.content-four{
+  .museum-home-container
+    .museum-main-container
+    .about-museum-container
+    .about-museum-content
+    .about-museum-wrapper
+    .items.content-four {
     flex-direction: column;
   }
-
 
   // About Person
-  .museum-home-container .museum-main-container .about-person-container .person-top-container{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-top-container {
     height: 600px;
   }
-  .museum-home-container .museum-main-container .about-person-container .person-top-container .person-top-content{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-top-container
+    .person-top-content {
     flex-direction: column;
 
-    img{
+    img {
       width: 100%;
     }
   }
-  .museum-home-container .museum-main-container .about-person-container .person-top-container .person-top-content h1{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-top-container
+    .person-top-content
+    h1 {
     font-size: 2.5rem;
     line-height: 115%;
   }
-  .museum-home-container .museum-main-container .about-person-container .person-one-container{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-one-container {
     margin-top: 150px;
   }
 
-  .museum-home-container .museum-main-container .about-person-container .person-one-container .person-one-content .person-one-top{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-one-container
+    .person-one-content
+    .person-one-top {
     height: 800px;
   }
-  .museum-home-container .museum-main-container .about-person-container .person-one-container .person-one-content .person-one-top img{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-one-container
+    .person-one-content
+    .person-one-top
+    img {
     height: 30%;
   }
-  .museum-home-container .museum-main-container .about-person-container .person-one-container .person-one-content .person-one-top p{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-one-container
+    .person-one-content
+    .person-one-top
+    p {
     font-size: 1rem;
   }
 
-  .museum-home-container .museum-main-container .about-person-container .person-one-container .person-one-content .person-one-bottom{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-one-container
+    .person-one-content
+    .person-one-bottom {
     flex-direction: column;
   }
 
-  .museum-home-container .museum-main-container .about-person-container .person-one-container .person-one-content .person-one-bottom .images{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-one-container
+    .person-one-content
+    .person-one-bottom
+    .images {
     width: 100%;
     height: 24%;
   }
-  .museum-home-container .museum-main-container .about-person-container .person-one-container .person-one-content .person-one-bottom .image-bottom{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-one-container
+    .person-one-content
+    .person-one-bottom
+    .image-bottom {
     height: 24%;
   }
-  .museum-home-container .museum-main-container .about-person-container .person-one-container .person-one-content .person-one-bottom p{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-one-container
+    .person-one-content
+    .person-one-bottom
+    p {
     font-size: 1rem;
   }
 
-  .museum-home-container .museum-main-container .about-person-container .person-one-container{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-one-container {
     height: 2600px;
   }
 
-  .museum-home-container .museum-main-container .about-person-container .person-two-container{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-two-container {
     margin-top: 10px;
   }
 
-  .museum-home-container .museum-main-container .about-person-container .person-two-container .person-two-content .person-two-top{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-two-container
+    .person-two-content
+    .person-two-top {
     flex-direction: column;
   }
 
-  .museum-home-container .museum-main-container .about-person-container .person-two-container .person-two-content .person-two-top{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-two-container
+    .person-two-content
+    .person-two-top {
     height: 40%;
   }
-  .museum-home-container .museum-main-container .about-person-container .person-two-container .person-two-content .person-two-top .img-top{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-two-container
+    .person-two-content
+    .person-two-top
+    .img-top {
     width: 100%;
     height: 28%;
   }
-  .museum-home-container .museum-main-container .about-person-container .person-two-container .person-two-content .person-two-top .images{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-two-container
+    .person-two-content
+    .person-two-top
+    .images {
     width: 100%;
     height: 32%;
   }
-  .museum-home-container .museum-main-container .about-person-container .person-two-container .person-two-content .person-two-bottom{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-two-container
+    .person-two-content
+    .person-two-bottom {
     height: 60%;
   }
-  .museum-home-container .museum-main-container .about-person-container .person-two-container .person-two-content .person-two-bottom p{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-two-container
+    .person-two-content
+    .person-two-bottom
+    p {
     font-size: 1rem;
   }
 
-
   // About Title
-  .museum-home-container .museum-main-container .about-title-container .title-top-container{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .title-top-container {
     height: 600px;
   }
-  .museum-home-container .museum-main-container .about-title-container .title-top-container .title-top-content{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .title-top-container
+    .title-top-content {
     align-items: center;
     justify-content: center;
   }
-  .museum-home-container .museum-main-container .about-title-container .title-top-container .title-top-content h1{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .title-top-container
+    .title-top-content
+    h1 {
     font-size: 2.5rem;
     line-height: 115%;
     text-align: center;
   }
 
-  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .about-title-container
+    .about-title-content {
     flex-direction: column;
     flex-wrap: nowrap;
   }
-  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .paginate-items{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .about-title-container
+    .about-title-content
+    .paginate-items {
     width: 100%;
     height: 350px;
   }
-  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .paginate-items h3{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .about-title-container
+    .about-title-content
+    .paginate-items
+    h3 {
     font-size: 1rem;
     line-height: 18px;
   }
-  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .paginate-items p{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .about-title-container
+    .about-title-content
+    .paginate-items
+    p {
     font-size: 0.85rem;
     line-height: 130%;
   }
-  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .paginate-items .title-items .left-items .item span{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .about-title-container
+    .about-title-content
+    .paginate-items
+    .title-items
+    .left-items
+    .item
+    span {
     font-size: 0.75rem;
   }
-  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .paginate-items .title-items .right-items .item span{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .about-title-container
+    .about-title-content
+    .paginate-items
+    .title-items
+    .right-items
+    .item
+    span {
     font-size: 0.75rem;
   }
-  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .paginate-items .title-items{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .about-title-container
+    .about-title-content
+    .paginate-items
+    .title-items {
     width: 90%;
   }
-  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .paginate-items .title-items .left-items .item img{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .about-title-container
+    .about-title-content
+    .paginate-items
+    .title-items
+    .left-items
+    .item
+    img {
     width: 15px;
     height: 15px;
     margin-top: 10px;
   }
-  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .paginate-items .title-items .right-items .item{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .about-title-container
+    .about-title-content
+    .paginate-items
+    .title-items
+    .right-items
+    .item {
     align-items: flex-start;
   }
-  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .paginate-items .title-items .left-items{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .about-title-container
+    .about-title-content
+    .paginate-items
+    .title-items
+    .left-items {
     align-items: flex-start;
     width: 49%;
   }
-  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .paginate-items .title-items .right-items{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .about-title-container
+    .about-title-content
+    .paginate-items
+    .title-items
+    .right-items {
     width: 49%;
   }
-  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .paginate-items .title-items .left-items .item{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .about-title-container
+    .about-title-content
+    .paginate-items
+    .title-items
+    .left-items
+    .item {
     align-items: flex-start;
   }
-  .museum-home-container .museum-main-container .about-title-container .about-title-container .about-title-content .paginate-items .title-items .right-items .item img{
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .about-title-container
+    .about-title-content
+    .paginate-items
+    .title-items
+    .right-items
+    .item
+    img {
     width: 15px;
     height: 15px;
     margin-top: 10px;
   }
 
   // About Title Inner Page
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .title-items-header{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .title-items-header {
     height: 600px;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .title-items-header h1{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .title-items-header
+    h1 {
     font-size: 2.5rem;
     line-height: 115%;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .title-item-content{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .title-item-content {
     margin-top: 100px;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .title-item-content .items-header .header-right{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .title-item-content
+    .items-header
+    .header-right {
     display: none;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .title-item-content .items-header h3{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .title-item-content
+    .items-header
+    h3 {
     font-size: 2.5rem;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .title-item-content .items-wrapper h5{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .title-item-content
+    .items-wrapper
+    h5 {
     font-size: 1.25rem;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .title-item-content .items-wrapper p{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .title-item-content
+    .items-wrapper
+    p {
     font-size: 0.85rem;
     line-height: 160%;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .read-more{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .read-more {
     flex-direction: column;
     height: 200px;
     margin-bottom: 50px;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .read-more .read-more-left{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .read-more
+    .read-more-left {
     width: 100%;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .read-more .read-more-left button{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .read-more
+    .read-more-left
+    button {
     width: 100%;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .read-more .read-more-right{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .read-more
+    .read-more-right {
     width: 100%;
     height: 45%;
     flex-wrap: wrap;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .read-more .read-more-right .right-one{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .read-more
+    .read-more-right
+    .right-one {
     width: 100%;
     height: 45%;
     justify-content: flex-start;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .read-more .read-more-right .right-one p{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .read-more
+    .read-more-right
+    .right-one
+    p {
     margin-left: 10px;
     font-size: 0.85rem;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .read-more .read-more-right .right-two{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .read-more
+    .read-more-right
+    .right-two {
     width: 48%;
     height: 45%;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .read-more .read-more-right .right-three{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .read-more
+    .read-more-right
+    .right-three {
     width: 48%;
     height: 45%;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .read-more .read-more-right .right-two p{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .read-more
+    .read-more-right
+    .right-two
+    p {
     font-size: 0.85rem;
     margin-left: 10px;
   }
-  .museum-home-container .museum-main-container .title-items-container .title-items-content .read-more .read-more-right .right-three p{
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .read-more
+    .read-more-right
+    .right-three
+    p {
     font-size: 0.85rem;
     margin-left: 10px;
   }
-
 
   // Scheme Museum
-  .museum-home-container .museum-main-container .scheme-museum-container .scheme-museum-content .scheme-museum-header{
+  .museum-home-container
+    .museum-main-container
+    .scheme-museum-container
+    .scheme-museum-content
+    .scheme-museum-header {
     flex-direction: column;
     justify-content: space-around;
     height: 600px;
   }
-  .museum-home-container .museum-main-container .scheme-museum-container .scheme-museum-content .scheme-museum-header h1{
+  .museum-home-container
+    .museum-main-container
+    .scheme-museum-container
+    .scheme-museum-content
+    .scheme-museum-header
+    h1 {
     font-size: 2.5rem;
     line-height: 115%;
   }
-  .museum-home-container .museum-main-container .scheme-museum-container .scheme-museum-content .scheme-museum-header img{
+  .museum-home-container
+    .museum-main-container
+    .scheme-museum-container
+    .scheme-museum-content
+    .scheme-museum-header
+    img {
     width: 100%;
     height: 50%;
     transform: rotateY(0);
   }
-  .museum-home-container .museum-main-container .scheme-museum-container .scheme-museum-content .scheme-museum-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .scheme-museum-container
+    .scheme-museum-content
+    .scheme-museum-wrapper {
     flex-wrap: nowrap;
     flex-direction: column-reverse;
     height: 1000px;
   }
-  .museum-home-container .museum-main-container .scheme-museum-container .scheme-museum-content .scheme-museum-wrapper .img-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .scheme-museum-container
+    .scheme-museum-content
+    .scheme-museum-wrapper
+    .img-wrapper {
     height: 30%;
     width: 100%;
     margin-top: 30px;
   }
-  .museum-home-container .museum-main-container .scheme-museum-container .scheme-museum-content .scheme-museum-wrapper .part-two{
+  .museum-home-container
+    .museum-main-container
+    .scheme-museum-container
+    .scheme-museum-content
+    .scheme-museum-wrapper
+    .part-two {
     width: 100%;
     height: 30%;
   }
-  .museum-home-container .museum-main-container .scheme-museum-container .scheme-museum-content .scheme-museum-wrapper .part-one{
+  .museum-home-container
+    .museum-main-container
+    .scheme-museum-container
+    .scheme-museum-content
+    .scheme-museum-wrapper
+    .part-one {
     width: 100%;
     height: 30%;
     align-self: flex-start;
   }
-  .museum-home-container .museum-main-container .scheme-museum-container .scheme-museum-content .scheme-museum-wrapper .part-one button{
+  .museum-home-container
+    .museum-main-container
+    .scheme-museum-container
+    .scheme-museum-content
+    .scheme-museum-wrapper
+    .part-one
+    button {
     width: 100%;
   }
-  .museum-home-container .museum-main-container .scheme-museum-container .scheme-museum-content .scheme-museum-wrapper .part-two button{
+  .museum-home-container
+    .museum-main-container
+    .scheme-museum-container
+    .scheme-museum-content
+    .scheme-museum-wrapper
+    .part-two
+    button {
     width: 100%;
   }
 
-  .museum-home-container .museum-main-container .scheme-museum-container .scheme-museum-content .part-bottom .download{
+  .museum-home-container
+    .museum-main-container
+    .scheme-museum-container
+    .scheme-museum-content
+    .part-bottom
+    .download {
     width: 100%;
   }
-  .museum-home-container .museum-main-container .scheme-museum-container .scheme-museum-content .part-bottom{
+  .museum-home-container
+    .museum-main-container
+    .scheme-museum-container
+    .scheme-museum-content
+    .part-bottom {
     margin-top: 50px;
   }
 
-
   // Museum Partners
-  .museum-home-container .museum-main-container .about-partners-container .partners-header-container{
+  .museum-home-container
+    .museum-main-container
+    .about-partners-container
+    .partners-header-container {
     height: 600px;
   }
-  .museum-home-container .museum-main-container .about-partners-container .partners-header-container .partners-header-content{
+  .museum-home-container
+    .museum-main-container
+    .about-partners-container
+    .partners-header-container
+    .partners-header-content {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 
-    img{
+    img {
       width: 80%;
       height: 65%;
     }
   }
-  .museum-home-container .museum-main-container .about-partners-container .partners-header-container .partners-header-content h1{
+  .museum-home-container
+    .museum-main-container
+    .about-partners-container
+    .partners-header-container
+    .partners-header-content
+    h1 {
     font-size: 2.5rem;
     line-height: 115%;
     margin: 0;
     width: 100%;
     text-align: center;
   }
-  .museum-home-container .museum-main-container .about-partners-container .partners-content-container .partners-content p{
+  .museum-home-container
+    .museum-main-container
+    .about-partners-container
+    .partners-content-container
+    .partners-content
+    p {
     font-size: 1rem;
   }
-  .museum-home-container .museum-main-container .about-partners-container .partners-content-container .partners-content .partners-wrapper .partner-items{
+  .museum-home-container
+    .museum-main-container
+    .about-partners-container
+    .partners-content-container
+    .partners-content
+    .partners-wrapper
+    .partner-items {
     width: 100%;
     height: 275px;
     flex-direction: column;
     align-items: flex-start;
   }
-  .museum-home-container .museum-main-container .about-partners-container .partners-content-container .partners-content .partners-wrapper .partner-items .item-circle{
+  .museum-home-container
+    .museum-main-container
+    .about-partners-container
+    .partners-content-container
+    .partners-content
+    .partners-wrapper
+    .partner-items
+    .item-circle {
     width: 75px;
     height: 75px;
     margin: 20px 0 0 20px;
   }
-  .museum-home-container .museum-main-container .about-partners-container .partners-content-container .partners-content .partners-wrapper .partner-items .partners-data{
+  .museum-home-container
+    .museum-main-container
+    .about-partners-container
+    .partners-content-container
+    .partners-content
+    .partners-wrapper
+    .partner-items
+    .partners-data {
     height: 55%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
   }
-  .museum-home-container .museum-main-container .about-partners-container .partners-content-container .partners-content .partners-wrapper .partner-items .partners-data .items{
+  .museum-home-container
+    .museum-main-container
+    .about-partners-container
+    .partners-content-container
+    .partners-content
+    .partners-wrapper
+    .partner-items
+    .partners-data
+    .items {
     width: 100%;
     height: 20%;
     margin-left: 20px;
   }
-  .museum-home-container .museum-main-container .about-partners-container .partners-content-container .partners-content .partners-wrapper .partner-items .partners-data p{
+  .museum-home-container
+    .museum-main-container
+    .about-partners-container
+    .partners-content-container
+    .partners-content
+    .partners-wrapper
+    .partner-items
+    .partners-data
+    p {
     margin-left: 20px;
   }
-  .museum-home-container .museum-main-container .about-partners-container .partners-content-container .partners-content .partners-wrapper .partner-items .partners-data .items.partner-web{
+  .museum-home-container
+    .museum-main-container
+    .about-partners-container
+    .partners-content-container
+    .partners-content
+    .partners-wrapper
+    .partner-items
+    .partners-data
+    .items.partner-web {
     width: 100%;
     margin: 0;
     margin-left: 20px;
   }
 
-
   // Museum Group
 
-  .museum-home-container .museum-main-container .museum-group-container .museum-group-content .museum-group-header{
+  .museum-home-container
+    .museum-main-container
+    .museum-group-container
+    .museum-group-content
+    .museum-group-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    img{
+    img {
       width: 100%;
     }
   }
-  .museum-home-container .museum-main-container .museum-group-container .museum-group-content .museum-group-header h1{
+  .museum-home-container
+    .museum-main-container
+    .museum-group-container
+    .museum-group-content
+    .museum-group-header
+    h1 {
     width: 100%;
     font-size: 2.5rem;
     line-height: 115%;
   }
-  .museum-home-container .museum-main-container .museum-group-container .museum-group-content .museum-group-wrapper h2{
+  .museum-home-container
+    .museum-main-container
+    .museum-group-container
+    .museum-group-content
+    .museum-group-wrapper
+    h2 {
     font-size: 1.85rem;
     line-height: 34px;
     width: 100%;
     text-align: center;
   }
-  .museum-home-container .museum-main-container .museum-group-container .museum-group-content .museum-group-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .museum-group-container
+    .museum-group-content
+    .museum-group-wrapper {
     height: 3400px;
   }
-  .museum-home-container .museum-main-container .museum-group-container .museum-group-content .museum-group-wrapper .group-items-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .museum-group-container
+    .museum-group-content
+    .museum-group-wrapper
+    .group-items-wrapper {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-around;
     row-gap: 10px;
     height: 95%;
   }
-  .museum-home-container .museum-main-container .museum-group-container .museum-group-content .museum-group-wrapper .group-items-wrapper .group-items{
+  .museum-home-container
+    .museum-main-container
+    .museum-group-container
+    .museum-group-content
+    .museum-group-wrapper
+    .group-items-wrapper
+    .group-items {
     width: 100%;
     height: 15%;
   }
-  .museum-home-container .museum-main-container .museum-group-container .museum-group-content .museum-group-wrapper .group-items-wrapper .group-items img{
+  .museum-home-container
+    .museum-main-container
+    .museum-group-container
+    .museum-group-content
+    .museum-group-wrapper
+    .group-items-wrapper
+    .group-items
+    img {
     height: 55%;
   }
 
-
   // Documents Museum
-  .museum-home-container .museum-main-container .person-docs-container .person-docs-content .person-docs-header{
+  .museum-home-container
+    .museum-main-container
+    .person-docs-container
+    .person-docs-content
+    .person-docs-header {
     flex-direction: column;
     justify-content: space-around;
     height: 600px;
 
-    img{
+    img {
       width: 100%;
     }
   }
-  .museum-home-container .museum-main-container .person-docs-container .person-docs-content .person-docs-header h1{
+  .museum-home-container
+    .museum-main-container
+    .person-docs-container
+    .person-docs-content
+    .person-docs-header
+    h1 {
     font-size: 2.5rem;
     margin: 0;
     line-height: 115%;
   }
 
-  .museum-home-container .museum-main-container .person-docs-container .person-docs-content .person-docs-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .person-docs-container
+    .person-docs-content
+    .person-docs-wrapper {
     height: 2400px;
     flex-direction: column;
     flex-wrap: nowrap;
   }
-  .museum-home-container .museum-main-container .person-docs-container .person-docs-content .person-docs-wrapper .person-docs-items{
+  .museum-home-container
+    .museum-main-container
+    .person-docs-container
+    .person-docs-content
+    .person-docs-wrapper
+    .person-docs-items {
     width: 100%;
     height: 10%;
   }
-  .museum-home-container .museum-main-container .person-docs-container .person-docs-content .person-docs-wrapper .person-docs-items .items-top h3{
+  .museum-home-container
+    .museum-main-container
+    .person-docs-container
+    .person-docs-content
+    .person-docs-wrapper
+    .person-docs-items
+    .items-top
+    h3 {
     font-size: 1rem;
     line-height: 16px;
   }
-  .museum-home-container .museum-main-container .person-docs-container .person-docs-content .person-docs-wrapper .person-docs-items .items-bottom .items-date span{
+  .museum-home-container
+    .museum-main-container
+    .person-docs-container
+    .person-docs-content
+    .person-docs-wrapper
+    .person-docs-items
+    .items-bottom
+    .items-date
+    span {
     font-size: 0.65rem;
   }
-  .museum-home-container .museum-main-container .person-docs-container .person-docs-content .person-docs-wrapper .person-docs-items .items-bottom .items-downloaded span{
+  .museum-home-container
+    .museum-main-container
+    .person-docs-container
+    .person-docs-content
+    .person-docs-wrapper
+    .person-docs-items
+    .items-bottom
+    .items-downloaded
+    span {
     font-size: 0.65rem;
   }
-
 
   // Museum Questions
-  .museum-home-container .museum-main-container .questions-container .questions-content .questions-header{
+  .museum-home-container
+    .museum-main-container
+    .questions-container
+    .questions-content
+    .questions-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    img{
+    img {
       width: 90%;
     }
   }
-  .museum-home-container .museum-main-container .questions-container .questions-content .questions-header h1{
+  .museum-home-container
+    .museum-main-container
+    .questions-container
+    .questions-content
+    .questions-header
+    h1 {
     font-size: 2.5rem;
     line-height: 115%;
     margin: 0;
     width: 100%;
     text-align: center;
   }
-  .museum-home-container .museum-main-container .questions-container .questions-content .questions-content .questions-items h3{
+  .museum-home-container
+    .museum-main-container
+    .questions-container
+    .questions-content
+    .questions-content
+    .questions-items
+    h3 {
     font-size: 1rem;
     line-height: 24px;
   }
-  .museum-home-container .museum-main-container .questions-container .questions-content .questions-content .questions-items h3.question{
+  .museum-home-container
+    .museum-main-container
+    .questions-container
+    .questions-content
+    .questions-content
+    .questions-items
+    h3.question {
     width: 80%;
   }
-  .museum-home-container .museum-main-container .questions-container .questions-content .questions-content .questions-items button{
+  .museum-home-container
+    .museum-main-container
+    .questions-container
+    .questions-content
+    .questions-content
+    .questions-items
+    button {
     z-index: 25;
   }
-  .museum-home-container .museum-main-container .questions-container .questions-content .questions-content .questions-items h4{
+  .museum-home-container
+    .museum-main-container
+    .questions-container
+    .questions-content
+    .questions-content
+    .questions-items
+    h4 {
     font-size: 0.85rem;
     line-height: 20px;
   }
-  .museum-home-container .museum-main-container .questions-container .questions-content .questions-content{
+  .museum-home-container
+    .museum-main-container
+    .questions-container
+    .questions-content
+    .questions-content {
     height: 600px;
   }
 
-
-
   // Collection Exhibits
-  .museum-home-container .museum-main-container .exhibits-container .exhibits-content .exhibits-header{
+  .museum-home-container
+    .museum-main-container
+    .exhibits-container
+    .exhibits-content
+    .exhibits-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
       margin: 0;
     }
 
-    img{
+    img {
       width: 90%;
     }
   }
 
-  .museum-home-container .museum-main-container .exhibits-container .exhibits-content .exhibits-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .exhibits-container
+    .exhibits-content
+    .exhibits-wrapper {
     height: 3900px;
     flex-direction: column;
     flex-wrap: nowrap;
     row-gap: 35px;
     margin-top: 125px;
 
-    .exhibit-items{
+    .exhibit-items {
       width: 100%;
 
-      h3{
+      h3 {
         font-size: 1.15rem;
         line-height: 24px;
       }
 
-      .img-wrapper{
+      .img-wrapper {
         height: 55%;
       }
 
-      .wrapper-title{
+      .wrapper-title {
         height: 40%;
       }
     }
   }
-  .museum-home-container .museum-main-container .exhibits-container .exhibits-content .exhibits-wrapper .exhibit-items .wrapper-title .wrapper-bottom .bottom-left p{
+  .museum-home-container
+    .museum-main-container
+    .exhibits-container
+    .exhibits-content
+    .exhibits-wrapper
+    .exhibit-items
+    .wrapper-title
+    .wrapper-bottom
+    .bottom-left
+    p {
     font-size: 0.85rem;
   }
-  .museum-home-container .museum-main-container .exhibits-container .exhibits-content .exhibits-wrapper .exhibit-items .wrapper-title .wrapper-bottom .bottom-right p{
+  .museum-home-container
+    .museum-main-container
+    .exhibits-container
+    .exhibits-content
+    .exhibits-wrapper
+    .exhibit-items
+    .wrapper-title
+    .wrapper-bottom
+    .bottom-right
+    p {
     font-size: 0.85rem;
   }
-  .museum-home-container .museum-main-container .exhibits-container .exhibits-content .exhibits-wrapper .exhibits-bg-one{
+  .museum-home-container
+    .museum-main-container
+    .exhibits-container
+    .exhibits-content
+    .exhibits-wrapper
+    .exhibits-bg-one {
     height: 10%;
     width: 85%;
   }
-  .museum-home-container .museum-main-container .exhibits-container .exhibits-content .exhibits-wrapper .exhibits-bg-two{
+  .museum-home-container
+    .museum-main-container
+    .exhibits-container
+    .exhibits-content
+    .exhibits-wrapper
+    .exhibits-bg-two {
     height: 10%;
     width: 85%;
   }
-  .museum-home-container .museum-main-container .exhibits-container .exhibits-content .exhibits-wrapper .exhibits-bg-three{
+  .museum-home-container
+    .museum-main-container
+    .exhibits-container
+    .exhibits-content
+    .exhibits-wrapper
+    .exhibits-bg-three {
     height: 10%;
     width: 85%;
   }
-  .museum-home-container .museum-main-container .exhibits-container .exhibits-content .exhibits-wrapper .exhibit-items.reverse{
+  .museum-home-container
+    .museum-main-container
+    .exhibits-container
+    .exhibits-content
+    .exhibits-wrapper
+    .exhibit-items.reverse {
     display: none;
   }
 
-
   // Collection Exhibits Inner Page
-  .museum-home-container .museum-main-container .exhibit-inner-container .exhibit-inner-content .inner-header{
+  .museum-home-container
+    .museum-main-container
+    .exhibit-inner-container
+    .exhibit-inner-content
+    .inner-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
       margin: 0;
@@ -6300,30 +7380,33 @@ body {
       text-align: center;
     }
 
-    img{
+    img {
       width: 90%;
     }
   }
 
-  .museum-home-container .museum-main-container .exhibit-inner-container .exhibit-inner-content .inner-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .exhibit-inner-container
+    .exhibit-inner-content
+    .inner-wrapper {
     margin-top: 125px;
 
-    .title-img{
+    .title-img {
       height: 200px;
     }
 
-
-    .inner-title{
+    .inner-title {
       height: 450px;
       flex-direction: column;
 
-      p{
+      p {
         font-size: 1rem;
         width: 100%;
         line-height: 140%;
       }
 
-      h2{
+      h2 {
         font-size: 1.5rem;
         line-height: 34px;
         width: 100%;
@@ -6331,59 +7414,75 @@ body {
     }
   }
 
-  .museum-home-container .museum-main-container .exhibit-inner-container .exhibit-inner-content .inner-wrapper .inner-descript{
+  .museum-home-container
+    .museum-main-container
+    .exhibit-inner-container
+    .exhibit-inner-content
+    .inner-wrapper
+    .inner-descript {
     flex-direction: column;
     height: 450px;
     margin-top: 25px;
 
-    p{
+    p {
       width: 100%;
       font-size: 1rem;
       line-height: 140%;
     }
   }
 
-  .museum-home-container .museum-main-container .exhibit-inner-container .exhibit-inner-content .inner-wrapper h1{
+  .museum-home-container
+    .museum-main-container
+    .exhibit-inner-container
+    .exhibit-inner-content
+    .inner-wrapper
+    h1 {
     font-size: 1.5rem;
     line-height: 40px;
     width: 100%;
     margin-bottom: 50px;
   }
 
-  .museum-home-container .museum-main-container .exhibit-inner-container .exhibit-inner-content .inner-wrapper .inner-bottom{
+  .museum-home-container
+    .museum-main-container
+    .exhibit-inner-container
+    .exhibit-inner-content
+    .inner-wrapper
+    .inner-bottom {
     height: 800px;
     flex-direction: column;
-    
 
-    img{
+    img {
       width: 100%;
       height: 35%;
     }
 
-    .bottom-right{
+    .bottom-right {
       width: 100%;
       height: 60%;
 
-      p{
+      p {
         font-size: 1rem;
         line-height: 140%;
       }
 
-      img{
+      img {
         height: 35%;
       }
     }
   }
 
-
-
   // Collection Books
-  .museum-home-container .museum-main-container .books-container .books-content .books-header{
+  .museum-home-container
+    .museum-main-container
+    .books-container
+    .books-content
+    .books-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
       width: 100%;
@@ -6391,68 +7490,72 @@ body {
       text-align: center;
     }
 
-    img{
+    img {
       width: 90%;
     }
   }
 
-  .museum-home-container .museum-main-container .books-container .books-content .books-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .books-container
+    .books-content
+    .books-wrapper {
     margin-top: 125px;
 
-    .wrapper-top{
+    .wrapper-top {
       height: 100px;
       flex-wrap: wrap;
       justify-content: space-between;
 
-      .btn{
+      .btn {
         margin-right: 0;
 
-        &.btn-one{
+        &.btn-one {
           width: 130px;
         }
 
-        &.btn-two{
+        &.btn-two {
           width: 130px;
         }
-        &.btn-three{
+        &.btn-three {
           width: 130px;
         }
       }
     }
 
-    .wrapper-content{
+    .wrapper-content {
       height: 3200px;
 
-      .book-items{
+      .book-items {
         width: 47%;
         height: 450px;
 
-        h2{
+        h2 {
           font-size: 1.25rem;
         }
 
-        span{
+        span {
           font-size: 0.85rem;
         }
 
-        img{
+        img {
           width: 100%;
         }
-        
-        .book-title{
+
+        .book-title {
           flex-wrap: wrap;
           height: 60px;
 
-          p{
+          p {
             font-size: 1.15rem;
             line-height: 20px;
           }
 
-          span{
+          span {
             font-size: 1rem;
             line-height: 18px;
 
-            &.dot{
+            &.dot {
               margin: 0;
               width: 10px;
               height: 10px;
@@ -6462,71 +7565,78 @@ body {
       }
     }
 
-    button{
+    button {
       width: 100%;
     }
   }
 
-
   // Collection Books Inner Page
-  .museum-home-container .museum-main-container .books-inner-container .books-inner-content .inner-page-header{
+  .museum-home-container
+    .museum-main-container
+    .books-inner-container
+    .books-inner-content
+    .inner-page-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
       margin: 0;
     }
 
-    img{
+    img {
       width: 85%;
     }
   }
 
-  .museum-home-container .museum-main-container .books-inner-container .books-inner-content .inner-page-content{
+  .museum-home-container
+    .museum-main-container
+    .books-inner-container
+    .books-inner-content
+    .inner-page-content {
     margin-top: 125px;
 
-    .inner-page-bg{
+    .inner-page-bg {
       width: 75%;
       height: 20%;
     }
 
-    .inner-content-top{
+    .inner-content-top {
       flex-direction: column;
       height: 1200px;
 
-      .top-img{
+      .top-img {
         width: 100%;
         height: 30%;
       }
 
-      .content-top-right{
+      .content-top-right {
         width: 100%;
         height: 70%;
 
-        .top-right-header{
+        .top-right-header {
           height: 100px;
           flex-direction: column;
           align-items: flex-start;
           margin-bottom: 0;
           margin-top: 20px;
 
-          .left{
+          .left {
             width: 100%;
             height: 45%;
           }
-          .right{
+          .right {
             width: 100%;
             height: 45%;
           }
         }
 
-        h1{
+        h1 {
           font-size: 2.5rem;
         }
-        .descript{
+        .descript {
           font-size: 1rem;
           margin-top: 0;
           line-height: 140%;
@@ -6534,15 +7644,15 @@ body {
       }
     }
 
-    .inner-content-bottom{
+    .inner-content-bottom {
       margin-top: 50px;
       height: 500px;
 
-      p{
+      p {
         font-size: 1rem;
         line-height: 140%;
 
-        i{
+        i {
           font-size: 0.85rem;
           line-height: 140%;
         }
@@ -6550,57 +7660,64 @@ body {
     }
   }
 
-
   // Collection Tools
-  .museum-home-container .museum-main-container .tools-container .tools-content .tools-header{
+  .museum-home-container
+    .museum-main-container
+    .tools-container
+    .tools-content
+    .tools-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
       margin: 0;
     }
 
-    img{
+    img {
       width: 90%;
     }
   }
 
-  .museum-home-container .museum-main-container .tools-container .tools-content .tools-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .tools-container
+    .tools-content
+    .tools-wrapper {
     margin-top: 125px;
     height: 3600px;
     row-gap: 20px;
 
-    .tool-items{
+    .tool-items {
       flex-direction: column-reverse;
       height: 750px;
 
-      .tool-right-img{
+      .tool-right-img {
         width: 100%;
         height: 50%;
       }
 
-      .tool-item-left{
+      .tool-item-left {
         width: 100%;
         height: 45%;
 
-        h1{
+        h1 {
           font-size: 1.25rem;
           line-height: 30px;
         }
 
-        p{
+        p {
           font-size: 1rem;
           line-height: 140%;
         }
 
-        button{
+        button {
           display: none;
         }
 
-        .tool-seen span{
+        .tool-seen span {
           font-size: 1rem;
           line-height: 18px;
         }
@@ -6608,14 +7725,17 @@ body {
     }
   }
 
-
   // Collection Tools Inner Page
-  .museum-home-container .museum-main-container .tools-inner-container .tools-inner-content .tools-inner-header{
+  .museum-home-container
+    .museum-main-container
+    .tools-inner-container
+    .tools-inner-content
+    .tools-inner-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       margin: 0;
       line-height: 115%;
@@ -6623,45 +7743,49 @@ body {
       text-align: center;
     }
 
-    img{
+    img {
       width: 90%;
     }
   }
 
-  .museum-home-container .museum-main-container .tools-inner-container .tools-inner-content .tools-inner-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .tools-inner-container
+    .tools-inner-content
+    .tools-inner-wrapper {
     margin-top: 125px;
 
-    .tools-inner-title{
+    .tools-inner-title {
       height: 1400px;
-      h1{
+      h1 {
         font-size: 2.5rem;
         line-height: 40px;
       }
 
-      span{
+      span {
         font-size: 1rem;
         line-height: 140%;
       }
 
-      .title-top{
+      .title-top {
         height: 100px;
         flex-direction: column;
 
-        .top-left{
+        .top-left {
           height: 45%;
           width: 100%;
 
-          p{
+          p {
             font-size: 1rem;
             line-height: 18px;
           }
         }
 
-        .top-right{
+        .top-right {
           width: 100%;
           height: 45%;
 
-          p{
+          p {
             font-size: 1.15rem;
           }
         }
@@ -6669,17 +7793,29 @@ body {
     }
   }
 
-  .museum-home-container .museum-main-container .tools-inner-container .tools-inner-content .tools-inner-wrapper .tools-inner-carousel .tools-header{
+  .museum-home-container
+    .museum-main-container
+    .tools-inner-container
+    .tools-inner-content
+    .tools-inner-wrapper
+    .tools-inner-carousel
+    .tools-header {
     font-size: 2.5rem;
     line-height: 40px;
   }
 
-  .museum-home-container .museum-main-container .tools-inner-container .tools-inner-content .tools-inner-wrapper .tools-inner-carousel .inner-mobile-items{
+  .museum-home-container
+    .museum-main-container
+    .tools-inner-container
+    .tools-inner-content
+    .tools-inner-wrapper
+    .tools-inner-carousel
+    .inner-mobile-items {
     display: block;
     width: 100%;
     height: auto;
 
-    .mobile-wrapper{
+    .mobile-wrapper {
       width: 100%;
       height: auto;
       display: flex;
@@ -6688,7 +7824,7 @@ body {
       justify-content: space-around;
       row-gap: 30px;
 
-      .mobile-items{
+      .mobile-items {
         width: 100%;
         height: 600px;
         display: flex;
@@ -6696,89 +7832,101 @@ body {
         align-items: flex-start;
         justify-content: space-around;
 
-        .mobile-top-img{
+        .mobile-top-img {
           width: 100%;
           height: 40%;
           background: rgba(255, 255, 255, 0.8);
-          box-shadow:  0px 3.76651px 3.76651px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 3.76651px 3.76651px rgba(0, 0, 0, 0.25);
           border-radius: 20px;
           display: flex;
           align-items: center;
           justify-content: center;
 
-          img{
+          img {
             width: 80%;
             height: 80%;
           }
         }
 
-        p{
+        p {
           font-size: 1.5rem;
           line-height: 35px;
           font-weight: 700;
           @include FontBg;
         }
 
-        span{
+        span {
           font-size: 1rem;
           font-weight: 500;
           line-height: 140%;
         }
-
       }
     }
   }
 
-  .museum-home-container .museum-main-container .tools-inner-container .tools-inner-content .tools-inner-wrapper .tools-inner-carousel{
+  .museum-home-container
+    .museum-main-container
+    .tools-inner-container
+    .tools-inner-content
+    .tools-inner-wrapper
+    .tools-inner-carousel {
     height: 2000px;
     justify-content: space-around;
     margin-bottom: 40px;
   }
 
-
-
   // Events
-  .museum-home-container .museum-main-container .events-page-container .events-header-container{
+  .museum-home-container
+    .museum-main-container
+    .events-page-container
+    .events-header-container {
     // height: 600px;
 
-    .events-header-content{
+    .events-header-content {
       flex-direction: column;
       justify-content: space-around;
 
-      h1{
+      h1 {
         font-size: 2.5rem;
         line-height: 115%;
         margin: 0;
       }
 
-      img{
+      img {
         width: 90%;
         height: 65%;
       }
     }
   }
-  .museum-home-container .museum-main-container .events-page-container .events-content-container{
+  .museum-home-container
+    .museum-main-container
+    .events-page-container
+    .events-content-container {
     margin-top: 125px;
   }
 
-  .museum-home-container .museum-main-container .events-page-container .events-content-container .events-content{
+  .museum-home-container
+    .museum-main-container
+    .events-page-container
+    .events-content-container
+    .events-content {
     flex-direction: column-reverse;
 
-    .content-right-items{
+    .content-right-items {
       width: 100%;
       z-index: 20;
 
-      button{
+      button {
         width: 100%;
       }
 
-      .event-year, .event-month{
+      .event-year,
+      .event-month {
         width: 100%;
       }
     }
 
-
-    .events-left-items{
+    .events-left-items {
       width: 100%;
       flex-direction: column;
       flex-wrap: nowrap;
@@ -6786,43 +7934,43 @@ body {
       margin-top: 40px;
       z-index: 1;
 
-      .event-items{
+      .event-items {
         width: 100%;
         height: 600px;
 
-        .items-wrapper{
+        .items-wrapper {
           width: 100%;
 
-          img{
+          img {
             z-index: 1;
           }
 
-          h3{
+          h3 {
             font-size: 1.25rem;
             line-height: 24px;
           }
 
-          p{
+          p {
             font-size: 1rem;
             line-height: 140%;
           }
 
-          .item-bottom{
+          .item-bottom {
             height: 15%;
 
-            .bottom-left{
+            .bottom-left {
               width: 50%;
               flex-direction: column;
 
-              .item-one{
+              .item-one {
                 width: 100%;
               }
             }
 
-            .bottom-right{
+            .bottom-right {
               align-items: flex-end;
 
-              a{
+              a {
                 margin-bottom: 10px;
               }
             }
@@ -6830,246 +7978,288 @@ body {
         }
       }
 
-
-      .event-items:nth-child(2n+1){
+      .event-items:nth-child(2n + 1) {
         border-right: 0;
       }
     }
   }
 
-
   // Events Inner Page
-  .museum-home-container .museum-main-container .inner-page-container .inner-page-header{
+  .museum-home-container
+    .museum-main-container
+    .inner-page-container
+    .inner-page-header {
     height: 600px;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
     }
   }
 
-  .museum-home-container .museum-main-container .inner-page-container .inner-page-content{
+  .museum-home-container
+    .museum-main-container
+    .inner-page-container
+    .inner-page-content {
     margin-top: 125px;
   }
-  .museum-home-container .museum-main-container .inner-page-container .inner-page-content .inner-page-wrapper .inner-page-top{
+  .museum-home-container
+    .museum-main-container
+    .inner-page-container
+    .inner-page-content
+    .inner-page-wrapper
+    .inner-page-top {
     height: 150px;
     flex-direction: column;
     align-items: flex-start;
     row-gap: 30px;
 
-    .top-left-items{
+    .top-left-items {
       width: 45%;
       height: 25%;
     }
 
-    .top-right-items{
+    .top-right-items {
       width: 100%;
       height: 65%;
       flex-direction: column;
       flex-wrap: wrap;
 
-      span{
+      span {
         font-size: 1rem;
         line-height: 18px;
         width: 51%;
       }
 
-      .location-items{
+      .location-items {
         width: 45%;
         height: 85%;
         align-items: flex-end;
       }
 
-      .start-time{
+      .start-time {
         width: 51%;
         height: 32%;
 
-        img{
+        img {
           display: none;
         }
 
-        span{
+        span {
           font-size: 1rem;
           line-height: 18px;
           width: 100%;
         }
       }
 
-      svg{
+      svg {
         display: none;
       }
     }
   }
-  .museum-home-container .museum-main-container .inner-page-container .inner-page-content .inner-page-wrapper .event-inner-page .inner-page-title img{
+  .museum-home-container
+    .museum-main-container
+    .inner-page-container
+    .inner-page-content
+    .inner-page-wrapper
+    .event-inner-page
+    .inner-page-title
+    img {
     height: 200px;
   }
-  .museum-home-container .museum-main-container .inner-page-container .inner-page-content .inner-page-wrapper .event-inner-page .inner-page-title p{
+  .museum-home-container
+    .museum-main-container
+    .inner-page-container
+    .inner-page-content
+    .inner-page-wrapper
+    .event-inner-page
+    .inner-page-title
+    p {
     font-size: 1.25rem;
     line-height: 140%;
   }
 
-  .museum-home-container .museum-main-container .inner-page-container .inner-page-content .inner-page-wrapper .event-inner-page .images-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .inner-page-container
+    .inner-page-content
+    .inner-page-wrapper
+    .event-inner-page
+    .images-wrapper {
     flex-direction: column;
     height: 1200px;
     // row-gap: 40px;
 
-    .left-wrapper{
+    .left-wrapper {
       width: 100%;
       height: 40%;
       flex-direction: column;
 
-      .left-img-items{
-
-        &.top-fat{
+      .left-img-items {
+        &.top-fat {
           width: 48%;
           height: 35%;
         }
-        &.top-long{
+        &.top-long {
           width: 48%;
           height: 60%;
         }
-        &.bottom-long{
+        &.bottom-long {
           width: 48%;
           height: 60%;
           margin-top: 0;
         }
-        &.bottom-fat{
+        &.bottom-fat {
           width: 48%;
           height: 35%;
         }
       }
     }
 
-
-    .right-wrapper{
+    .right-wrapper {
       width: 100%;
       height: 55%;
       flex-direction: column;
       flex-wrap: nowrap;
 
-      .right-img-items{
-
-        &.top-fat{
+      .right-img-items {
+        &.top-fat {
           width: 100%;
           height: 300px;
         }
-        &.top-long{
+        &.top-long {
           display: none;
         }
-        &.bottom-long{
+        &.bottom-long {
           display: none;
         }
-        &.bottom-fat{
+        &.bottom-fat {
           width: 100%;
-          height: 350px ;
+          height: 350px;
         }
       }
     }
   }
-  .museum-home-container .museum-main-container .inner-page-container .inner-page-content .inner-page-wrapper .event-inner-page .images-wrapper .left-wrapper .left-img-items .box-shadow a{
+  .museum-home-container
+    .museum-main-container
+    .inner-page-container
+    .inner-page-content
+    .inner-page-wrapper
+    .event-inner-page
+    .images-wrapper
+    .left-wrapper
+    .left-img-items
+    .box-shadow
+    a {
     font-size: 1rem;
     line-height: 25px;
-  } 
-
-
+  }
 
   // Events News
-  .museum-home-container .museum-main-container .news-container .news-content .news-header{
+  .museum-home-container
+    .museum-main-container
+    .news-container
+    .news-content
+    .news-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
       margin: 0;
     }
-    img{
+    img {
       width: 90%;
     }
   }
 
-  .museum-home-container .museum-main-container .news-container .news-content .news-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .news-container
+    .news-content
+    .news-wrapper {
     margin-top: 125px;
     flex-direction: column-reverse;
     flex-wrap: nowrap;
 
-    .news-wrapper-bg{
+    .news-wrapper-bg {
       width: 75%;
       height: 450px;
       bottom: 20%;
     }
 
-    .news-right{
+    .news-right {
       width: 100%;
     }
 
-    .news-left{
+    .news-left {
       width: 100%;
       margin-top: 40px;
 
-      .news-items{
+      .news-items {
         height: 550px;
         flex-direction: column;
 
-        img{
+        img {
           width: 100%;
           height: 50%;
         }
 
-        .item-wrapper{
+        .item-wrapper {
           width: 100%;
           height: 45%;
           row-gap: 10px;
 
-          p{
+          p {
             font-size: 1rem;
           }
-          h2{
+          h2 {
             font-size: 1.5rem;
             line-height: 30px;
           }
 
-          .item-bottom{
+          .item-bottom {
             height: 35%;
 
-            .left{
+            .left {
               width: 50%;
               flex-direction: column;
 
-              .item-date{
+              .item-date {
                 width: 100%;
                 height: 45%;
                 justify-content: flex-start;
 
-                span{
+                span {
                   font-size: 0.85rem;
                   line-height: 18px;
                   margin-left: 10px;
                 }
 
-                img{
+                img {
                   margin: 0;
                 }
               }
 
-              .item-seen{
+              .item-seen {
                 width: 100%;
                 justify-content: flex-start;
 
-                span{
+                span {
                   font-size: 0.85rem;
                   line-height: 18px;
                   margin-left: 10px;
                 }
               }
             }
-            .right{
+            .right {
               width: 35%;
               height: 85%;
 
-              .links{
+              .links {
                 width: 100%;
                 align-items: flex-end;
               }
@@ -7080,14 +8270,16 @@ body {
     }
   }
 
-
-
   // Events News Inner Page
-  .museum-home-container .museum-main-container .news-inner-container .news-inner-content .news-inner-header{
+  .museum-home-container
+    .museum-main-container
+    .news-inner-container
+    .news-inner-content
+    .news-inner-header {
     height: 600px;
     @include Flex;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
       margin: 0;
@@ -7095,30 +8287,34 @@ body {
     }
   }
 
-  .museum-home-container .museum-main-container .news-inner-container .news-inner-content .news-inner-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .news-inner-container
+    .news-inner-content
+    .news-inner-wrapper {
     margin-top: 125px;
 
-    .wrapper-top{
+    .wrapper-top {
       height: 120px;
       flex-direction: column;
 
-      .top-left{
+      .top-left {
         width: 100%;
         height: 45%;
       }
-      .top-right{
+      .top-right {
         width: 100%;
         height: 45%;
 
-        .item-date{
+        .item-date {
           width: 57%;
 
-          img{
+          img {
             width: 16px;
             height: 15px;
           }
 
-          p{
+          p {
             font-size: 0.85rem;
             line-height: 18px;
             width: 85%;
@@ -7126,14 +8322,14 @@ body {
           }
         }
 
-        .item-seen{
+        .item-seen {
           width: 41%;
-          img{
+          img {
             width: 16px;
             height: 12px;
           }
 
-          p{
+          p {
             font-size: 0.85rem;
             line-height: 18px;
           }
@@ -7141,51 +8337,54 @@ body {
       }
     }
 
-    .wrapper-title-content{
+    .wrapper-title-content {
       margin-top: 20px;
 
-      img{
+      img {
         height: 200px;
       }
 
-      p{
+      p {
         font-size: 1.15rem;
         line-height: 140%;
       }
     }
 
-    .wrapper-modal{
+    .wrapper-modal {
       height: 250px;
 
-      .modal-visible{
+      .modal-visible {
         height: 100%;
       }
     }
 
-    .wrapper-bottom{
+    .wrapper-bottom {
       height: 800px;
       flex-direction: column;
       flex-wrap: nowrap;
 
-      img{
+      img {
         width: 100%;
         height: 31%;
 
-        &:nth-child(2n){
+        &:nth-child(2n) {
           display: none;
         }
       }
     }
   }
 
-
   // Events Media Materials
-  .museum-home-container .museum-main-container .media-container .media-content .media-header{
+  .museum-home-container
+    .museum-main-container
+    .media-container
+    .media-content
+    .media-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
       margin: 0;
@@ -7193,67 +8392,71 @@ body {
       text-align: center;
     }
 
-    img{
+    img {
       width: 90%;
     }
   }
 
-  .museum-home-container .museum-main-container .media-container .media-content .media-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .media-container
+    .media-content
+    .media-wrapper {
     height: 1600px;
     margin-top: 125px;
 
-    .wrapper-top{
+    .wrapper-top {
       flex-direction: column;
       row-gap: 40px;
 
-      .item-one{
+      .item-one {
         width: 100%;
         height: 24%;
 
-        .item-logo{
+        .item-logo {
           width: 100%;
         }
 
-        .logo-items .items p{
+        .logo-items .items p {
           font-size: 1rem;
           line-height: 25px;
         }
       }
 
-      .item-two{
+      .item-two {
         width: 100%;
         height: 24%;
 
-        .item-logo{
+        .item-logo {
           width: 100%;
         }
-        .logo-items .items p{
+        .logo-items .items p {
           font-size: 1rem;
           line-height: 25px;
         }
       }
 
-      .item-three{
+      .item-three {
         width: 100%;
         height: 24%;
 
-        .item-logo{
+        .item-logo {
           width: 100%;
         }
-        .logo-items .items p{
+        .logo-items .items p {
           font-size: 1rem;
           line-height: 25px;
         }
       }
 
-      .item-four{
+      .item-four {
         width: 100%;
         height: 24%;
 
-        .item-logo{
+        .item-logo {
           width: 100%;
         }
-        .logo-items .items p{
+        .logo-items .items p {
           font-size: 1rem;
           line-height: 25px;
         }
@@ -7261,63 +8464,73 @@ body {
     }
   }
 
-
   // Gallery Photos
-  .museum-home-container .museum-main-container .photos-container .photos-content .photos-header{
+  .museum-home-container
+    .museum-main-container
+    .photos-container
+    .photos-content
+    .photos-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
       width: 100%;
       text-align: center;
       margin: 0;
     }
-    .header-photos{
+    .header-photos {
       width: 100%;
       height: 55%;
 
-      img.img-two{
+      img.img-two {
         left: 50px;
       }
 
-      .img-one{
+      .img-one {
         width: 60%;
         height: 65%;
       }
-      .img-two{
+      .img-two {
         width: 100%;
         height: 100%;
       }
     }
   }
 
-  .museum-home-container .museum-main-container .photos-container .photos-content .photos-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .photos-container
+    .photos-content
+    .photos-wrapper {
     height: 4800px;
     flex-direction: column;
     flex-wrap: nowrap;
     row-gap: 20px;
 
-    img{
+    img {
       width: 100%;
       height: 500px;
 
-      &.fat-images{
+      &.fat-images {
         height: 250px;
       }
     }
   }
 
-
   // Gallery 3D Files
-  .museum-home-container .museum-main-container .files-container .files-content .files-header{
+  .museum-home-container
+    .museum-main-container
+    .files-container
+    .files-content
+    .files-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
       margin: 0;
@@ -7325,47 +8538,51 @@ body {
       text-align: center;
     }
 
-    .header-items{
+    .header-items {
       width: 90%;
 
-      img{
+      img {
         width: 55%;
 
-        &.three{
+        &.three {
           bottom: 25px;
         }
       }
     }
   }
 
-  .museum-home-container .museum-main-container .files-container .files-content .files-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .files-container
+    .files-content
+    .files-wrapper {
     margin-top: 125px;
 
-    .file-items{
+    .file-items {
       height: 600px;
       flex-direction: column;
       justify-content: space-between;
 
-      .items-left{
+      .items-left {
         width: 100%;
         margin: 0;
         height: 50%;
       }
-      .item-right{
+      .item-right {
         width: 100%;
         height: 45%;
 
-        h3{
+        h3 {
           font-size: 1.5rem;
           line-height: 28px;
         }
 
-        p{
+        p {
           font-size: 1rem;
           line-height: 140%;
         }
 
-        button{
+        button {
           width: 100%;
         }
       }
@@ -7373,145 +8590,160 @@ body {
   }
 
   // Gallery 3D Files Inner Page
-  .museum-home-container .museum-main-container .file-inner-container .file-inner-content .file-inner-header{
+  .museum-home-container
+    .museum-main-container
+    .file-inner-container
+    .file-inner-content
+    .file-inner-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
     }
-    img{
+    img {
       width: 90%;
     }
   }
 
-  .museum-home-container .museum-main-container .file-inner-container .file-inner-content .file-inner-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .file-inner-container
+    .file-inner-content
+    .file-inner-wrapper {
     margin-top: 125px;
 
-    .inner-title{
+    .inner-title {
       height: 1350px;
       justify-content: flex-start;
       row-gap: 40px;
 
-      span{
+      span {
         font-size: 1rem;
         line-height: 140%;
       }
-      .title-top{
+      .title-top {
         height: 150px;
         flex-direction: column;
 
-        .title-right{
+        .title-right {
           width: 100%;
           height: 35%;
         }
 
-        h3{
+        h3 {
           font-size: 1.5rem;
           line-height: 30px;
         }
       }
     }
 
-    .inner-3d-wrapper{
+    .inner-3d-wrapper {
       height: 500px;
 
-      .play-items button{
+      .play-items button {
         width: 50%;
       }
     }
   }
 
-
   // Gallery Videos
-  .museum-home-container .museum-main-container .videos-container .videos-content .videos-header{
+  .museum-home-container
+    .museum-main-container
+    .videos-container
+    .videos-content
+    .videos-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
       margin: 0;
     }
 
-    img{
+    img {
       width: 90%;
     }
   }
 
-  .museum-home-container .museum-main-container .videos-container .videos-content .videos-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .videos-container
+    .videos-content
+    .videos-wrapper {
     margin-top: 125px;
     flex-direction: column-reverse;
 
-    .wrapper-right{
+    .wrapper-right {
       width: 100%;
     }
 
-    .wrapper-left{
+    .wrapper-left {
       width: 100%;
 
-      .left-items{
+      .left-items {
         height: 600px;
 
-        .items{
+        .items {
           flex-direction: column;
           align-items: flex-start;
           justify-content: space-between;
 
-          .item-img{
+          .item-img {
             width: 100%;
             height: 50%;
           }
 
-          .item-title{
+          .item-title {
             width: 100%;
             height: 45%;
             margin: 0;
 
-            h1{
+            h1 {
               font-size: 1.5rem;
               line-height: 25px;
             }
-            p{
+            p {
               font-size: 1rem;
               line-height: 20px;
             }
 
-            .title-items{
+            .title-items {
               height: 100px;
               align-items: flex-end;
 
-              .title-left{
+              .title-left {
                 width: 50%;
                 height: 100%;
                 flex-direction: column;
 
-                .item-date{
+                .item-date {
                   width: 100%;
                   height: 45%;
 
-                  span{
+                  span {
                     font-size: 0.85rem;
                   }
                 }
 
-                .item-seen{
+                .item-seen {
                   width: 100%;
                   height: 45%;
-                  span{
+                  span {
                     font-size: 0.85rem;
                   }
                 }
               }
 
-              .title-right{
+              .title-right {
                 width: 35%;
                 height: 50%;
 
-                .links{
+                .links {
                   width: 100%;
                 }
               }
@@ -7522,44 +8754,51 @@ body {
     }
   }
 
-
   // Services Magazine
-  .museum-home-container .museum-main-container .magazine-container .magazine-content .magazine-header{
+  .museum-home-container
+    .museum-main-container
+    .magazine-container
+    .magazine-content
+    .magazine-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
     }
 
-    img{
+    img {
       width: 90%;
     }
   }
 
-  .museum-home-container .museum-main-container .magazine-container .magazine-content .magazine-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .magazine-container
+    .magazine-content
+    .magazine-wrapper {
     height: 3400px;
 
-    .magazine-items{
+    .magazine-items {
       width: 47%;
       height: 15%;
 
-      img{
+      img {
         height: 40%;
       }
 
-      h3{
+      h3 {
         font-size: 1.25rem;
         line-height: 22px;
       }
-      p{
+      p {
         font-size: 1rem;
         line-height: 18px;
       }
 
-      span{
+      span {
         font-size: 1rem;
         font-weight: 600;
         line-height: 20px;
@@ -7567,74 +8806,81 @@ body {
     }
   }
 
-
   // Service Magazine Inner Page
-  .museum-home-container .museum-main-container .magazine-inner-container .magazine-inner-content .inner-header{
+  .museum-home-container
+    .museum-main-container
+    .magazine-inner-container
+    .magazine-inner-content
+    .inner-header {
     height: 600px;
     flex-direction: column;
     justify-content: space-around;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
     }
 
-    img{
+    img {
       width: 90%;
     }
   }
 
-  .museum-home-container .museum-main-container .magazine-inner-container .magazine-inner-content .inner-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .magazine-inner-container
+    .magazine-inner-content
+    .inner-wrapper {
     margin-top: 125px;
 
-    .wrapper-header{
+    .wrapper-header {
       height: 100px;
       flex-direction: column;
 
-      h2{
+      h2 {
         font-size: 1.5rem;
         line-height: 30px;
         margin: 0;
       }
 
-      .header-right{
+      .header-right {
         width: 100%;
       }
     }
 
-    .wrapper-content{
+    .wrapper-content {
       height: 900px;
       flex-direction: column;
 
-      .content-left{
+      .content-left {
         width: 100%;
         height: 30%;
       }
 
-      .content-right{
+      .content-right {
         width: 100%;
         height: 65%;
 
-        p{
+        p {
           font-size: 1rem;
           line-height: 140%;
         }
 
-        .right-center{
+        .right-center {
           flex-direction: column;
           flex-wrap: nowrap;
 
-          span{
+          span {
             width: 100%;
           }
         }
 
-        .right-bottom{
+        .right-bottom {
           flex-direction: column;
           align-items: flex-start;
           justify-content: space-between;
 
-          button{
+          button {
             width: 100%;
           }
         }
@@ -7642,13 +8888,16 @@ body {
     }
   }
 
-
   // Service Visit Museum
-  .museum-home-container .museum-main-container .visit-museum-container .visit-museum-content .visit-museum-header{
+  .museum-home-container
+    .museum-main-container
+    .visit-museum-container
+    .visit-museum-content
+    .visit-museum-header {
     height: 600px;
     justify-content: center;
 
-    h1{
+    h1 {
       font-size: 2.5rem;
       line-height: 115%;
       margin: 0;
@@ -7656,44 +8905,84 @@ body {
     }
   }
 
-  .museum-home-container .museum-main-container .visit-museum-container .visit-museum-content .visit-museum-wrapper{
+  .museum-home-container
+    .museum-main-container
+    .visit-museum-container
+    .visit-museum-content
+    .visit-museum-wrapper {
     margin-top: 125px;
     height: 750px;
     justify-content: space-between;
 
-    .visit-btn{
+    .visit-btn {
       width: 100%;
     }
 
-    p{
+    p {
       font-size: 1rem;
       line-height: 40px;
     }
 
-    .submitted-modal{
-      .submitted-modal-wrapper{
+    .submitted-modal {
+      .submitted-modal-wrapper {
+        height: 600px !important;
+      }
+
+      .submitted-modal-wrapper {
         width: 90%;
         height: 85%;
         top: 5%;
         left: 5%;
+
+        .exit {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          width: 40px;
+          height: 40px;
+          background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          cursor: pointer;
+          z-index: 50;
+
+          svg path {
+            fill: #fff;
+          }
+
+          &:hover {
+            background: #fff;
+
+            svg path {
+              fill: #a56935;
+            }
+          }
+        }
       }
     }
   }
 
-  .museum-home-container .museum-main-container .visit-museum-container .visit-museum-content .visit-museum-wrapper .modal-container{
-    .visit-museum-modal{
+  .museum-home-container
+    .museum-main-container
+    .visit-museum-container
+    .visit-museum-content
+    .visit-museum-wrapper
+    .modal-container {
+    .visit-museum-modal {
       width: 90%;
       top: 5%;
       left: 5%;
 
-
-      .exit{
+      .exit {
         position: absolute;
         right: 10px;
         top: 5px;
         width: 40px;
         height: 40px;
-        background: linear-gradient(180deg, #A56935 0%, #6F5539 100%);
+        background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         display: flex;
         align-items: center;
@@ -7701,52 +8990,489 @@ body {
         border-radius: 50%;
         cursor: pointer;
 
-        svg path{
+        svg path {
           fill: #fff;
         }
 
-        &:hover{
+        &:hover {
           background: #fff;
 
-          svg path{
+          svg path {
             fill: #a56935;
           }
         }
       }
 
-      h3{
+      h3 {
         font-size: 1.15rem;
         line-height: 20px;
       }
 
-      .modal-wrapper{
+      .modal-wrapper {
         flex-direction: column;
         flex-wrap: nowrap;
 
-        .modal-date-picker{
+        .modal-date-picker {
           width: 85%;
           z-index: 10;
         }
-        .input-time{
+        .input-time {
           width: 85%;
 
-          img{
+          img {
             z-index: 1;
           }
 
-          input{
+          input {
             z-index: 100;
           }
         }
 
-        input{
+        input {
           width: 85%;
         }
       }
     }
   }
-  .museum-home-container .museum-main-container .visit-museum-container .visit-museum-content .visit-museum-wrapper .modal-container .visit-museum-modal .modal-wrapper .modal-date-picker .date-visible{
+  .museum-home-container
+    .museum-main-container
+    .visit-museum-container
+    .visit-museum-content
+    .visit-museum-wrapper
+    .modal-container
+    .visit-museum-modal
+    .modal-wrapper
+    .modal-date-picker
+    .date-visible {
     justify-content: space-between;
     padding: 0 20px;
   }
+  .museum-home-container
+    .museum-main-container
+    .visit-museum-container
+    .visit-museum-content
+    .visit-museum-wrapper
+    .submitted-modal
+    .submitted-modal-wrapper
+    h1 {
+    font-size: 1.5rem;
+    line-height: 30px;
+  }
+
+  // Services Volunteers
+  .museum-home-container
+    .museum-main-container
+    .volunteers-container
+    .volunteers-content
+    .volunteers-header {
+    height: 600px;
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 115%;
+    }
+
+    img {
+      width: 90%;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .volunteers-container
+    .volunteers-content
+    .volunteers-wrapper {
+    margin-top: 125px;
+
+    .volunteers-descript {
+      p {
+        font-size: 1rem;
+        line-height: 20px;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        line-height: 30px;
+      }
+    }
+
+    .volunteers-museum {
+      h1 {
+        font-size: 2rem;
+        line-height: 35px;
+      }
+
+      .volunteers-items {
+        height: 400px;
+        flex-direction: column;
+
+        &:nth-last-child(1) {
+          border-bottom: 0;
+        }
+
+        .submit-btn {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        p {
+          width: 100%;
+          font-size: 1.25rem;
+          line-height: 25px;
+        }
+        .item-center {
+          width: 100%;
+          height: 45%;
+
+          .item-one {
+            height: 45%;
+            flex-direction: column;
+
+            img {
+              &:nth-child(2) {
+                display: none;
+              }
+
+              &:nth-child(3) {
+                display: block;
+                margin-right: 60px;
+              }
+            }
+
+            .one-left {
+              width: 100%;
+              height: 35%;
+              justify-content: flex-start;
+
+              span {
+                margin-left: 10px;
+              }
+            }
+
+            .one-right {
+              width: 100%;
+              height: 35%;
+
+              span {
+                margin-left: 10px;
+              }
+            }
+
+            span {
+              font-size: 0.85rem;
+              line-height: 18px;
+            }
+          }
+
+          .item-two {
+            width: 100%;
+            justify-content: flex-start;
+
+            img {
+              width: 15px;
+              height: 18px;
+              margin-right: 10px;
+            }
+
+            span {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .volunteers-container
+    .volunteers-content
+    .volunteers-wrapper
+    .volunteers-museum
+    .volunteers-items
+    .volunteers-modal
+    .modal-wrapper {
+    height: 650px;
+    width: 90%;
+    left: 5%;
+    top: 5%;
+
+    .exit {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+
+      svg path {
+        fill: #fff;
+      }
+
+      &:hover {
+        background: #fff;
+        svg path {
+          fill: #a56935;
+        }
+      }
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      line-height: 20px;
+    }
+
+    .modal-items {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      height: 90%;
+
+      input {
+        width: 90%;
+      }
+
+      textarea {
+        width: 90%;
+      }
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .volunteers-container
+    .volunteers-content
+    .volunteers-wrapper
+    .volunteers-museum
+    .volunteers-items
+    .submitted-modal
+    .submitted-modal-wrapper {
+    width: 90%;
+    height: 650px;
+    left: 5%;
+    top: 5%;
+
+    .exit {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+
+      svg path {
+        fill: #fff;
+      }
+
+      &:hover {
+        background: #fff;
+        svg path {
+          fill: #a56935;
+        }
+      }
+    }
+
+    p {
+      font-size: 1.25rem;
+      line-height: 30px;
+    }
+  }
+
+  // Services Bank Cards
+  .museum-home-container
+    .museum-main-container
+    .bank-cards-container
+    .bank-cards-content
+    .bank-cards-header {
+    height: 600px;
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 115%;
+    }
+
+    img {
+      width: 90%;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .bank-cards-container
+    .bank-cards-content
+    .bank-cards-progress {
+    margin-top: 125px;
+  }
+
+  // Services Bank Cards Inner Page
+  .museum-home-container
+    .museum-main-container
+    .cards-inner-container
+    .cards-inner-content
+    .cards-inner-header {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 600px;
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 35px;
+    }
+
+    img {
+      width: 90%;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .cards-inner-container
+    .cards-inner-content
+    .cards-inner-wrapper {
+    margin-top: 125px;
+
+    .wrapper-title {
+      h3 {
+        font-size: 1.5rem;
+        line-height: 30px;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 140%;
+      }
+    }
+
+    .banks-wrapper {
+      margin-top: 100px;
+      margin-bottom: 200px;
+
+      h3 {
+        font-size: 1.5rem;
+        line-height: 30px;
+      }
+
+      .bank-items {
+        a {
+          width: 47%;
+          height: 150px;
+
+          img {
+            width: 60%;
+            height: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  // Contacts
+  .museum-home-container
+    .museum-main-container
+    .contacts-container
+    .contacts-content
+    .contacts-header {
+    height: 600px;
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 30px;
+    }
+
+    img {
+      width: 90%;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .contacts-container
+    .contacts-content
+    .contacts-wrapper {
+    margin-top: 125px;
+    height: 1800px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    row-gap: 20px;
+
+    .contacts-left {
+      width: 100%;
+      row-gap: 20px;
+
+      .contact {
+        p {
+          font-size: 1.15rem;
+          line-height: 25px;
+        }
+
+        .address-items {
+          span {
+            font-size: 1rem;
+            line-height: 20px;
+          }
+        }
+      }
+
+      .location {
+        span {
+          font-size: 1rem;
+          line-height: 20px;
+        }
+      }
+    }
+
+    .contacts-right {
+      width: 100%;
+      height: 1000px;
+      margin-top: 40px;
+
+      .right-wrapper {
+        height: 90%;
+
+        h2 {
+          font-size: 1.15rem;
+          line-height: 25px;
+        }
+
+        input {
+          height: 45px;
+          width: 100%;
+        }
+
+        button {
+          width: 100%;
+          background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
+        }
+      }
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .contacts-container
+    .contacts-content
+    .contacts-wrapper
+    .contacts-bottom {
+    margin-top: 40px;
+  }
+
+
+
 }

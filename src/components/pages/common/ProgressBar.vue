@@ -15,6 +15,7 @@
         </div>
         </progress-inner>
         <app-pagination
+        v-if="!isHeader"
         :data="ActiveList"
         :limit="4"
         @paginate="paginatedList"
@@ -31,7 +32,11 @@ export default {
         progressItems: {
             type: Array,
             default: () => []
-        }
+        },
+        isHeader: {
+            type: Boolean,
+            default: false
+        } 
     },
     data(){
         return {
@@ -152,6 +157,42 @@ export default {
                         -webkit-text-fill-color: #fff;
                         border: 0;
                     }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 540px) {
+    .progress-container .active-card[data-v-601aa3c6]{
+        margin-top: 50px;
+        row-gap: 20px;
+
+        .card-items{
+            height: 520px;
+            flex-direction: column;
+
+            img{
+                width: 100%;
+            }
+
+            .card-right{
+                width: 100%;
+                margin-left: 0;
+                
+
+                h2{
+                    font-size: 1.15rem;
+                    line-height: 25px;
+                }
+
+                p{
+                    font-size: 1rem;
+                    line-height: 20px;
+                }
+                a{
+                    width: 100%;
+                    padding: 0;
                 }
             }
         }
