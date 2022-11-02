@@ -12,6 +12,16 @@ body {
   height: auto;
 
   // Museum Header Layout
+
+  .museum-home-container
+    .museum-header-container
+    .museum-header-content
+    .mobile-content
+    .mobile-header-hidden
+    .mobile-header-wrapper
+    ul {
+    display: none;
+  }
   .museum-header-container {
     width: 100%;
     height: 180px;
@@ -24,49 +34,48 @@ body {
       margin: auto;
       @include Flex(column, space-around);
 
-      .mobile-content{
+      .mobile-content {
         display: none;
       }
 
-      .desctop-content{
+      .desctop-content {
         width: 100%;
         height: 100%;
         @include Flex(column, space-around);
 
-
-        .header-top{
+        .header-top {
           width: 100%;
           height: 40%;
           @include Flex(row, space-between);
-  
-          .mobile{
+
+          .mobile {
             display: none;
           }
-  
-          .mobile-lang{
+
+          .mobile-lang {
             display: none;
           }
-  
-          .header-logo{
+
+          .header-logo {
             width: 20%;
             height: 100%;
             @include Flex(row, space-around);
-  
-            .logo-title{
+
+            .logo-title {
               width: 75%;
               height: 75%;
               @include Flex(column, space-around);
               align-items: flex-start;
-  
-              h1{
+
+              h1 {
                 @include Font(1.25rem, 25px);
                 color: #000;
                 text-transform: uppercase;
                 letter-spacing: 0.05em;
                 margin: 0;
               }
-  
-              p{
+
+              p {
                 @include Font(1rem, 20px);
                 @include FontBg;
                 text-transform: uppercase;
@@ -75,25 +84,25 @@ body {
               }
             }
           }
-  
-          .top-center{
+
+          .top-center {
             width: 40%;
             height: 100%;
             @include Flex(row, space-between);
-  
-            .center-input{
+
+            .center-input {
               width: 280px;
               height: 100%;
               position: relative;
               @include Flex;
-  
-              img{
+
+              img {
                 position: absolute;
                 top: 25px;
                 left: 10px;
               }
-  
-              input{
+
+              input {
                 width: 100%;
                 height: 45px;
                 padding: 5px 0 5px 35px;
@@ -103,20 +112,19 @@ body {
                 opacity: 0.7;
                 // background: #fff;
                 border-radius: 10px;
-  
-  
-                &:hover{
+
+                &:hover {
                   border: 2px solid #a56935;
                 }
-  
-                &:focus{
+
+                &:focus {
                   border: 1px solid #000;
                   outline: none;
                 }
               }
             }
-  
-            button{
+
+            button {
               width: 48px;
               height: 48px;
               background: transparent;
@@ -125,52 +133,67 @@ body {
               cursor: pointer;
             }
           }
-  
-          .top-right{
+
+          .top-right {
             width: 35%;
             height: 100%;
             @include Flex(row, space-around);
-  
-            button{
+
+            .menu-img {
+              display: none;
+            }
+
+            button {
               width: 200px;
               height: 48px;
               border-radius: 10px;
               cursor: pointer;
               @include Font(1.15rem, 20px, 700);
-  
-  
-              &.btn-one{
-                background: linear-gradient(180deg, #A56935 0%, #6F5539 100%);
+
+              &.btn-one {
+                background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
                 border: 0;
                 color: #fff;
               }
-  
-              &.btn-two{
+
+              &.btn-two {
                 @include Flex(row, space-around);
                 @include FontBg;
                 border: 2px solid #a56935;
-  
-                img{
-                    /* Start the shake animation and make the animation last for 0.5 seconds */
-                    animation: shake 0.75s;
-                  
-                    /* When the animation is finished, start again */
-                    animation-iteration-count: infinite;
-                  
+
+                img {
+                  /* Start the shake animation and make the animation last for 0.5 seconds */
+                  animation: shake 0.75s;
+
+                  /* When the animation is finished, start again */
+                  animation-iteration-count: infinite;
+
                   @keyframes shake {
-                    0% { transform: translate(1px, 1px) rotate(0deg); }
-                    20% { transform: translate(-3px, 0px) rotate(1deg); }
-                    40% { transform: translate(1px, -1px) rotate(1deg); }
-                    60% { transform: translate(-3px, 1px) rotate(0deg); }
-                    80% { transform: translate(-1px, -1px) rotate(1deg); }
-                    100% { transform: translate(1px, -2px) rotate(-1deg); }
+                    0% {
+                      transform: translate(1px, 1px) rotate(0deg);
+                    }
+                    20% {
+                      transform: translate(-3px, 0px) rotate(1deg);
+                    }
+                    40% {
+                      transform: translate(1px, -1px) rotate(1deg);
+                    }
+                    60% {
+                      transform: translate(-3px, 1px) rotate(0deg);
+                    }
+                    80% {
+                      transform: translate(-1px, -1px) rotate(1deg);
+                    }
+                    100% {
+                      transform: translate(1px, -2px) rotate(-1deg);
+                    }
                   }
                 }
               }
             }
           }
         }
-  
+
         ul {
           width: 100%;
           height: 40%;
@@ -178,43 +201,43 @@ body {
           margin: 0;
           @include Flex(row, flex-end);
           list-style: none;
-  
+
           li {
             width: 12%;
             height: 100%;
             @include Flex;
             margin-left: 20px;
-  
-            &:first-child{
+
+            &:first-child {
               margin-left: 0;
             }
-  
-            &.li-drop{
+
+            &.li-drop {
               width: 5%;
               position: relative;
-  
-              .drop-visible{
+
+              .drop-visible {
                 width: 100%;
                 height: 75%;
                 @include Flex(row, space-around);
                 cursor: pointer;
-  
-                img{
+
+                img {
                   transition: all 0.75s ease-in-out;
-  
-                  &.lang-img-active{
+
+                  &.lang-img-active {
                     transform: rotate(180deg);
                     transition: all 0.75s ease-in-out;
                   }
                 }
-  
-                p{
+
+                p {
                   @include Font(1.15rem, 20px);
                   @include FontBg;
                 }
               }
-  
-              .lang-drop-hidden{
+
+              .lang-drop-hidden {
                 width: 50px;
                 height: auto;
                 @include Flex(column, space-between);
@@ -224,43 +247,43 @@ body {
                 z-index: 50;
                 overflow: hidden;
                 transition: all 0.75s ease-in-out;
-  
-                &.deactive{
+
+                &.deactive {
                   height: 0;
                   overflow: hidden;
                 }
-  
-                &.active{
+
+                &.active {
                   height: 100px;
                   transition: all 0.75s ease-in-out;
                 }
-  
-                .lang-drop-items{
+
+                .lang-drop-items {
                   width: 100%;
                   height: 20px;
                   @include Flex;
                   cursor: pointer;
-  
-                  span{
+
+                  span {
                     @include Font(1.15rem, 20px);
                     @include FontBg;
                   }
                 }
               }
             }
-  
+
             .items {
               width: 100%;
               height: 100%;
               @include Flex;
-  
+
               a {
                 @include Font(1.15rem, 24px, 500);
                 @include FontBg;
                 text-decoration: none;
               }
             }
-  
+
             .drop-items {
               width: 100%;
               height: 100%;
@@ -281,18 +304,18 @@ body {
             background: url("@/assets/Items/bottomBg.png") no-repeat,
               linear-gradient(43.11deg, #ba8846 21.75%, #ffffe8 100%);
             background-position: right bottom;
-  
+
             &.deactive {
               overflow: hidden;
             }
-  
+
             &.active {
               height: 290px;
               transition: height 1s ease-in;
               z-index: 5;
               overflow: hidden;
             }
-  
+
             .drop-content {
               width: 91%;
               height: auto;
@@ -300,7 +323,7 @@ body {
               @include Flex(row, flex-start);
               align-items: flex-start;
               position: relative;
-  
+
               .drop-wrapper {
                 width: 55%;
                 margin-top: 50px;
@@ -308,12 +331,12 @@ body {
                 align-items: center;
                 flex-wrap: wrap;
                 flex: 0 auto;
-  
+
                 .dropdown-items {
                   width: 50%;
                   height: 35px;
                   @include Flex(row, flex-start);
-  
+
                   a {
                     @include Font(1.15rem, 24px, 700);
                     color: #fff;
@@ -321,13 +344,13 @@ body {
                   }
                 }
               }
-  
+
               .quote-content {
                 width: 40%;
                 height: 65%;
                 margin-top: 50px;
                 @include Flex(column, space-around);
-  
+
                 p {
                   align-self: flex-start;
                   @include Font(1.25rem, 30px, 600);
@@ -335,7 +358,7 @@ body {
                   margin: 0;
                   margin-bottom: 20px;
                 }
-  
+
                 span {
                   display: inline-block;
                   margin-left: 10%;
@@ -5729,30 +5752,14 @@ body {
   }
 }
 
-
-
-
-
-
-
 @media screen and (min-width: 1440px) {
   .museum-main-container {
     width: 1320px;
   }
-  .museum-header-content{
+  .museum-header-content {
     width: 1320px;
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 @media screen and (min-width: 1200px) and (max-width: 1440px) {
   .museum-main-container {
@@ -5762,47 +5769,49 @@ body {
 
 @media screen and (min-width: 320px) and (max-width: 540px) {
   // Museum Header
-  .museum-home-container .museum-header-container .museum-header-content .desctop-content{
+  .museum-home-container
+    .museum-header-container
+    .museum-header-content
+    .desctop-content {
     display: none;
   }
-  .museum-home-container .museum-header-container{
+  .museum-home-container .museum-header-container {
     height: 120px;
-    
-    .museum-header-content{
 
-      .mobile-content{
+    .museum-header-content {
+      .mobile-content {
         width: 100%;
         height: 100%;
         display: block;
         position: relative;
 
-        .mobile-header-visible{
+        .mobile-header-visible {
           width: 100%;
           height: 100%;
           @include Flex(row, space-around);
 
-          img{
+          img {
             cursor: pointer;
           }
 
-          .header-logo{
+          .header-logo {
             width: 50%;
             height: 100%;
             @include Flex(row, space-around);
 
-            .logo-title{
+            .logo-title {
               width: 75%;
               height: 50%;
               @include Flex(column, space-around);
               align-items: flex-start;
-              h1{
+              h1 {
                 @include Font(1.15rem, 24px);
                 color: #000;
                 text-transform: uppercase;
                 margin: 0;
               }
 
-              p{
+              p {
                 @include Font(1rem, 20px);
                 @include FontBg;
                 text-transform: uppercase;
@@ -5812,46 +5821,212 @@ body {
           }
         }
 
-        .mobile-header-hidden{
+        .mobile-header-hidden {
           width: 100vw;
           height: 100vh;
           position: absolute;
           top: 0;
           left: 0;
           transition: all 0.5s ease-in-out;
+          @include Flex;
 
-          &.mobile-deactive{
+          &.mobile-deactive {
             z-index: -10;
             opacity: 0;
             transition: all 0.5s ease-in-out;
           }
 
-          &.mobile-active{
-            background: linear-gradient(43.11deg, #BA8846 38.02%, #FFFFE8 100%);
+          &.mobile-active {
+            background: linear-gradient(43.11deg, #ba8846 38.02%, #ffffe8 100%);
             z-index: 10;
           }
 
-          .exit{
+          .exit {
             width: 38px;
             height: 38px;
             @include Flex;
             position: absolute;
-            top: 25px;
-            right: 25px;
+            top: 10px;
+            right: 15px;
             cursor: pointer;
-            background: linear-gradient(180deg, #A56935 0%, #6F5539 100%);
+            background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             border-radius: 50%;
 
-            svg path{
+            svg path {
               fill: #fff;
             }
 
-            &:hover{
+            &:hover {
               background: #fff;
 
-              svg path{
+              svg path {
                 fill: #a56935;
+              }
+            }
+          }
+
+          .mobile-header-wrapper {
+            width: 85%;
+            height: 90%;
+            @include Flex(column, flex-start);
+            row-gap: 30px;
+
+            .mobile-lang {
+              width: 100%;
+              height: 55px;
+            }
+
+            .top-center {
+              width: 100%;
+              height: auto;
+              @include Flex(row-reverse, space-between);
+              flex-wrap: wrap;
+              row-gap: 30px;
+
+              button {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background: transparent;
+                border: 2px solid #a56935;
+                cursor: pointer;
+              }
+
+              .center-input {
+                width: 100%;
+                height: 48px;
+                position: relative;
+
+                input {
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 30px;
+                  padding: 5px 0 5px 35px;
+                  box-sizing: border-box;
+                  border: 0;
+                  @include Font(1rem, 20px);
+                  color: inherit;
+
+                  &:hover {
+                    border: 2px solid #a56935;
+                  }
+
+                  &:focus {
+                    outline: none;
+                    border: 2px solid #000;
+                  }
+                }
+
+                img {
+                  position: absolute;
+                  top: 15px;
+                  left: 15px;
+                }
+              }
+            }
+
+            .top-right {
+              width: 100%;
+              height: auto;
+              @include Flex(column-reverse, space-between);
+              row-gap: 30px;
+
+              button {
+                width: 100%;
+                height: 50px;
+                cursor: pointer;
+                border-radius: 10px;
+                @include Font(1rem, 20px, 500);
+                color: #fff;
+
+                &.btn-two {
+                  display: flex;
+                  align-items: center;
+                  flex-direction: row;
+                  justify-content: center;
+                  column-gap: 20px;
+                  background: transparent;
+                  border: 2px solid #a56935;
+                }
+
+                &.btn-one {
+                  background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
+                  border: 0;
+                }
+              }
+            }
+
+            ul {
+              width: 100%;
+              height: auto;
+              margin: 0;
+              padding: 0;
+              list-style: none;
+
+              li {
+                width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+                @include Flex(column, flex-start);
+                align-items: flex-start;
+                cursor: pointer;
+                position: relative;
+
+                .not-sub-menu {
+                  width: 100%;
+                  height: auto;
+
+                  a {
+                    @include Font(1.25rem, 28px, 700);
+                    color: #fff;
+                    text-decoration: none;
+                  }
+                }
+
+                .mobile-sub-menu {
+                  width: 100%;
+                  height: auto;
+                  position: relative;
+
+                  .mobile-visible {
+                    width: 100%;
+                    @include Flex(row, flex-start);
+
+                    span {
+                      width: 50%;
+                      @include Font(1.25rem, 28px, 700);
+                      color: #fff;
+                    }
+                  }
+
+                  .mobile-hidden {
+                    width: 100%;
+                    @include Flex(column, space-around);
+                    align-items: flex-start;
+                    overflow: hidden;
+
+                    &.hidden-deactive {
+                      height: 0;
+                      overflow: hidden;
+                      transition: height 0.65s ease-in-out;
+                    }
+
+                    &.hidden-active {
+                      height: 160px;
+                      transition: height 0.65s ease-in-out;
+                    }
+                    .sub-items {
+                      width: 100%;
+
+                      a {
+                        @include Font(1rem, 20px, 500);
+                        color: #fff;
+                        text-decoration: none;
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -9472,7 +9647,138 @@ body {
     .contacts-bottom {
     margin-top: 40px;
   }
+}
 
+// Planshet
+@media screen and(max-width: 1440px) and (min-width: 1060px) {
+  .museum-home-container .museum-header-container {
+    height: 120px;
+  }
+  .museum-home-container .museum-header-container .museum-header-content {
+    width: 1000px;
+    position: relative;
 
+    .desctop-content {
+      ul {
+        display: none;
+      }
 
+      .header-top {
+        .header-logo {
+          .logo-title {
+            height: 100%;
+            h1 {
+              font-size: 1rem;
+              line-height: 20px;
+            }
+
+            p {
+              font-size: 0.85rem;
+              line-height: 16px;
+            }
+          }
+        }
+
+        .top-right {
+          width: 25%;
+          flex-direction: row-reverse;
+          justify-content: space-between;
+
+          .menu-img {
+            display: block;
+            cursor: pointer;
+          }
+          button {
+            &.btn-two {
+              width: 48px;
+              height: 48px;
+              border-radius: 50%;
+              p {
+                display: none;
+              }
+            }
+
+            &.btn-one {
+              width: 140px;
+              font-size: 1rem;
+            }
+          }
+        }
+
+        .top-center {
+          width: 50%;
+
+          .center-input {
+            width: 240px;
+          }
+
+          button {
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+  .museum-home-container
+    .museum-header-container
+    .museum-header-content
+    .mobile-content {
+    display: block;
+    width: 50%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    transition: all 0.65s ease-in-out;
+
+    &.active {
+      z-index: 1;
+      transition: all 0.65s ease-in-out;
+    }
+
+    .mobile-header-visible {
+      display: none;
+    }
+
+    .mobile-header-hidden {
+      width: 100%;
+      height: 100%;
+      @include Flex(column, space-around);
+      background: linear-gradient(43.11deg, #ba8846 38.02%, #ffffe8 100%);
+      border-radius: 50px 0 0 50px;
+      z-index: 50;
+
+      &.mobile-deactive {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
+
+      .exit {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 100;
+
+        svg path {
+          fill: #fff;
+        }
+      }
+
+      .mobile-header-wrapper {
+        .top-center {
+          display: none;
+        }
+        .top-right {
+          display: none;
+        }
+      }
+    }
+  }
 }

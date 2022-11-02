@@ -1,5 +1,5 @@
 <template>
-  <div class="museum-header-container">
+  <div class="museum-header-container" v-on:mouseleave="dropDeactive">
     <div class="museum-header-content">
       <div class="desctop-content">
         <div class="header-top">
@@ -31,6 +31,12 @@
           </div>
 
           <div class="top-right">
+            <img
+              src="@/assets/Items/Header/img.svg"
+              alt=""
+              class="menu-img"
+              @click="isMobile = true"
+            />
             <button class="btn-one">Забронировать</button>
             <button class="btn-two">
               <img src="@/assets/Items/Header/phone.png" alt="" />
@@ -38,13 +44,10 @@
             </button>
           </div>
         </div>
+
         <ul>
           <li v-for="(item, idx) in getMenuItems" :key="idx">
-            <div
-              class="items"
-              v-if="item.category !== 'section'"
-              @click="dropDeactive()"
-            >
+            <div class="items" v-if="item.category !== 'section'">
               <router-link :to="item.url">{{ item.name }}</router-link>
             </div>
 
@@ -107,7 +110,7 @@
         </ul>
       </div>
 
-      <div class="mobile-content">
+      <div class="mobile-content" :class="isMobile ? 'active' : ''">
         <div class="mobile-header-visible">
           <div class="header-logo">
             <img src="@/assets/Items/Header/img.png" alt="" />
@@ -129,7 +132,7 @@
           :class="isMobile ? 'mobile-active' : 'mobile-deactive'"
           @click="isMobile = false"
         >
-          <div class="exit">
+          <div class="exit" @click="isMobile = false">
             <svg
               width="23"
               height="23"
@@ -144,8 +147,73 @@
             </svg>
           </div>
 
-          <div class="mobile-lang">
-            <progress-bar :progressItems="languages" :isHeader="true"/>
+          <div class="mobile-header-wrapper" @click.stop="">
+            <div class="mobile-lang">
+              <header-progress-bar :data="mobileLang" />
+            </div>
+
+            <div class="top-center">
+              <button>
+                <img src="@/assets/Items/Header/img1.png" alt="" />
+              </button>
+              <button>
+                <img src="@/assets/Items/Header/img3.png" alt="" />
+              </button>
+              <button>
+                <img src="@/assets/Items/Header/img2.png" alt="" />
+              </button>
+              <button>
+                <img src="@/assets/Items/Header/img4.png" alt="" />
+              </button>
+              <div class="center-input">
+                <img src="@/assets/Items/Header/Vector1.svg" alt="" />
+                <input type="text" placeholder="Поиск..." />
+              </div>
+            </div>
+
+            <div class="top-right">
+              <button class="btn-one">Забронировать</button>
+              <button class="btn-two">
+                <img src="@/assets/Items/Header/call.png" alt="" />
+                <p>99 123 45 67</p>
+              </button>
+            </div>
+
+            <ul>
+              <li v-for="(item, idz) in getMobileMenuItems" :key="idz">
+                <div class="not-sub-menu" v-if="item.category !== 'section'">
+                  <router-link :to="item.url">{{ item.name }}</router-link>
+                </div>
+
+                <div class="mobile-sub-menu" v-if="item.category == 'section'">
+                  <div class="mobile-visible" @click="mobileActive(item.name)">
+                    <span>{{ item.name }}</span>
+                    <img
+                      src="@/assets/Items/Header/Vector.png"
+                      alt=""
+                      :class="isActive && random == 2 ? 'img-active' : ''"
+                    />
+                  </div>
+
+                  <div
+                    class="mobile-hidden"
+                    :class="
+                      isMobileActive && random == item.name
+                        ? 'hidden-active'
+                        : 'hidden-deactive'
+                    "
+                  >
+                    <div
+                      class="sub-items"
+                      v-for="(menu, idk) in item.subMenu"
+                      :key="idk"
+                    >
+                      <router-link :to="menu.url">{{ menu.name }}</router-link>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -153,22 +221,38 @@
   </div>
 </template>
 <script>
-import ProgressBar from '../pages/common/ProgressBar.vue';
+import Scroll from "@/others/scrollPosition";
+import HeaderProgressBar from "./layouts-inner/HeaderProgressBar.vue";
 export default {
   name: "museum-header",
-  components: {ProgressBar},
+  components: { HeaderProgressBar },
   data() {
     return {
       isActive: false,
+      isMobileActive: false,
+      random: "",
       subItems: null,
-      lang: "Ru",
+      lang: "Uz",
       languages: ["Uz", "Eng", "Ru"],
       isLangActive: false,
       isMobile: false,
+      mobileLang: [
+        { name: "Uz", val: 1, active: true },
+        { name: "Eng", val: 2 },
+        { name: "Ru", val: 3 },
+      ],
     };
   },
+  mixins: [Scroll("scrollX")],
   computed: {
     getMenuItems() {
+      let menuItems =
+        this.$store?.getters &&
+        this.$store.getters?.getMenuItems &&
+        this.$store.getters.getMenuItems;
+      return menuItems;
+    },
+    getMobileMenuItems() {
       let menuItems =
         this.$store?.getters &&
         this.$store.getters?.getMenuItems &&
@@ -178,10 +262,24 @@ export default {
   },
   methods: {
     dropActive(e) {
-      this.isActive = !this.isActive;
+      this.isActive = true;
       this.getMenuItems.forEach((elem) => {
         if (elem.id == e) {
           this.subItems = elem;
+        }
+      });
+    },
+    mobileActive(val) {
+      this.random = val;
+      this.isMobileActive = !this.isMobileActive;
+    },
+    mobileDropActive(val) {
+      this.isActive = !this.isActive;
+      this.random = val;
+      this.getMobileMenuItems.forEach((elem) => {
+        if (elem.id == val) {
+          this.subItems = elem.subMenu;
+          // console.log(elem)
         }
       });
     },
@@ -191,6 +289,17 @@ export default {
     selectLang(lang) {
       this.lang = lang;
     },
+  },
+
+  watch: {
+    $route: function (val) {
+      this.route = val.path;
+    },
+
+    // 'scrollX': function(val){
+    //   console.log(val)
+
+    // }
   },
 };
 </script>

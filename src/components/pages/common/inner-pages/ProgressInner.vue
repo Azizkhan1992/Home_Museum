@@ -91,7 +91,6 @@ export default {
       this.mobileActive = val;
     },
     sendActiveTab() {
-      // console.log(this.activeTab, 'OOOO')
       this.$store.commit("setActiveTab", {
         active: this.activeTab,
       });
@@ -99,7 +98,6 @@ export default {
     initHeaders() {
       this.tabHeaders = this.headers.map((item) => {
         item.active = !!item.active;
-        // console.log(!!undefined)
         return item;
       });
     },

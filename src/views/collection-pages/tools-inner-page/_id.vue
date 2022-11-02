@@ -118,7 +118,7 @@ export default {
   methods: {
     getMobileItems(){
       this.mobile = this.getCarouselData.slice(0,3)
-      console.log(this.mobile)
+      // console.log(this.mobile)
     }
   },
   filters: {
