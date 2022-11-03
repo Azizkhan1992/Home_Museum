@@ -3,7 +3,7 @@
     <div class="pagination-content">
       <div class="pagination-left">
         <button class="prev" @click="prevPage">Предыдущая страница</button>
-        <button class="next" @click="nextPage">cледующая страница</button>
+        <button class="next" @click="nextPage">Следующая страница</button>
       </div>
       <div class="pagination-right">
         <span>Страница</span>
@@ -126,12 +126,13 @@ export default {
     }
 
     .pagination-right {
-      width: 35%;
+      width: 40%;
       height: 75px;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: flex-end;
+      column-gap: 20px;
 
       button{
         width: 90px;
@@ -172,6 +173,24 @@ export default {
         color: #000;
       }
     }
+  }
+}
+
+@media screen and (min-width: 1060px) and (max-width: 1440px) {
+  .pagination-container .pagination-content .pagination-left button{
+    width: 225px;
+  }
+
+  .pagination-container .pagination-content .pagination-right input{
+    width: 60px;
+    height: 65%;
+    border-radius: 15px;
+    margin: 0 10px;
+  }
+  .pagination-container .pagination-content .pagination-right button{
+    width: 60px;
+    height: 65%;
+    border-radius: 15px;
   }
 }
 

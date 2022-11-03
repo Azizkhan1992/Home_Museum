@@ -37,16 +37,16 @@ export default {
         return item;
       });
     },
-    setActiveLang(lang){
-        this.langs = this.langs.map((item) => {
-            item.active = false
+    setActiveLang(lang) {
+      this.langs = this.langs.map((item) => {
+        item.active = false;
 
-            if(item.name == lang){
-                item.active = true
-            }
-            return item
-        })
-    }
+        if (item.name == lang) {
+          item.active = true;
+        }
+        return item;
+      });
+    },
   },
 };
 </script>
@@ -83,6 +83,25 @@ export default {
         background: linear-gradient(180deg, #a56935 0%, #6f5539 100%);
         border-radius: 10px;
         -webkit-text-fill-color: #fff;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1060px) and (max-width: 1440px) {
+  .progress-container[data-v-f87a92d4] {
+    width: 100%;
+
+    .progress-wrapper {
+      width: 100%;
+      height: 200px;
+      flex-direction: column;
+      z-index: 100;
+
+      .lang-items {
+        width: 85%;
+        height: 25%;
+        z-index: 100;
       }
     }
   }

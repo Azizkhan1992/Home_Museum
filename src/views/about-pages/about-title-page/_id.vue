@@ -44,7 +44,6 @@
       </div>
 
 
-      <!-- //TODO Breadcrumbs -->
       <div class="read-more">
         <div class="read-more-left">
           <button>Читать далее</button>

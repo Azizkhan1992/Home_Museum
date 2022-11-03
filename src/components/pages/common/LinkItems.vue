@@ -108,4 +108,8 @@ export default {
     }
   }
 }
+
+@media screen and (min-width: 1060px) and (max-width: 1440px) {
+  
+}
 </style>

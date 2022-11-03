@@ -189,9 +189,9 @@
                   <div class="mobile-visible" @click="mobileActive(item.name)">
                     <span>{{ item.name }}</span>
                     <img
-                      src="@/assets/Items/Header/Vector.png"
+                      src="@/assets/Items/Header/Vector1.png"
                       alt=""
-                      :class="isActive && random == 2 ? 'img-active' : ''"
+                      :class="isMobileActive && random == item.name ? 'img-active' : ''"
                     />
                   </div>
 

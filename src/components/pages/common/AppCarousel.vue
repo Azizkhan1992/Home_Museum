@@ -7,7 +7,7 @@
       :class="{ active: carouselLeft }"
       :style="{
         width: (100 * carouselItems.length) / items + '%',
-        transform: `transformX(${-10}%)`,
+        transform: `transformX(${-9.5}%)`,
       }"
     >
       <div
@@ -16,7 +16,7 @@
         :key="item.id"
         :id="item.id"
         :style="{
-          width: 100 / carouselItems.length + '%',
+          width: (100 / carouselItems.length)-0.25 + '%',
         }"
         :class="{
           'left-item': idx == 0,
@@ -169,10 +169,11 @@ export default {
       justify-content: space-between;
       margin-left: 0;
       margin-right: 10px;
-      transition:  3s ;
+      transition:  3s ease-in-out;
+
 
       &.left-item {
-        margin-left: -10%;
+        margin-left: -9.75%;
         margin-right: 0;
         // animation: RunCarousel 0.9999s ease-in-out;
       }
@@ -275,6 +276,20 @@ export default {
   }
 }
 
+
+@media screen and (min-width: 1060px) and (max-width: 1440px) {
+  .carousel-container .carousel-wrapper .carousel-items .carousel-header{
+    font-size: 1.5rem;
+    line-height: 30px;
+  }
+  .carousel-container .carousel-wrapper .carousel-items .descript[data-v-68a15ed0]{
+    font-size: 1rem;
+    width: 95%;
+  }
+  .carousel-container .carousel-wrapper .carousel-items button[data-v-68a15ed0]{
+    height: 60px;
+  }
+}
 
 @media screen and (min-width: 320px) and (max-width: 540px) {
   .carousel-container{

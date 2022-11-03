@@ -35,7 +35,8 @@
               национальности армянка[2][3]. С 1919 года выступала в составе
               агитбригады под руководством Хамзы Ниязи.
             </p>
-            <div class="right-center">
+            <div class="price-wrapper">
+              <div class="right-center">
               <span>Доставка: <i>бесплатно</i></span>
               <span>Где можно преобрести: <i>Ташкент</i></span>
               <span>В наличии: <i>есть </i></span>
@@ -43,6 +44,7 @@
             <div class="right-bottom">
               <p class="price">{{ getInnerHeader.price }}</p>
               <button>Купить</button>
+            </div>
             </div>
           </div>
         </div>

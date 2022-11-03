@@ -112,4 +112,11 @@ export default {
         }
     }
 }
+
+
+@media screen and (max-width: 1440px) and (min-width: 1060px) {
+    .year-container .year-visible p[data-v-198d7185]{
+        width: 40%;
+    }
+}
 </style>

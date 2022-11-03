@@ -60,7 +60,7 @@
 
             <div class="volunteers-modal" v-if="isModal">
               <div class="modal-wrapper" @click.stop="isModal = true">
-                <div class="exit">
+                <div class="exit" @click="isModal = false">
                   <svg
                     width="23"
                     height="23"
