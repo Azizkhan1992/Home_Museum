@@ -134,8 +134,9 @@ export default {
         }
 
         img {
-          width: 50%;
+          width: 55%;
           height: 85%;
+          object-fit: cover;
         }
       }
     }

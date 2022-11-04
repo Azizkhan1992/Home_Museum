@@ -101,6 +101,10 @@ export default {
             border-bottom: 2px solid rgba(0, 0, 0, 0.3);
             z-index: 10;
 
+            img{
+                object-fit: cover;
+            }
+
             &:last-child{
                 border-bottom: 0;
             }
@@ -158,6 +162,27 @@ export default {
                         border: 0;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1160px) and (max-width: 1440px) {
+    .progress-container .active-card .card-items[data-v-601aa3c6]{
+
+        img{
+            width: 40%;
+        }
+
+        .card-right{
+
+            h2{
+                font-size: 1.5rem;
+                line-height: 30px;
+            }
+
+            p{
+                font-size: 1.15rem;
             }
         }
     }

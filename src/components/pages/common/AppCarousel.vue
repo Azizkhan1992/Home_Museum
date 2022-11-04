@@ -210,8 +210,9 @@ export default {
         }
 
         img {
-          width: 50%;
-          height: 60%;
+          width: 75%;
+          height: 65%;
+          object-fit: contain;
         }
       }
 
@@ -277,7 +278,7 @@ export default {
 }
 
 
-@media screen and (min-width: 1060px) and (max-width: 1440px) {
+@media screen and (min-width: 1160px) and (max-width: 1440px) {
   .carousel-container .carousel-wrapper .carousel-items .carousel-header{
     font-size: 1.5rem;
     line-height: 30px;

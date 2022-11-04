@@ -65,7 +65,7 @@ export default {
   background: #fff;
   border-radius: 10px;
   position: relative;
-  z-index: 20;
+  z-index: 10;
 
   .month-visible {
     width: 100%;
@@ -75,6 +75,9 @@ export default {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    border: 2px solid #a56935;
+    border-radius: 10px;
+    box-sizing: border-box;
 
     img{
         transition: transform 0.5s ease-out;
@@ -102,11 +105,11 @@ export default {
     background: #fff;
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    justify-content: space-between;
+    // gap: 7px;
     transition: height 0.5s ease-out;
-    padding: 10px 0;
-    box-sizing: border-box;
-    z-index: 20;
+    z-index: 10;
+    border-radius: 10px;
 
     &.deactive {
       overflow: hidden;
@@ -114,20 +117,42 @@ export default {
     }
 
     &.active {
-      height: 200px;
+      height: 250px;
       overflow-y: scroll;
       transition: height 0.5s ease-in;
-      z-index: 20;
+      z-index: 10;
+
+      &::-webkit-scrollbar {
+      width: 16px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(
+        rgba(85, 87, 89, 0.2) 1%,
+        #a56935 50%,
+        #6f5539 180%
+      );
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      border-radius: 15px;
+    }
     }
 
     .month-items {
       width: 100%;
-      height: 35px;
+      // height: 45px;
+      padding: 5px 0;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       z-index: 20;
+
+      &:hover{
+        background: linear-gradient(180deg, #A56935 0%, #6F5539 100%);
+
+        span{
+          color: #fff;
+        }
+      }
 
       span {
         font-size: 1rem;

@@ -88,7 +88,7 @@ export default {
   }
 }
 
-@media screen and (min-width: 1060px) and (max-width: 1440px) {
+@media screen and (min-width: 1160px) and (max-width: 1440px) {
   .progress-container[data-v-f87a92d4] {
     width: 100%;
 
