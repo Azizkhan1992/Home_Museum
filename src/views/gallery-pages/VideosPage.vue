@@ -49,6 +49,17 @@
                         <button>Литература</button>
                         <button>День Ойбека</button>
                     </div>
+
+                    <!-- Gorizontall Items Start 1 -->
+                    <div class="horizontall-right-top">
+                        <button>все</button>
+                        <button>Литература</button>
+                        <button>Стихи</button>
+                        <button>День Ойбека</button>
+                        <button>Мероприятия</button>
+                    </div>
+                    <!-- Gorizontall Items End 1 -->
+
                     <div class="right-bottom">
                         <month-page/>
                         <year-page/>

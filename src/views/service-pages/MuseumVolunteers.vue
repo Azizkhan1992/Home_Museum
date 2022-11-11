@@ -58,6 +58,28 @@
               Стать волонтёром
             </button>
 
+            <!-- Gorizontall Items Start 1 -->
+            <div class="horizontall-items">
+              <div class="item-one">
+                <div class="one-left">
+                  <img src="@/assets/Items/Common/Items/Vector.svg" alt="" />
+                  <span>{{ item.date_start }}</span>
+                </div>
+                <img src="@/assets/Items/Common/Items/Vector3.png" alt="" />
+                <div class="one-right">
+                  <img src="@/assets/Items/Common/Items/Vector.svg" alt="" />
+                  <span>{{ item.date_end }}</span>
+                </div>
+              </div>
+              <div class="item-two">
+                <img src="@/assets/Items/Common/Items/Location.png" alt="" />
+                <span>{{ item.location }}</span>
+              </div>
+              <button @click.stop="isModal = true" class="submit-btn">
+              Стать волонтёром
+            </button>
+            </div>
+
             <div class="volunteers-modal" v-if="isModal">
               <div class="modal-wrapper" @click.stop="isModal = true">
                 <div class="exit" @click="isModal = false">

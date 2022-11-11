@@ -44,6 +44,17 @@
           </router-link>
         </div>
         <div class="news-right">
+
+          <!-- Gorizontall Page Items Start 1 -->
+          <div class="horizontall-right-center">
+            <month-page />
+            <year-page />
+          </div>
+          <button @click="newsModal = true" class="horizontall-right-btn">
+            Оставить контакты для рассылки
+          </button>
+          <!-- Gorizontall Page Items End 1 -->
+
           <div class="right-top">
             <router-link to="#">все</router-link>
             <router-link to="#">Стихи</router-link>
@@ -51,6 +62,17 @@
             <router-link to="#">Литература</router-link>
             <router-link to="#">День Ойбека</router-link>
           </div>
+
+          <!-- Gorizontall Page Items Start 2 -->
+          <div class="horizontall-right-top">
+            <router-link to="#">все</router-link>
+            <router-link to="#">Литература</router-link>
+            <router-link to="#">Стихи</router-link>
+            <router-link to="#">День Ойбека</router-link>
+            <router-link to="#">Мероприятия</router-link>
+          </div>
+          <!-- Gorizontall Page Items End 2 -->
+
           <div class="right-center">
             <month-page />
             <year-page />

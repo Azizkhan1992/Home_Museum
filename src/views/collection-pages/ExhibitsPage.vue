@@ -32,6 +32,14 @@
               idx + 1 == 14 ||
               idx + 1 == 15 ||
               idx + 1 == 16,
+              'horizontall': idx+1 == 9 ||
+              idx+1 == 10 ||
+              idx+1 == 11 ||
+              idx+1 == 12 ||
+              idx+1 == 13 ||
+              idx+1 == 14 ||
+              idx+1 == 15 ||
+              idx+1 == 16
           }"
         >
           <div class="img-wrapper">

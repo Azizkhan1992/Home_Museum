@@ -45,6 +45,22 @@
             <img src="@/assets/Items/Common/Items/Vector4.png" alt="" />
             <span>{{ getContacts.orientation }}</span>
           </div>
+
+          <!-- Gorizontall Page Items Start -->
+          <div class="location-items">
+            <div class="location">
+            <img src="@/assets/Items/Common/Items/bus.png" alt="" />
+            <span>{{ getContacts.buses }}</span>
+          </div>
+          <div class="location">
+            <img src="@/assets/Items/Common/Items/metro.png" alt="" />
+            <span>{{ getContacts.metro }}</span>
+          </div>
+          <div class="location">
+            <img src="@/assets/Items/Common/Items/Vector4.png" alt="" />
+            <span>{{ getContacts.orientation }}</span>
+          </div>
+          </div>
         </div>
 
         <div class="contacts-right">

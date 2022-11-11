@@ -790,9 +790,23 @@ body {
   }
 
   .museum-main-container {
-    // width: 100%;
     height: auto;
     margin: 0 auto;
+
+
+    // Home Page
+    .home-container{
+      width: 100%;
+      height: auto;
+
+
+      // Home Header Carousel
+      .home-carousel-container{
+        width: 100%;
+        height: 800px;
+      }
+    }
+
 
     // About Museum
     .about-museum-container {
@@ -2298,65 +2312,8 @@ body {
               position: relative;
               margin-bottom: 20px;
 
-              .year-visible {
+              .year-container{
                 width: 100%;
-                height: 100%;
-                @include Flex;
-                cursor: pointer;
-                z-index: 1;
-
-                img {
-                  margin-left: 20px;
-                  transition: transform 0.5s ease-out;
-
-                  &.img-active {
-                    transform: rotate(180deg);
-                    transition: transform 0.5s ease-in;
-                  }
-                }
-
-                span {
-                  @include Font(1rem, 24px, 500);
-                  color: #000;
-                  display: inline-block;
-                  width: 50px;
-                  text-align: center;
-                }
-              }
-              .year-hidden {
-                width: 312px;
-                height: 0;
-                background: #fff;
-                border-radius: 10px;
-                position: absolute;
-                top: 60px;
-                transition: height 0.5s ease-out;
-                overflow-y: scroll;
-                z-index: 1;
-
-                &.deactive {
-                  overflow: hidden;
-                }
-
-                &.active {
-                  height: 200px;
-                  transition: height 0.5s ease-in;
-                }
-
-                .year-items {
-                  width: 100%;
-                  height: 12%;
-                  @include Flex;
-                  cursor: pointer;
-
-                  span {
-                    @include Font(1rem, 24px, 500);
-                    color: #000;
-                    display: inline-block;
-                    width: 50px;
-                    text-align: center;
-                  }
-                }
               }
             }
 
@@ -2367,64 +2324,8 @@ body {
               border-radius: 10px;
               position: relative;
 
-              .month-visible {
+              .month-container{
                 width: 100%;
-                height: 100%;
-                @include Flex;
-                cursor: pointer;
-
-                span {
-                  @include Font(1rem, 24px, 500);
-                  color: #000;
-                  display: inline-block;
-                  width: 50px;
-                  text-align: center;
-                }
-
-                img {
-                  margin-left: 20px;
-                  transition: transform 0.5s ease-out;
-
-                  &.img-active {
-                    transform: rotate(180deg);
-                    transition: transform 0.5s ease-in;
-                  }
-                }
-              }
-
-              .months-hidden {
-                width: 312px;
-                height: 0;
-                position: absolute;
-                top: 60px;
-                background: #fff;
-                border-radius: 10px;
-                overflow-y: scroll;
-                transition: height 0.5s ease-out;
-
-                &.deactive {
-                  overflow: hidden;
-                }
-
-                &.active {
-                  height: 200px;
-                  transition: height 0.5s ease-in;
-                }
-
-                .month-items {
-                  width: 100%;
-                  height: 12%;
-                  @include Flex;
-                  cursor: pointer;
-
-                  span {
-                    @include Font(1rem, 24px, 500);
-                    color: #000;
-                    display: inline-block;
-                    width: 50px;
-                    text-align: center;
-                  }
-                }
               }
             }
           }
@@ -2869,6 +2770,10 @@ body {
               @include Flex(row, space-between);
             }
 
+            .horizontall-right-center{
+              display: none;
+            }
+
             .right-btn {
               width: 100%;
               height: 56px;
@@ -2887,6 +2792,10 @@ body {
                 border: 0;
                 transition: all 0.25s ease-in;
               }
+            }
+
+            .horizontall-right-btn{
+              display: none;
             }
 
             .right-top {
@@ -2931,6 +2840,10 @@ body {
               a:nth-child(5) {
                 width: 45%;
               }
+            }
+
+            .horizontall-right-top{
+              display: none;
             }
 
             .news-modal-wrapper {
@@ -4472,7 +4385,7 @@ body {
               align-items: flex-start;
 
               h3 {
-                @include Font(2.5rem, 34px, 700);
+                @include Font(2.5rem, 45px, 700);
                 @include FontBg;
                 margin: 0;
                 margin-top: 10px;
@@ -4768,6 +4681,10 @@ body {
             align-self: flex-start;
             @include Flex(column, space-between);
 
+            .horizontall-right-top{
+              display: none;
+            }
+
             .right-top {
               width: 100%;
               height: 45%;
@@ -4977,6 +4894,10 @@ body {
                 width: 100%;
                 height: 100%;
               }
+            }
+
+            .horizontall-right-center{
+              display: none;
             }
 
             .content-right {
@@ -5444,6 +5365,10 @@ body {
                 @include Font(1.85rem, 35px, 700);
                 color: #000;
                 width: 35%;
+              }
+
+              .horizontall-items{
+                display: none;
               }
 
               .item-center {
@@ -5960,6 +5885,10 @@ body {
                 }
               }
             }
+
+            .location-items{
+              display: none;
+            }
             .location {
               width: 100%;
               height: auto;
@@ -6170,7 +6099,7 @@ body {
           }
 
           .header-logo {
-            width: 50%;
+            width: 65%;
             height: 100%;
             @include Flex(row, space-around);
 
@@ -6197,7 +6126,7 @@ body {
         }
 
         .mobile-header-hidden {
-          width: 100vw;
+          width: 100%;
           height: 100vh;
           position: absolute;
           top: 0;
@@ -6411,6 +6340,9 @@ body {
   }
 
   // Museum Footer
+  .museum-home-container .museum-footer-container .museum-footer-bg .museum-footer-content{
+    width: 300px;
+  }
   .museum-home-container .museum-footer-container {
     height: 2000px;
   }
@@ -6431,6 +6363,14 @@ body {
     .footer-header
     .header-title {
     width: 75%;
+    height: 50%;
+
+    h1{
+      font-size: 1.25rem;
+    }
+    p{
+      font-size: 1rem;
+    }
   }
   .museum-home-container
     .museum-footer-container
@@ -12175,8 +12115,9 @@ body {
     height: 100%;
 
     .mobile-header-visible {
-      width: 100%;
+      width: 300px;
       height: 100%;
+      margin: auto;
       @include Flex(row, space-between);
 
       .header-logo {
@@ -12192,6 +12133,7 @@ body {
 
           h1 {
             @include Font(1.25rem, 25px, 500);
+            white-space: nowrap;
             color: #000;
             margin: 0;
             text-transform: uppercase;
@@ -12982,119 +12924,1698 @@ body {
     }
   }
 
-
-
   // About Museum
-  .museum-home-container .museum-main-container .about-museum-container .museum-content-header .museum-top-content{
+  .museum-home-container
+    .museum-main-container
+    .about-museum-container
+    .museum-content-header
+    .museum-top-content {
     flex-direction: column;
-    h1{
+    h1 {
       font-size: 5rem;
     }
 
-    img{
+    img {
       width: 65%;
     }
   }
-  .museum-home-container .museum-main-container .about-museum-container .about-museum-content{
+  .museum-home-container
+    .museum-main-container
+    .about-museum-container
+    .about-museum-content {
     margin-top: 250px;
     height: 2950px;
 
-    .about-museum-wrapper{
-
-      .content-header{
+    .about-museum-wrapper {
+      .content-header {
         width: 75%;
 
-        img{
+        img {
           width: 100%;
         }
       }
     }
   }
 
-  .museum-home-container .museum-main-container .about-museum-container .about-museum-content .about-museum-wrapper .items{
-
-    p{
+  .museum-home-container
+    .museum-main-container
+    .about-museum-container
+    .about-museum-content
+    .about-museum-wrapper
+    .items {
+    p {
       font-size: 1.25rem;
       width: 47%;
     }
-    img{
+    img {
       width: 50%;
     }
   }
 
-
   // About Person
-  .museum-home-container .museum-main-container .about-person-container .person-top-container .person-top-content{
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-top-container
+    .person-top-content {
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 5rem;
+    }
+    img {
+      width: 45%;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-one-container {
+    margin-top: 250px;
+    height: 2000px;
+
+    .person-one-content {
+      .person-one-top {
+        height: 700px;
+
+        p {
+          font-size: 1.25rem;
+        }
+      }
+
+      .person-one-bottom {
+        height: 1200px;
+
+        p {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .about-person-container
+    .person-two-container {
+    height: 2200px;
+
+    .person-two-content {
+      .person-two-bottom {
+        p {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+
+  // About Title
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .title-top-container
+    .title-top-content {
+    align-items: center;
+    justify-content: center;
+    h1 {
+      font-size: 5rem;
+      line-height: 100px;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .about-title-container
+    .about-title-container {
+    margin-top: 150px;
+
+    .about-title-content {
+      width: 550px;
+      flex-wrap: nowrap;
+      flex-direction: column;
+
+      .paginate-items {
+        width: 100%;
+      }
+    }
+  }
+
+  // About Title Inner Page
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .title-items-header {
+    h1 {
+      width: 100%;
+      text-align: center;
+      font-size: 4.5rem;
+      line-height: 90px;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .title-item-content {
+    margin-top: 150px;
+
+    .items-header {
+      h3 {
+        font-size: 3.5rem;
+      }
+
+      .header-right {
+        width: 60%;
+
+        .item-name {
+          width: 25%;
+        }
+
+        .item-date {
+          width: 35%;
+        }
+
+        .item-seen {
+          width: 35%;
+        }
+      }
+    }
+
+    .items-wrapper {
+      h5 {
+        font-size: 1.35rem;
+        line-height: 30px;
+      }
+
+      p {
+        font-size: 1.15rem;
+        line-height: 30px;
+      }
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .title-items-container
+    .title-items-content
+    .read-more {
+    height: 200px;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .read-more-left {
+      width: 50%;
+    }
+
+    .read-more-right {
+      width: 75%;
+    }
+  }
+
+  // Scheme Museum
+  .museum-home-container
+    .museum-main-container
+    .scheme-museum-container
+    .scheme-museum-content
+    .scheme-museum-header {
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 4.5rem;
+      line-height: 90px;
+    }
+
+    img {
+      width: 75%;
+      height: 65%;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .scheme-museum-container
+    .scheme-museum-content
+    .scheme-museum-wrapper {
+    .img-wrapper {
+      img {
+        object-fit: contain;
+      }
+    }
+
+    .part-one {
+      button {
+        width: 100%;
+      }
+    }
+
+    .part-two {
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  // Museum Partners
+  .museum-home-container
+    .museum-main-container
+    .about-partners-container
+    .partners-header-container
+    .partners-header-content {
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      width: 100%;
+      text-align: center;
+      font-size: 4.5rem;
+      line-height: 90px;
+      margin: 0;
+    }
+
+    img {
+      width: 35%;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .about-partners-container
+    .partners-content-container {
+    margin-top: 150px;
+
+    .partners-content {
+      p {
+        font-size: 1.35rem;
+      }
+    }
+  }
+
+  // Museum Group
+  .museum-home-container
+    .museum-main-container
+    .museum-group-container
+    .museum-group-content
+    .museum-group-header {
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 4.5rem;
+      line-height: 90px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .museum-group-container
+    .museum-group-content
+    .museum-group-wrapper {
+    margin-top: 150px;
+    height: 2000px;
+
+    h2 {
+      font-size: 3rem;
+      line-height: 60px;
+    }
+
+    .group-items-wrapper {
+      .group-items {
+        width: 40%;
+        height: 600px;
+        margin: 0 10px;
+
+        img {
+          height: 52%;
+        }
+      }
+    }
+  }
+
+  // Museum Documentation
+  .museum-home-container
+    .museum-main-container
+    .person-docs-container
+    .person-docs-content
+    .person-docs-header {
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 4.5rem;
+      line-height: 90px;
+      margin: 0;
+    }
+    img {
+      width: 60%;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .person-docs-container
+    .person-docs-content
+    .person-docs-wrapper {
+    margin-top: 150px;
+    height: auto;
+    row-gap: 40px;
+
+    .person-docs-items {
+      width: 70%;
+      height: 300px;
+    }
+  }
+
+  // Questions
+  .museum-home-container
+    .museum-main-container
+    .questions-container
+    .questions-content
+    .questions-header {
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 4.5rem;
+      line-height: 90px;
+      margin: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    img {
+      width: 50%;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .questions-container
+    .questions-content
+    .questions-content {
+    margin-top: 150px;
+    height: 1000px;
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .questions-container
+    .questions-content
+    .questions-content
+    .questions-items
+    h3.question {
+    font-size: 1.5rem;
+    width: 95%;
+  }
+  .museum-home-container
+    .museum-main-container
+    .questions-container
+    .questions-content
+    .questions-content
+    .questions-items
+    h4 {
+    font-size: 1.25rem;
+    line-height: 24px;
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .questions-container
+    .questions-content
+    .questions-content
+    .questions-items
+    button {
+    width: 40px;
+    height: 40px;
+  }
+
+  // Museum Exhibits
+  .museum-home-container
+    .museum-main-container
+    .exhibits-container
+    .exhibits-content
+    .exhibits-header {
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 4.5rem;
+      line-height: 90px;
+      margin: 0;
+    }
+    img {
+      width: 50%;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .exhibits-container
+    .exhibits-content
+    .exhibits-wrapper {
+    margin-top: 150px;
+    height: 5400px;
+
+    .exhibit-items {
+      width: 47%;
+      height: 650px;
+
+      .img-wrapper {
+        height: 65%;
+      }
+
+      .wrapper-title {
+        height: 35%;
+
+        h3 {
+          margin: 0;
+          margin-top: 15px;
+        }
+
+        .wrapper-bottom {
+          height: 120px;
+          flex-direction: column;
+          align-items: flex-start;
+
+          .bottom-left {
+            height: 45%;
+            width: 45%;
+          }
+
+          .bottom-right {
+            height: 45%;
+            width: 40%;
+          }
+        }
+      }
+
+      &.reverse {
+        flex-direction: column;
+      }
+
+      &.horizontall {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  // Exhibits Inner Page
+  .museum-home-container
+    .museum-main-container
+    .exhibit-inner-container
+    .exhibit-inner-content
+    .inner-header {
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 4.5rem;
+      line-height: 90px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .exhibit-inner-container
+    .exhibit-inner-content
+    .inner-wrapper {
+    margin-top: 150px;
+    row-gap: 0;
+
+    .inner-title {
+      p {
+        font-size: 1rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        line-height: 50px;
+      }
+    }
+
+    .inner-descript {
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    h1 {
+      width: 100%;
+      font-size: 2.5rem;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .exhibit-inner-container
+    .exhibit-inner-content
+    .inner-wrapper
+    .inner-bottom
+    .bottom-right
+    p {
+    font-size: 1.15rem;
+  }
+
+  // Museum Books
+  .museum-home-container
+    .museum-main-container
+    .books-container
+    .books-content
+    .books-header {
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 4.5rem;
+      line-height: 90px;
+      width: 100%;
+      margin: 0;
+      text-align: center;
+    }
+
+    img {
+      width: 50%;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .books-container
+    .books-content
+    .books-wrapper {
+    margin-top: 150px;
+
+    .wrapper-content {
+      height: 4600px;
+      row-gap: 40px;
+
+      .book-items {
+        width: 47%;
+        height: 700px;
+
+        img {
+          width: 95%;
+          align-self: center;
+        }
+      }
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .books-inner-container
+    .books-inner-content
+    .inner-page-header {
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 4.5rem;
+      line-height: 90px;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .books-inner-container
+    .books-inner-content
+    .inner-page-content {
+    margin-top: 150px;
+
+    .inner-content-top {
+      height: 750px;
+      align-items: center;
+
+      .top-img {
+        width: 53%;
+      }
+
+      .content-top-right {
+        width: 45%;
+        justify-content: flex-end;
+
+        .top-right-header {
+          height: 100px;
+          flex-direction: column;
+          align-items: flex-start;
+
+          .left {
+            width: 100%;
+            height: 45%;
+          }
+
+          .right {
+            width: 100%;
+            height: 45%;
+          }
+        }
+
+        h1 {
+          font-size: 3rem;
+          margin: 0;
+        }
+        .descript {
+          font-size: 1rem;
+          line-height: 140%;
+        }
+      }
+    }
+  }
+  .museum-home-container
+    .museum-main-container
+    .books-inner-container
+    .books-inner-content
+    .inner-page-content
+    .inner-content-bottom {
+    margin-top: 30px;
+  }
+
+  // Tools
+  .museum-home-container
+    .museum-main-container
+    .tools-container
+    .tools-content
+    .tools-header {
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 4.5rem;
+      line-height: 90px;
+      margin: 0;
+    }
+    img {
+      margin: 0;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .tools-container
+    .tools-content
+    .tools-wrapper {
+    margin-top: 150px;
+    height: 2600px;
+
+    .tool-items {
+      height: 420px;
+
+      .tool-item-left {
+        h1 {
+          font-size: 1.85rem;
+          line-height: 50px;
+        }
+
+        button {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // Tools Inner Page
+  .museum-home-container
+    .museum-main-container
+    .tools-inner-container
+    .tools-inner-content
+    .tools-inner-header {
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 4.5rem;
+      line-height: 90px;
+      margin: 0;
+      width: 75%;
+      text-align: center;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .tools-inner-container
+    .tools-inner-content
+    .tools-inner-wrapper {
+    margin-top: 150px;
+
+    .tools-inner-title {
+      height: 800px;
+
+      .title-top {
+        .top-right {
+          width: 35%;
+        }
+      }
+    }
+  }
+
+  // Media Events
+  .museum-home-container
+    .museum-main-container
+    .events-page-container
+    .events-header-container
+    .events-header-content {
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 4.5rem;
+      line-height: 90px;
+      margin: 0;
+    }
+    img {
+      width: 30%;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .events-page-container
+    .events-content-container {
+    margin-top: 150px;
+
+    .events-content {
+      flex-direction: column-reverse;
+      row-gap: 20px;
+
+      .content-right-items {
+        width: 100%;
+        flex-direction: row-reverse;
+        height: 100px;
+        justify-content: space-between;
+
+        button {
+          width: 180px;
+          margin: 0;
+        }
+
+        .event-month {
+          width: 180px;
+          margin: 0;
+        }
+        .event-year {
+          width: 180px;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .events-page-container
+    .events-content-container
+    .events-content
+    .content-right-items
+    .event-month
+    .months-hidden.active {
+    width: 100%;
+  }
+  .museum-home-container
+    .museum-main-container
+    .events-page-container
+    .events-content-container
+    .events-content
+    .content-right-items
+    .event-month
+    .months-hidden.deactive {
+    width: 100%;
+  }
+  .museum-home-container
+    .museum-main-container
+    .events-page-container
+    .events-content-container
+    .events-content
+    .content-right-items
+    .event-year
+    .year-hidden.active {
+    width: 100%;
+  }
+  .museum-home-container
+    .museum-main-container
+    .events-page-container
+    .events-content-container
+    .events-content
+    .content-right-items
+    .event-year
+    .year-hidden.deactive {
+    width: 100%;
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .events-page-container
+    .events-content-container
+    .events-content
+    .events-left-items {
+    width: 100%;
+
+    .event-items {
+      .items-wrapper {
+        .item-bottom {
+          .bottom-left {
+            flex-direction: column;
+
+            .item-one {
+              width: 100% !important;
+              height: 45%;
+              align-items: flex-start;
+              justify-content: flex-start;
+              column-gap: 10px;
+            }
+          }
+
+          .bottom-right {
+            height: 75%;
+            align-items: flex-end;
+          }
+        }
+      }
+    }
+  }
+
+  // Events Inner Page
+  .museum-home-container
+    .museum-main-container
+    .inner-page-container
+    .inner-page-header {
+    h1 {
+      font-size: 4.5rem;
+      line-height: 90px;
+      width: 100%;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .inner-page-container
+    .inner-page-content {
+    margin-top: 150px;
+
+    .inner-page-wrapper {
+      .inner-page-top {
+        height: 150px;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .top-left-items {
+          width: 25%;
+          height: 45%;
+        }
+
+        .top-right-items {
+          width: 75%;
+          height: 45%;
+
+          .location-items {
+            justify-content: space-between;
+
+            img {
+              display: block;
+            }
+          }
+        }
+      }
+
+      .event-inner-page {
+        .inner-page-title {
+          img {
+            height: 350px;
+          }
+
+          p {
+            font-size: 1.5rem;
+          }
+        }
+
+        .images-wrapper {
+          height: 1550px;
+          flex-wrap: wrap;
+
+          .left-wrapper {
+            width: 100%;
+            height: 45%;
+          }
+
+          .right-wrapper {
+            width: 100%;
+            height: 45%;
+          }
+        }
+      }
+    }
+  }
+
+  // Museum News
+  .museum-home-container
+    .museum-main-container
+    .news-container
+    .news-content
+    .news-header {
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+      font-size: 4.5rem;
+      line-height: 90px;
+      margin: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    img {
+      width: 40%;
+    }
+  }
+
+  .museum-home-container
+    .museum-main-container
+    .news-container
+    .news-content
+    .news-wrapper {
+    margin-top: 150px;
+    flex-direction: column-reverse;
+
+    .news-right {
+      width: 100%;
+      flex-direction: column-reverse;
+      flex-wrap: wrap;
+      height: 150px;
+      gap: 10px;
+      align-items: initial;
+
+      .right-center {
+        display: none;
+      }
+
+      .right-btn {
+        display: none;
+      }
+
+      .horizontall-right-center {
+        display: block;
+        width: 45%;
+        height: 45%;
+        @include Flex(row, space-between);
+      }
+
+      .horizontall-right-btn {
+        display: block;
+        width: 45%;
+        height: 45%;
+        border-radius: 12px;
+        cursor: pointer;
+        border: 2px solid #a56935;
+        @include Font(1.15rem, 20px, 700);
+        @include FontBg;
+
+        &:hover {
+          background: #a56935;
+          -webkit-text-fill-color: #fff;
+        }
+      }
+
+      .right-top {
+        display: none;
+      }
+
+      .horizontall-right-top {
+        width: 40%;
+        height: 100%;
+        @include Flex(row, space-between);
+        flex-wrap: wrap;
+
+        a {
+          height: 36px;
+          text-decoration: none;
+          border: 2px solid #a56935;
+          border-radius: 5px;
+          @include Flex;
+          @include Font(1.15rem, 16px, 700);
+          @include FontBg;
+
+          &:hover{
+            background: linear-gradient(180deg, #A56935 0%, #6F5539 100%);
+            -webkit-text-fill-color: #fff;
+          }
+
+          &:nth-child(1) {
+            width: 90px;
+          }
+          &:nth-child(2) {
+            width: 190px;
+          }
+          &:nth-child(3) {
+            width: 90px;
+          }
+          &:nth-child(4) {
+            width: 190px;
+          }
+          &:nth-child(5) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .museum-home-container .museum-main-container .news-container .news-content .news-wrapper .news-left{
+    width: 100%;
+    margin-top: 40px;
+  }
+
+
+  // News Inner Page
+  .museum-home-container .museum-main-container .news-inner-container .news-inner-content .news-inner-header{
+
+    h1{
+      font-size: 4.5rem;
+      line-height: 90px;
+      margin-top: 50px;
+    }
+  }
+
+  .museum-home-container .museum-main-container .news-inner-container .news-inner-content .news-inner-wrapper{
+    margin-top: 150px;
+
+    .wrapper-top{
+
+      .top-left{
+        width: 20%;
+
+        .links{
+          width: 100%;
+        }
+      }
+
+      .top-right{
+        width: 55%;
+
+        .item-date{
+          width: 50%;
+        }
+
+        .item-seen{
+          width: 40%;
+        }
+      }
+    }
+
+    .wrapper-title-content{
+
+      img{
+        height: 350px;
+      }
+
+      p{
+        font-size: 1.5rem;
+      }
+    }
+
+    .wrapper-bottom{
+      height: 400px;
+    }
+  }
+
+
+  // Museum Materials
+  .museum-home-container .museum-main-container .media-container .media-content .media-header{
     flex-direction: column;
     justify-content: space-around;
 
     h1{
-      font-size: 5rem;
+      font-size: 4.5rem;
+      line-height: 90px;
+      width: 65%;
+      margin: 0;
+      text-align: center;
+    }
+
+    img{
+      width: 40%;
+    }
+  }
+
+  .museum-home-container .museum-main-container .media-container .media-content .media-wrapper{
+    margin-top: 150px;
+    height: 900px;
+    row-gap: 20px;
+
+    .wrapper-top{
+      flex-wrap: wrap;
+      height: 85%;
+
+      .item-one{
+        width: 47%;
+        height: 47%;
+
+        .item-logo{
+          width: 90%;
+        }
+      }
+      .item-two{
+        width: 47%;
+        height: 47%;
+
+        .item-logo{
+          width: 90%;
+        }
+      }
+
+      .item-three{
+        width: 47%;
+        height: 47%;
+
+        .item-logo{
+          width: 90%;
+        }
+      }
+      .item-four{
+        width: 47%;
+        height: 47%;
+
+        .item-logo{
+          width: 90%;
+        }
+      }
+    }
+  }
+
+
+  // Gallery Photos
+  .museum-home-container .museum-main-container .photos-container .photos-content .photos-header{
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1{
+      font-size: 4.5rem;
+      line-height: 90px;
+      width: 100%;
+      text-align: center;
+      margin: 0;
+    }
+
+    .header-photos{
+      margin: 0;
+      width: 55%;
+      height: 50%;
+
+      .img-one{
+        width: 55%;
+      }
+      .img-two{
+        width: 95%;
+      }
+    }
+  }
+
+  .museum-home-container .museum-main-container .photos-container .photos-content .photos-wrapper{
+
+    img{
+      width: 48%;
+
+      &:nth-child(6){
+        display: none;
+      }
+      &:last-child{
+        display: none;
+      }
+      
+
+      &.fat-images{
+
+        &:nth-child(3){
+          display: none;
+        }
+        &:nth-child(7){
+          display: none;
+        }
+      }
+    }
+  }
+
+
+  // Gallery 3D Files
+  .museum-home-container .museum-main-container .files-container .files-content .files-header{
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1{
+      font-size: 4.5rem;
+      line-height: 90px;
+    }
+
+    .header-items{
+      width: 60%;
+    }
+  }
+
+  .museum-home-container .museum-main-container .files-container .files-content .files-wrapper{
+    margin-top: 150px;
+
+    .file-items{
+      height: 350px;
+    }
+  }
+
+  // Gallery 3D Files Inner Page
+  .museum-home-container .museum-main-container .file-inner-container .file-inner-content .file-inner-header{
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1{
+      font-size: 4.5rem;
+      line-height: 90px;
+    }
+
+    img{
+      width: 25%;
+    }
+  }
+
+  .museum-home-container .museum-main-container .file-inner-container .file-inner-content .file-inner-wrapper{
+    margin-top: 150px;
+
+    .inner-title{
+
+      .title-top{
+        height: 100px;
+
+        h3{
+          width: 55%;
+        }
+
+        .title-right{
+          width: 35%;
+        }
+      }
+
+      span{
+        font-size: 1.15rem;
+      }
+    }
+  }
+
+
+  // Gallery Video
+  .museum-home-container .museum-main-container .videos-container .videos-content .videos-header{
+    flex-direction: column;
+    justify-content: space-around;
+
+
+    h1{
+      font-size: 4.5rem;
+      line-height: 90px;
+      margin: 0;
     }
     img{
       width: 45%;
     }
   }
 
-  .museum-home-container .museum-main-container .about-person-container .person-one-container{
-    margin-top: 250px;
-    height: 2000px;
+  .museum-home-container .museum-main-container .videos-container .videos-content .videos-wrapper{
+    margin-top: 150px;
+    flex-direction: column-reverse;
 
-    .person-one-content{
+    .wrapper-right{
+      height: 150px;
+      width: 100%;
+      flex-direction: row-reverse;
+      align-items: flex-start;
 
-      .person-one-top{
-        height: 700px;
+      .right-top{
+        display: none;
+      }
 
-        p{
-          font-size: 1.25rem;
+      .horizontall-right-top{
+        display: block;
+        width: 40%;
+        height: 100%;
+        @include Flex(row, space-between);
+        flex-wrap: wrap;
+
+        button{
+          height: 36px;
+          cursor: pointer;
+          border-radius: 5px;
+          background: #fff;
+          @include Font(1.15rem, 16px, 700);
+          @include FontBg;
+          border: 2px solid #a56935;
+
+          &:hover{
+            background: linear-gradient(180deg, #A56935 0%, #6F5539 100%);
+            -webkit-text-fill-color: #fff;
+          }
+
+          &:nth-child(1){
+            width: 90px;
+          }
+          &:nth-child(2){
+            width: 190px;
+          }
+          &:nth-child(3){
+            width: 90px;
+          }
+          &:nth-child(4){
+            width: 190px;
+          }
+          &:nth-child(5){
+            width: 100%;
+          }
         }
       }
 
-      .person-one-bottom{
-        height: 1200px;
-
-        p{
-          font-size: 1.25rem;
-        }
+      .right-bottom{
+        width: 45%;
+        height: 45%;
       }
+    }
+
+    .wrapper-left{
+      width: 100%;
+      margin-top: 40px;
+      z-index: 10;
     }
   }
 
-  .museum-home-container .museum-main-container .about-person-container .person-two-container{
-    height: 2200px;
 
-    .person-two-content{
+  // Services Magazin
+  .museum-home-container .museum-main-container .magazine-container .magazine-content .magazine-header{
+    flex-direction: column;
+    justify-content: space-around;
 
-
-      .person-two-bottom{
-        p{
-          font-size: 1.25rem;
-        }
-      }
-    }
-  }
-
-
-  // About Title
-  .museum-home-container .museum-main-container .about-title-container .title-top-container .title-top-content{
-    align-items: center;
-    justify-content: center;
     h1{
-      font-size: 5rem;
-      line-height: 100px;
+      font-size: 4.5rem;
+      line-height: 90px;
+    }
+
+    img{
+      width: 45%;
     }
   }
 
-  .museum-home-container .museum-main-container .about-title-container .about-title-container{
+  .museum-home-container .museum-main-container .magazine-container .magazine-content .magazine-wrapper{
+    margin-top: 150px;
+    height: auto;
+    row-gap: 40px;
+
+    .magazine-items{
+      width: 47%;
+      height: 700px;
+
+      img{
+        width: 100%;
+        height: 70%;
+      }
+    }
+  }
+
+  // Services Magazin Inner Page
+  .museum-home-container .museum-main-container .magazine-inner-container .magazine-inner-content .inner-header{
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1{
+      font-size: 4.5rem;
+      line-height: 90px;
+    }
+  }
+
+  .museum-home-container .museum-main-container .magazine-inner-container .magazine-inner-content .inner-wrapper{
     margin-top: 150px;
 
-    .about-title-content{
-      width: 550px;
-      flex-wrap: nowrap;
-      flex-direction: column;
+    .wrapper-header{
 
-      .paginate-items{
+      h2{
+        font-size: 2.25rem;
+        line-height: 50px;
+      }
+
+      .header-right{
+        width: 28%;
+      }
+    }
+
+    .wrapper-content{
+      height: 500px;
+      flex-wrap: wrap;
+
+      .content-left{
+        height: 75%;
+      }
+
+      .content-right{
+        height: 75%;
+        justify-content: space-between;
+
+        .price-wrapper{
+          height: 15%;
+          
+          .right-bottom{
+            height: 100%;
+          }
+
+          .right-center{
+            display: none;
+          }
+        }
+      }
+
+      .horizontall-right-center{
+        display: block;
         width: 100%;
+        height: 20%;
+        @include Flex(row, space-between);
+
+        span{
+          @include Font(1.25rem, 26px, 700);
+          color: #000;
+          letter-spacing: 0.025em;
+
+          i{
+            color: rgba(0, 0, 0, 0.5);
+            font-style: normal;
+          }
+        }
+      }
+    }
+  }
+
+
+  // Service Visit Museum
+  .museum-home-container .museum-main-container .visit-museum-container .visit-museum-content .visit-museum-header{
+    justify-content: center;
+
+    h1{
+      font-size: 4.5rem;
+      line-height: 90px;
+      width: 75%;
+      text-align: center;
+      align-self: flex-start;
+      margin-left: 0;
+    }
+  }
+
+
+  // Services Volunteers
+  .museum-home-container .museum-main-container .volunteers-container .volunteers-content .volunteers-header{
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1{
+      font-size: 4.5rem;
+      line-height: 90px;
+    }
+
+    img{
+      width: 40%;
+    }
+  }
+
+  .museum-home-container .museum-main-container .volunteers-container .volunteers-content .volunteers-wrapper{
+    margin-top: 150px;
+
+    .volunteers-descript{
+      h3{
+        font-size: 2rem;
+        line-height: 40px;
+      }
+
+      p{
+        font-size: 1.15rem;
+      }
+    }
+
+    .volunteers-museum{
+
+      .volunteers-items{
+
+        .item-center{
+          display: none;
+        }
+
+        .submit-btn{
+          display: none;
+        }
+
+        .horizontall-items{
+          width: 60%;
+          height: 85%;
+          @include Flex(row, space-between);
+          flex-wrap: wrap;
+
+          .item-one{
+            width: 100%;
+            height: 45%;
+            @include Flex(row, space-between);
+
+            .one-left{
+              width: 40%;
+              @include Flex(row, space-between)
+            }
+
+            .one-right{
+
+              img{
+                display: none;
+              }
+            }
+          }
+
+          .item-two{
+            width: 45%;
+            height: 45%;
+            @include Flex(row, flex-start);
+            column-gap: 10px;
+          }
+
+
+          .submit-btn{
+            display: block;
+            width: 45%;
+            height: 45%;
+          }
+        }
+      }
+    }
+  }
+
+
+  // Services Bank Cards
+  .museum-home-container .museum-main-container .bank-cards-container .bank-cards-content .bank-cards-header{
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1{
+      font-size: 4.5rem;
+      line-height: 90px;
+      width: 75%;
+      text-align: center;
+    }
+
+    img{
+      width: 60%;
+    }
+  }
+
+  .museum-home-container .museum-main-container .bank-cards-container .bank-cards-content .bank-cards-progress{
+    margin-top: 150px;
+  }
+  .progress-container .active-card .card-items{
+    height: 450px;
+  }
+
+
+  // Services Bank Cards Inner Page
+  .museum-home-container .museum-main-container .cards-inner-container .cards-inner-content .cards-inner-header{
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1{
+      font-size: 4.5rem;
+      line-height: 90px;
+    }
+  }
+
+  .museum-home-container .museum-main-container .cards-inner-container .cards-inner-content .cards-inner-wrapper{
+    margin-top: 150px;
+
+    .banks-wrapper{
+
+      .bank-items{
+        justify-content: space-between;
+
+        a{
+          width: 47%;
+          height: 350px;
+          z-index: 10;
+        }
+      }
+    }
+  }
+
+
+  // Contacts
+  .museum-home-container .museum-main-container .contacts-container .contacts-content .contacts-header{
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1{
+      font-size: 4.5rem;
+      line-height: 90px;
+    }
+
+    img{
+      width: 45%;
+    }
+  }
+
+  .museum-home-container .museum-main-container .contacts-container .contacts-content .contacts-wrapper{
+    margin-top: 150px;
+    height: 1900px;
+    row-gap: 40px;
+
+    .contacts-left{
+      width: 100%;
+      height: 25%;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .contact{
+        width: 47%;
+        height: 40%;
+
+      }
+
+      .location-items{
+        width: 47%;
+        height: 45%;
+        @include Flex(column, space-between);
+
+        .location{
+          display: block;
+          @include Flex(row, flex-start);
+          column-gap: 10px;
+        }
+      }
+      .location{
+        display: none;
+      }
+    }
+    .contacts-right{
+      width: 100%;
+      height: 40%;
+
+      .right-wrapper{
+        height: 85%;
       }
     }
   }

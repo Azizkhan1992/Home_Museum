@@ -11,7 +11,7 @@
 
     <div class="year-hidden" :class="isYear ? 'active' : 'deactive'">
       <div class="year-items" v-for="(year, idx) in years" :key="idx">
-        <span>{{ year }}</span>
+        <span @click="selectYear(year)">{{ year }}</span>
       </div>
     </div>
   </div>
@@ -36,6 +36,9 @@ export default {
         this.years.push(i);
       }
     },
+    selectYear(year){
+      this.year = year
+    }
   },
 };
 </script>

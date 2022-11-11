@@ -90,7 +90,7 @@ export default {
   mounted() {
     this.getCarouselItems();
     setInterval(() => {
-      this.moveCarousel();
+      this.moveCarousel(); 
     }, 3000);
   },
   methods: {
@@ -295,6 +295,16 @@ export default {
 @media screen and (min-width: 320px) and (max-width: 540px) {
   .carousel-container{
     display: none;
+  }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1160px) {
+  .carousel-container .carousel-wrapper .carousel-items[data-v-68a15ed0]{
+    width: 14.8% !important;
+
+    &.left-item{
+      margin-left: -14.8%;
+    }
   }
 }
 </style>

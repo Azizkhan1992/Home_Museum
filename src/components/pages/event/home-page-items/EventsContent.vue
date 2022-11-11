@@ -4,7 +4,7 @@
       <div class="events-content-bg"></div>
       <div class="events-left-items">
         <div class="event-items" v-for="(item, idx) in list" :key="idx">
-          <router-link :to="`/events/${item.id }`" class="items-wrapper">
+          <router-link :to="`/events/${item.id}`" class="items-wrapper">
             <img
               :src="require('@/assets/Items/Events/EventsHome/' + item.img)"
               alt=""
@@ -85,41 +85,10 @@
         <button>Запланированные</button>
         <button>Проведенные</button>
         <div class="event-year">
-          <div class="year-visible" @click="yearActive">
-            <span>{{ date }}</span>
-            <img
-              :class="isYearActive ? 'img-active' : 'img-deactive'"
-              src="@/assets/Items/Events/EventsHome/Vector.png"
-              alt=""
-            />
-          </div>
-          <div
-            class="year-hidden"
-            :class="isYearActive ? 'active' : 'deactive'"
-          >
-            <div class="year-items" v-for="(year, idx) in years" :key="idx">
-              <span @click="selectYear(year)">{{ year }}</span>
-            </div>
-          </div>
+          <year-page />
         </div>
         <div class="event-month">
-          <div class="month-visible" @click="monthActive">
-            <span>{{ month }}</span>
-            <img
-              :class="isMonthActive ? 'img-active' : 'img-deactive'"
-              src="@/assets/Items/Events/EventsHome/Vector.png"
-              alt=""
-            />
-          </div>
-
-          <div
-            class="months-hidden"
-            :class="isMonthActive ? 'active' : 'deactive'"
-          >
-            <div class="month-items" v-for="(month, idy) in months" :key="idy">
-              <span @click="selectMonth(month)">{{ month }}</span>
-            </div>
-          </div>
+          <month-page />
         </div>
       </div>
     </div>
@@ -129,8 +98,10 @@
 </template>
 <script>
 import AppPagination from "@/components/pages/common/AppPagination.vue";
+import YearPage from "../../common/YearPage.vue";
+import MonthPage from "../../common/MonthPage.vue";
 export default {
-  components: { AppPagination },
+  components: { AppPagination, YearPage, MonthPage },
   data() {
     return {
       list: [],
@@ -210,10 +181,10 @@ export default {
       }
     },
   },
-  filters:{
-    filteredDesc(value){
-      return value.slice(0,88) + ' ...'
-    }
-  }
+  filters: {
+    filteredDesc(value) {
+      return value.slice(0, 88) + " ...";
+    },
+  },
 };
 </script>

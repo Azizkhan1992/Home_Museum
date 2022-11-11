@@ -47,6 +47,13 @@
             </div>
             </div>
           </div>
+
+          <!-- Horizontal Items Start 1 -->
+          <div class="horizontall-right-center">
+            <span>Доставка: <i>бесплатно</i></span>
+              <span>Где можно преобрести: <i>Ташкент</i></span>
+              <span>В наличии: <i>есть </i></span>
+          </div>
         </div>
       </div>
     </div>

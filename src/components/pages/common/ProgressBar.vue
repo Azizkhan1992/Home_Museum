@@ -223,4 +223,21 @@ export default {
         }
     }
 }
+
+@media screen and (min-width: 900px) and (max-width: 1160px) {
+    .progress-container .active-card .card-items .card-right h2{
+        font-size: 1.5rem;
+        line-height: 30px;
+        margin-bottom: 5px;
+    }
+    .progress-container .active-card .card-items .card-right p{
+        font-size: 1.15rem;
+    }
+    .progress-container .active-card .card-items .card-right .active-btn{
+        margin-top: 20px;
+    }
+    .inner-container .inner-wrapper .bg{
+        width: 15.5%;
+    }
+}
 </style>
