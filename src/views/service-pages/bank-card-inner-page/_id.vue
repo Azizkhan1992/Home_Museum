@@ -83,6 +83,7 @@ export default {
           item = element;
         }
       });
+      // console.log(this.getActiveItems)
       return item;
     },
     getBankItems(){
